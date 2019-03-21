@@ -97,17 +97,7 @@ class SideNav extends Component {
     }
   }
 
-  componentDidMount() {
-    const type = window.location.hash.substr(1)
-    if (type !== "") {
-      $("html, body").animate(
-        {
-          scrollTop: $(`#${type}`).offset().top,
-        },
-        2000
-      )
-    }
-  }
+  componentDidMount() {}
 
   smoothScroll(e) {}
 
@@ -155,8 +145,8 @@ class SideNav extends Component {
                       icon
                       sub_items {
                         title
-                        link
                         location_hash
+                        slug
                       }
                     }
                   }
