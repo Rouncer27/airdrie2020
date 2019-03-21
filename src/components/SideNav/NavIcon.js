@@ -7,7 +7,7 @@ import MapIcon from "../../images/icons/AIR-NAV-Icons-02-map.svg"
 import LogoIcon from "../../images/icons/AIR-NAV-Icons-03-logo.svg"
 import CalIcon from "../../images/icons/AIR-NAV-Icons-04-cal.svg"
 import PeopleIcon from "../../images/icons/AIR-NAV-Icons-05-people.svg"
-import JerseyIcon from "../../images/icons/AIR-NAV-Icons-06-Jersey.svg"
+import JerseyIcon from "../../images/icons/AIR-NAV-Icons-06-jersey.svg"
 import NewsIcon from "../../images/icons/AIR-NAV-Icons-07-news.svg"
 
 const StyledIcon = styled.div`
