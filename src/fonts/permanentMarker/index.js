@@ -1,0 +1,4 @@
+import PERMANENTMARKER300WOFF from "./pm-regular.woff"
+import PERMANENTMARKER300WOFF2 from "./pm-regular.woff2"
+
+export { PERMANENTMARKER300WOFF, PERMANENTMARKER300WOFF2 }
