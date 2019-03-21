@@ -46,18 +46,8 @@ const StyledSubMenu = styled.ul`
 
 class NavItem extends Component {
   render() {
-    const fullURL = this.props.data.link
-    const fullURLParts = fullURL.split("/")
-    const domainIndex = fullURLParts.indexOf("airdrie2020")
-    const newSlugs = fullURLParts.slice(
-      `${domainIndex + 1}`,
-      fullURLParts.length
-    )
-    const slug = newSlugs.join("/") === "" ? "airdrie2020" : newSlugs.join("/")
     const subMenuItems = this.props.data.sub_items
-    const slugWithoutSlash = slug.split("/")[0]
-
-    const linkSlug = newSlugs.join("/") === "" ? "/" : newSlugs.join("/")
+    const slugWithoutSlash = this.props.data.slug.split("/")[0]
 
     const isActiveMenu =
       this.props.activeIcon === slugWithoutSlash ? true : false
@@ -68,7 +58,7 @@ class NavItem extends Component {
     return (
       <StyledSubMenu className={activeClassName} data-slug={slugWithoutSlash}>
         <li className="nav-link-title">
-          <Link to={linkSlug}>{this.props.data.title}</Link>
+          <Link to={this.props.data.slug}>{this.props.data.title}</Link>
         </li>
         {subMenuItems.map((subItem, index) => {
           return (

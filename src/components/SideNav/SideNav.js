@@ -142,6 +142,7 @@ class SideNav extends Component {
                     _att_main_navigation_items {
                       title
                       link
+                      slug
                       icon
                       sub_items {
                         title
