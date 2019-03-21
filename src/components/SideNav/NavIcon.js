@@ -121,7 +121,7 @@ class NavIcon extends Component {
       fullURLParts.length
     )
     const slug = newSlugs.join("/") === "" ? "airdrie2020" : newSlugs.join("/")
-    const slugWithoutSlash = slug.split("/")[0]
+    const slugWithoutSlash = this.props.data.slug.split("/")[0]
 
     const activeClassName =
       this.props.activeIcon === slugWithoutSlash ? " active-icon" : ""
