@@ -15,7 +15,7 @@ const StyledSideNav = styled.div`
   transform: translateY(-50%);
   z-index: 500;
 
-  @media (min-width: 768px) {
+  @media (min-width: ${props => props.theme.bpTablet}) {
     display: block;
   }
 
@@ -24,7 +24,7 @@ const StyledSideNav = styled.div`
     margin: auto;
     background: $white;
 
-    @media (min-width: 1024px) {
+    @media (min-width: ${props => props.theme.bpDesksm}) {
       max-width: 10rem;
     }
   }

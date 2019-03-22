@@ -84,13 +84,21 @@ const HeroSliderStyled = styled(Slider)`
         color: ${props => props.theme.pacificBlue};
         font-family: ${props => props.theme.fontSec};
         font-size: 2rem;
-        text-align: right;
+        text-align: center;
         line-height: 1;
         animation: ${float} 6s ease-in-out infinite;
 
         @media (min-width: ${props => props.theme.bpTablet}) {
+          padding-right: 0;
+          font-size: 3rem;
+          text-align: center;
+          line-height: 0;
+        }
+
+        @media (min-width: ${props => props.theme.bpDesksm}) {
           padding-right: 10rem;
           font-size: 3.4rem;
+          text-align: right;
           line-height: 0;
         }
       }
@@ -101,7 +109,7 @@ const HeroSliderStyled = styled(Slider)`
         padding: 0;
         color: ${props => props.theme.white};
         font-family: ${props => props.theme.fontSec};
-        font-size: 6rem;
+        font-size: 8rem;
         text-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.5);
         line-height: 0.7;
         z-index: 5;
@@ -113,7 +121,7 @@ const HeroSliderStyled = styled(Slider)`
           right: 0;
           bottom: -3rem;
           left: 0;
-          width: 20rem;
+          width: 30rem;
           height: 4rem;
           background-image: url(${rippedPaperBlue});
           background-repeat: no-repeat;
@@ -124,15 +132,22 @@ const HeroSliderStyled = styled(Slider)`
         }
 
         @media (min-width: ${props => props.theme.bpTablet}) {
+          font-size: 10em;
           &::after {
-            bottom: -6rem;
-            width: 70rem;
-            height: 10rem;
+            bottom: -5rem;
+            width: 60rem;
+            height: 8rem;
           }
         }
 
         @media (min-width: ${props => props.theme.bpDesksm}) {
           font-size: 20rem;
+
+          &::after {
+            bottom: -6rem;
+            width: 70rem;
+            height: 10rem;
+          }
         }
       }
     }
@@ -152,20 +167,17 @@ const HeroSliderStyled = styled(Slider)`
       }
       z-index: 1;
 
-      img {
-        min-height: 45rem;
-        max-height: 45rem;
-        @media (min-width: ${props => props.theme.bpTablet}) {
-          min-height: 65rem;
-          max-height: 65rem;
-        }
+      .gatsby-image-wrapper {
+        position: absolute !important;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
 
-        @media (min-width: ${props => props.theme.bpDesksm}) {
-          min-height: 75rem;
-          max-height: 100vh;
+        img {
+          object-fit: cover;
+          object-position: center;
         }
-        object-fit: cover;
-        object-position: center;
       }
     }
 

@@ -27,8 +27,14 @@ const GetInvolvedStyled = styled.section`
       padding: 0;
       color: ${props => props.theme.white};
       font-family: ${props => props.theme.fontSec};
+      font-size: 4rem;
       line-height: 1;
-      opacity: 0.25;
+      opacity: 0.5;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        font-size: 7rem;
+        opacity: 0.25;
+      }
 
       @media (min-width: ${props => props.theme.bpDesksm}) {
         font-size: 10rem;
@@ -63,6 +69,10 @@ const GetInvolvedStyled = styled.section`
     @media (min-width: ${props => props.theme.bpTablet}) {
       width: calc(33.33% - 8rem);
       margin: 2rem 4rem;
+      padding-bottom: 10rem;
+    }
+
+    @media (min-width: ${props => props.theme.bpDesksm}) {
       padding-bottom: 5.5rem;
     }
 
@@ -101,6 +111,10 @@ const GetInvolvedStyled = styled.section`
         color: ${props => props.theme.white};
         font-family: ${props => props.theme.fontSec};
         font-size: 3rem;
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          font-size: 3rem;
+        }
 
         @media (min-width: ${props => props.theme.bpDesksm}) {
           font-size: 2.2rem;
@@ -142,7 +156,13 @@ const GetInvolvedStyled = styled.section`
         font-size: 2.6rem;
         line-height: 1.4;
 
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          padding: 0.5rem 2rem;
+          font-size: 2rem;
+        }
+
         @media (min-width: ${props => props.theme.bpDesksm}) {
+          padding: 0.5rem 5rem;
           font-size: 2rem;
         }
 

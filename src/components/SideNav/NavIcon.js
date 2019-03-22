@@ -19,7 +19,14 @@ const StyledIcon = styled.div`
   background: rgba(245, 245, 245, 0.95);
   border-bottom: 1px solid #eee;
 
-  @media (min-width: 1024px) {
+  @media (min-width: ${props => props.theme.bpTablet}) {
+    width: 10rem;
+    height: 9rem;
+    padding-top: 5rem;
+    text-align: center;
+  }
+
+  @media (min-width: ${props => props.theme.bpDesksm}) {
     width: 10rem;
     height: 9rem;
     padding-top: 5rem;
@@ -99,7 +106,11 @@ const StyledIcon = styled.div`
     color: #000;
     opacity: 0.6;
 
-    @media (min-width: 1024px) {
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      font-size: 1.2rem;
+    }
+
+    @media (min-width: ${props => props.theme.bpDesksm}) {
       font-size: 1.2rem;
     }
   }

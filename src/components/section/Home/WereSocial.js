@@ -150,11 +150,7 @@ const WereSocialStyled = styled.section`
     justify-content: center;
     width: 100%;
     &--image {
-      width: 50%;
-
-      @media (min-width: ${props => props.theme.bpTablet}) {
-        width: 20%;
-      }
+      width: 20%;
     }
   }
 `

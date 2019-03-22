@@ -35,7 +35,7 @@ const WhyAirdrieStyled = styled.section`
       margin: 0 auto;
       padding: 0;
       font-family: ${props => props.theme.fontSec};
-      font-size: 3.4em;
+      font-size: 3rem;
       text-align: center;
       line-height: 1;
 
@@ -89,6 +89,14 @@ const WhyAirdrieStyled = styled.section`
     p {
       font-weight: 300;
       font-size: 1.8rem;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        font-size: 1.8rem;
+      }
+
+      @media (min-width: ${props => props.theme.bpDesksm}) {
+        font-size: 1.8rem;
+      }
     }
   }
 
