@@ -163,7 +163,9 @@ export const homeQuery = graphql`
         _att_get_involved_links {
           title
           excerpt
-          link
+          link {
+            post_name
+          }
           icon
         }
 

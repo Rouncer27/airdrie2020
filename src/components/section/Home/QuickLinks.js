@@ -177,7 +177,7 @@ class QuickLinks extends Component {
               }}
             />
             <div className="quicklinks__item--link quicklinks__group--link">
-              <Link href="/local-sports-groups/">Groups</Link>
+              <Link to="/local-sports-groups/">Groups</Link>
             </div>
           </div>
 
@@ -200,7 +200,7 @@ class QuickLinks extends Component {
               }}
             />
             <div className="quicklinks__item--link quicklinks__news--link">
-              <Link href="/news/">News</Link>
+              <Link to="/news/">News</Link>
             </div>
           </div>
         </div>

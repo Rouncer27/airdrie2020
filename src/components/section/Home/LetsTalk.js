@@ -207,7 +207,7 @@ class LetsTalk extends Component {
           <Slider {...settings} className="letstalk__tweets">
             {rowTweets.map((twoTweets, index) => {
               return (
-                <div key={index} class="letstalk__tweets--row">
+                <div key={index} className="letstalk__tweets--row">
                   {twoTweets.map((tweet, index) => {
                     return (
                       <div key={index} className="letstalk__tweet">

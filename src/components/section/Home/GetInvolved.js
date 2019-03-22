@@ -187,9 +187,21 @@ class GetInvolved extends Component {
           <h2>Get Involved</h2>
         </div>
         <div className="getinvolved__wrapper">
-          {this.props.data.getInvovoledLinks.map(link => {
+          {this.props.data.getInvovoledLinks.map((link, index) => {
+            let pageLink = false
+
+            if (link.link.post_name === "event-submission") {
+              pageLink = "/local-sports-events/event-submission"
+            } else if (link.link.post_name === "local-sports-group-form") {
+              pageLink = "/local-sports-groups/local-sports-group-form"
+            } else if (link.link.post_name === "coming-to-the-games") {
+              pageLink = "/airdrie-2020-games/coming-to-the-games"
+            } else {
+              pageLink = "/contact"
+            }
+
             return (
-              <div className="getinvolved__link">
+              <div className="getinvolved__link" key={index}>
                 <div className="getinvolved__link--title">
                   <h3>{link.title}</h3>
                 </div>
@@ -198,7 +210,7 @@ class GetInvolved extends Component {
                   dangerouslySetInnerHTML={{ __html: link.excerpt }}
                 />
                 <div className="getinvolved__link--button">
-                  <Link href={link.link}>Go To Form</Link>
+                  {pageLink && <Link to={pageLink}>Go To Form</Link>}
                 </div>
               </div>
             )

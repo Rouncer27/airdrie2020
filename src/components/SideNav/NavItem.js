@@ -55,7 +55,7 @@ class NavItem extends Component {
     const mainTitleSlug =
       this.props.data.link.post_name === "home"
         ? "/"
-        : this.props.data.link.post_name
+        : `/${this.props.data.link.post_name}`
 
     const pages = this.props.pages
 

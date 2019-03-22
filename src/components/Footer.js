@@ -376,7 +376,13 @@ class Footer extends Component {
                   </p>
                   <p>
                     Built with &#9825; and{" "}
-                    <a href="https://www.gatsbyjs.org">Gatsby</a>
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href="https://www.gatsbyjs.org"
+                    >
+                      Gatsby
+                    </a>
                   </p>
                 </div>
               </div>

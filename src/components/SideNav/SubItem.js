@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import { Link } from "gatsby"
-import axios from "axios"
 
 import styled from "styled-components"
 
@@ -42,21 +41,6 @@ const StyledSub = styled.li`
 class SubItem extends Component {
   constructor(props) {
     super(props)
-    this.getParentSlug = this.getParentSlug.bind(this)
-  }
-
-  async getParentSlug(parentID) {
-    console.log("Hi there parent: ", parentID)
-
-    await axios
-      .get(`http://localhost/airdrie2020/wp-json/wp/v2/pages/${parentID}`)
-      .then(data => {
-        console.log(data)
-        return data.data.slug
-      })
-      .catch(e => {
-        console.log(e)
-      })
   }
 
   render() {

@@ -203,9 +203,9 @@ class HeroSlider extends Component {
     return (
       <HeroContainer>
         <HeroSliderStyled {...settings}>
-          {this.props.data.map(slide => {
+          {this.props.data.map((slide, index) => {
             return (
-              <div className="heroslide__slide">
+              <div className="heroslide__slide" key={index}>
                 <div className="heroslide__slide--title">
                   <h2>Airdrie Sports</h2>
                   <p>{slide.title}</p>

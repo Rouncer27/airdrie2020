@@ -173,10 +173,10 @@ const WhyAirdrieStyled = styled.section`
     a {
       display: inline-block;
       padding: 1rem 3rem;
-      border: 0.1rem solid $color-primary;
+      border: 0.1rem solid ${props => props.theme.pacificBlue};
       transition: all 0.3s ease;
-      color: $black;
-      font-family: $font-family--secondary;
+      color: #000;
+      font-family: ${props => props.theme.fontSec};
       font-size: 2.6rem;
       line-height: 1.4;
 
@@ -185,8 +185,8 @@ const WhyAirdrieStyled = styled.section`
       }
 
       &:hover {
-        border: 0.1rem solid $color-secondary;
-        color: $color-secondary;
+        border: 0.1rem solid ${props => props.theme.mandarinOrange};
+        color: ${props => props.theme.mandarinOrange};
       }
     }
   }
@@ -194,7 +194,6 @@ const WhyAirdrieStyled = styled.section`
 
 class WhyAirdrie extends Component {
   render() {
-    console.log(this.props.data)
     return (
       <WhyAirdrieStyled id={this.props.data.whyAirdrieHash} className="whyair">
         <div className="whyair__wrapper">
