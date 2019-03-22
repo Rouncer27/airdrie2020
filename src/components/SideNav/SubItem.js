@@ -39,10 +39,6 @@ const StyledSub = styled.li`
 `
 
 class SubItem extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   render() {
     const insideOutside = this.props.data.inside_outside
     let subMenuItemLink = false

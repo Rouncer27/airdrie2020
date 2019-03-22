@@ -132,7 +132,7 @@ class QuickLinkNoImg extends Component {
                   dangerouslySetInnerHTML={{ __html: link.content }}
                 />
                 <div className="qlnoimg__item--link">
-                  <Link to={link.link}>{link.button_text}</Link>
+                  <Link to={link.page_slug}>{link.button_text}</Link>
                 </div>
               </div>
             )

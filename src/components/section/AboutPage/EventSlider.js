@@ -65,6 +65,7 @@ const EventSliderStyled = styled.section`
       left: 0;
       margin: 0 auto;
       text-align: center;
+      z-index: 100;
 
       h3 {
         display: inline-block;
@@ -73,7 +74,7 @@ const EventSliderStyled = styled.section`
         background: ${props => props.theme.pacificBlue};
         transition: all 2s ease-in-out;
         transform: translateY(-5rem);
-        color: $white;
+        color: #fff;
         font-weight: 300;
         text-transform: uppercase;
         opacity: 0;
@@ -157,7 +158,8 @@ const EventSliderStyled = styled.section`
         padding: 0 5rem;
         border: 0.1rem solid ${props => props.theme.pacificBlue};
         transition: all 0.3s ease;
-        color: $black;
+        background: #fff;
+        color: #000;
         font-family: ${props => props.theme.fontSec};
         font-size: 2.8rem;
         line-height: 1.4;
@@ -268,7 +270,13 @@ class EventSlider extends Component {
                       dangerouslySetInnerHTML={{ __html: slide.description }}
                     />
                     <div className="eventslider__slide--link">
-                      <a href={slide.link}>Learn More</a>
+                      <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href={slide.link}
+                      >
+                        Learn More
+                      </a>
                     </div>
                     <div className="eventslider__slide--image eventslider__slide--imgtwo">
                       <Img

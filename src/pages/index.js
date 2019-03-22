@@ -164,9 +164,6 @@ export const homeQuery = graphql`
           title
           excerpt
           page_slug
-          link {
-            post_name
-          }
           icon
         }
 

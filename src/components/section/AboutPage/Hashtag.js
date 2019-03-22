@@ -107,7 +107,7 @@ const HashtagStyled = styled.section`
 `
 
 class Hashtag extends Component {
-  render(props) {
+  render() {
     const title = this.props.data.hashtagTitle
     const image = this.props.data.hashtagImage.localFile.childImageSharp.fluid
     const altText = this.props.data.hashtagImage.alt_text

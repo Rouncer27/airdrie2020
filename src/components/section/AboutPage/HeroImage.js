@@ -64,7 +64,6 @@ const HeroImageStyled = styled.section`
       color: ${props => props.theme.white};
       font-family: ${props => props.theme.fontSec};
       font-size: 10rem;
-      ${"" /* text-shadow: 0 0.3rem 0.6rem rgba($black, 0.5); */}
       line-height: 0.7;
       z-index: 5;
     }
@@ -104,7 +103,7 @@ const HeroImageStyled = styled.section`
 `
 
 class HeroImage extends Component {
-  render(props) {
+  render() {
     const heroTitle = this.props.data.heroTitle
     const imageFluid = this.props.data.heroImage.localFile.childImageSharp.fluid
     const imageAlt = this.props.data.heroImage.alt_text

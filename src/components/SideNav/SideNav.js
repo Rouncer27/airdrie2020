@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import { StaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
-import $ from "jquery"
 
 import NavIcon from "./NavIcon"
 import NavItem from "./NavItem"

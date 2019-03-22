@@ -164,7 +164,7 @@ export const query = graphql`
           title
           content
           button_text
-          link
+          page_slug
         }
 
         _att_events_slider_hash
