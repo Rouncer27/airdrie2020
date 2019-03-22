@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import styled from "styled-components"
 
 import { StandardWrapper } from "../../styles/commons/Wrappers"
-import { NormalAchor } from "../../styles/commons/Buttons"
+import { NormalAchor, NormalLink } from "../../styles/commons/Buttons"
 
 import clipboard from "../../../images/icons/formLink/Icons-sitewide-events-01.svg"
 import calendar from "../../../images/icons/formLink/Icons-sitewide-groups-01.svg"
@@ -99,6 +99,24 @@ class FormLinks extends Component {
       <FormLinksStyled className="formlinks">
         <StandardWrapper className="formlinks__wrapper">
           {formLinks.map((link, index) => {
+            let formLinkButton = false
+
+            if (link.internal_external === "internal") {
+              formLinkButton = (
+                <NormalLink to={link.wordpress_internal}>Go to form</NormalLink>
+              )
+            } else {
+              formLinkButton = (
+                <NormalAchor
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={link.external}
+                >
+                  Visit Website
+                </NormalAchor>
+              )
+            }
+
             return (
               <div
                 key={index}
@@ -111,11 +129,7 @@ class FormLinks extends Component {
                   dangerouslySetInnerHTML={{ __html: link.content }}
                   className="formlinks__item--content"
                 />
-                <div className="formlinks__item--button">
-                  <NormalAchor href={link.internal_external}>
-                    Go to form
-                  </NormalAchor>
-                </div>
+                <div className="formlinks__item--button">{formLinkButton}</div>
               </div>
             )
           })}
