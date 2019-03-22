@@ -188,17 +188,8 @@ class GetInvolved extends Component {
         </div>
         <div className="getinvolved__wrapper">
           {this.props.data.getInvovoledLinks.map((link, index) => {
-            let pageLink = false
-
-            if (link.link.post_name === "event-submission") {
-              pageLink = "/local-sports-events/event-submission"
-            } else if (link.link.post_name === "local-sports-group-form") {
-              pageLink = "/local-sports-groups/local-sports-group-form"
-            } else if (link.link.post_name === "coming-to-the-games") {
-              pageLink = "/airdrie-2020-games/coming-to-the-games"
-            } else {
-              pageLink = "/contact"
-            }
+            console.log(link)
+            const pageLink = link.page_slug
 
             return (
               <div className="getinvolved__link" key={index}>
