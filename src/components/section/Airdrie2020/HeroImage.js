@@ -8,11 +8,17 @@ import { HeroWrapper, HeroImageStyle } from "../../styles/commons/Images"
 const HeroImageStyled = styled.section`
   .pagehero__logo {
     position: absolute;
-    top: 5rem;
-    left: 5rem;
+    top: 2rem;
+    left: 2rem;
     width: 100%;
-    max-width: 20rem;
+    max-width: 17rem;
     z-index: 500;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      top: 5rem;
+      left: 5rem;
+      max-width: 20rem;
+    }
   }
 
   .pagehero__background {
@@ -21,8 +27,12 @@ const HeroImageStyled = styled.section`
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 25rem;
+    height: 11rem;
     z-index: 10;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      height: 25rem;
+    }
 
     &--mandarinorange {
       background-color: ${props => props.theme.mandarinOrange};

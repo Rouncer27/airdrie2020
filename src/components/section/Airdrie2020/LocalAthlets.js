@@ -30,6 +30,7 @@ const LocalAthletsStyled = styled.section`
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
+    margin: 4rem 1rem;
 
     @media (min-width: ${props => props.theme.bpDesksm}) {
       width: calc(50% - 2rem);
@@ -51,12 +52,17 @@ const LocalAthletsStyled = styled.section`
     }
 
     &--meta {
-      width: calc(50% - 2rem);
-      margin-left: 2rem;
+      width: calc(100%);
+      padding: 0 2rem;
+
+      @media (min-width: ${props => props.theme.bpDesksm}) {
+        width: calc(50% - 2rem);
+        margin-left: 2rem;
+      }
 
       &--title {
         h2 {
-          display: inline-block;
+          display: block;
           margin: 0;
           background-color: ${props => props.theme.mandarinOrange};
           padding: 0.25rem 2rem;
@@ -65,6 +71,10 @@ const LocalAthletsStyled = styled.section`
           text-align: center;
           text-transform: uppercase;
 
+          @media (min-width: ${props => props.theme.bpTablet}) {
+            display: inline-block;
+          }
+
           @media (min-width: ${props => props.theme.bpDesksm}) {
             font-size: 1.6rem;
           }
@@ -72,6 +82,11 @@ const LocalAthletsStyled = styled.section`
 
         h3 {
           font-family: ${props => props.theme.fontSec};
+          text-align: center;
+
+          @media (min-width: ${props => props.theme.bpTablet}) {
+            text-align: left;
+          }
 
           @media (min-width: ${props => props.theme.bpDesksm}) {
             font-size: 2rem;
@@ -80,11 +95,22 @@ const LocalAthletsStyled = styled.section`
       }
 
       &--action {
+        text-align: center;
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          text-align: left;
+        }
+
         p {
           margin: 0;
           margin-bottom: 1rem;
           color: ${props => props.theme.mandarinOrange};
           font-family: ${props => props.theme.fontSec};
+          font-size: 4rem;
+
+          @media (min-width: ${props => props.theme.bpTablet}) {
+            font-size: 2rem;
+          }
 
           @media (min-width: ${props => props.theme.bpDesksm}) {
             font-size: 4rem;
@@ -93,6 +119,11 @@ const LocalAthletsStyled = styled.section`
       }
 
       &--button {
+        text-align: center;
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          text-align: left;
+        }
       }
     }
 
@@ -108,6 +139,9 @@ const LocalAthletsStyled = styled.section`
       opacity: 0;
       z-index: 500;
 
+      @media (min-width: ${props => props.theme.bpTablet}) {
+      }
+
       @media (min-width: ${props => props.theme.bpDesksm}) {
         width: 100%;
       }
@@ -120,33 +154,99 @@ const LocalAthletsStyled = styled.section`
         flex-wrap: wrap;
         justify-content: flex-start;
         width: 100%;
+        max-width: 90%;
+        max-height: 90vh;
         margin: 2.5rem auto;
         margin: auto;
-        padding: 5rem;
+        padding: 1rem;
         transform: translate(-50%, -50%);
         background: ${props => props.theme.white};
+        overflow-y: scroll;
         z-index: 20;
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          width: 100%;
+          max-width: 75rem;
+          padding: 5rem;
+          overflow-y: visible;
+        }
+
         @media (min-width: ${props => props.theme.bpDesksm}) {
           max-width: 75rem;
         }
 
-        .localathletes__athlete--image,
+        .localathletes__athlete--image {
+          padding-right: 10rem;
+
+          @media (min-width: ${props => props.theme.bpTablet}) {
+            padding-right: 0;
+            padding-bottom: 5rem;
+          }
+        }
+
         .localathletes__athlete--meta {
-          padding-bottom: 5rem;
+          padding-bottom: 1rem;
+          @media (min-width: ${props => props.theme.bpTablet}) {
+            padding-bottom: 5rem;
+          }
+          .localathletes__athlete--meta--title {
+            h2 {
+              font-size: 1.8rem;
+              @media (min-width: ${props => props.theme.bpTablet}) {
+              }
+
+              @media (min-width: ${props => props.theme.bpDesksm}) {
+              }
+            }
+
+            h3 {
+              font-size: 2rem;
+              @media (min-width: ${props => props.theme.bpTablet}) {
+              }
+
+              @media (min-width: ${props => props.theme.bpDesksm}) {
+              }
+            }
+          }
+
+          .localathletes__athlete--meta--action {
+            p {
+              display: none;
+              @media (min-width: ${props => props.theme.bpTablet}) {
+                display: block;
+              }
+            }
+          }
+        }
+
+        .localathletes__athlete--bio--modal--content {
+          p {
+            font-size: 1.6rem;
+            @media (min-width: ${props => props.theme.bpTablet}) {
+              font-size: 1.8rem;
+            }
+          }
         }
 
         &--button {
           button {
             position: absolute;
-            top: -2.5rem;
-            right: -2.5rem;
+            top: 1rem;
+            right: 1rem;
             display: inline-block;
-            width: 5rem;
-            height: 5rem;
+            width: 7.5rem;
+            height: 7.5rem;
             background: ${props => props.theme.white};
             border-radius: 50%;
             border: 0.2rem solid ${props => props.theme.pacificBlue};
             transition: all 0.3s ease;
+
+            @media (min-width: ${props => props.theme.bpTablet}) {
+              top: -2.5rem;
+              right: -2.5rem;
+              width: 5rem;
+              height: 5rem;
+            }
 
             &::after {
               display: block;
@@ -157,7 +257,14 @@ const LocalAthletsStyled = styled.section`
               transform: translate(-50%, -50%);
               color: ${props => props.theme.pacificBlue};
               font-family: ${props => props.theme.fontAwesome};
+              font-size: 2em;
               content: "\f00d";
+            }
+
+            @media (min-width: ${props => props.theme.bpTablet}) {
+              &::after {
+                font-size: 1em;
+              }
             }
 
             &:hover {
@@ -303,8 +410,8 @@ class LocalAthlets extends Component {
                           />
                         </div>
                       </div>
-
                       <StandardParagraphs
+                        className="localathletes__athlete--bio--modal--content"
                         dangerouslySetInnerHTML={{ __html: bio_content }}
                       />
                     </div>

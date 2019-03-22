@@ -57,20 +57,17 @@ const HeroImageStyle = styled.div`
   }
   z-index: 1;
 
-  img {
-    min-height: 45rem;
-    max-height: 45rem;
-    @media (min-width: ${props => props.theme.bpTablet}) {
-      min-height: 65rem;
-      max-height: 65rem;
-    }
+  .gatsby-image-wrapper {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 
-    @media (min-width: ${props => props.theme.bpDesksm}) {
-      min-height: 75rem;
-      max-height: 100vh;
+    img {
+      object-fit: cover;
+      object-position: center;
     }
-    object-fit: cover;
-    object-position: center;
   }
 `
 

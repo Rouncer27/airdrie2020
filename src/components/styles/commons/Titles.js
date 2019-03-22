@@ -3,13 +3,18 @@ import styled from "styled-components"
 const HeroTitle = styled.div`
   position: absolute;
   right: 0;
-  bottom: 10rem;
+  bottom: 5rem;
   left: 0;
   width: 100%;
-  max-width: 75rem;
+  max-width: 45rem;
   margin: auto;
   text-align: center;
   z-index: 101;
+
+  @media (min-width: ${props => props.theme.bpTablet}) {
+    bottom: 10rem;
+    max-width: 75rem;
+  }
 
   h1 {
     position: relative;
@@ -17,9 +22,13 @@ const HeroTitle = styled.div`
     padding: 0;
     color: ${props => props.theme.white};
     font-family: ${props => props.theme.fontSec};
-    font-size: 10rem;
+    font-size: 4rem;
     line-height: 1;
     z-index: 5;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      font-size: 10rem;
+    }
   }
 `
 
