@@ -14,7 +14,7 @@ const WeBelieveStyled = styled.section`
     padding: 0;
 
     @media (min-width: ${props => props.theme.bpTablet}) {
-      padding: 5rem 0;
+      padding: 2.5rem 0;
     }
     h2 {
       width: 100%;
@@ -51,17 +51,18 @@ const WeBelieveStyled = styled.section`
       transform: translateY(-50%);
       color: ${props => props.theme.pacificBlue};
       font-family: ${props => props.theme.fontSec};
-      font-size: 7.5rem;
+      font-size: 5rem;
       text-align: center;
       text-transform: uppercase;
+      line-height: 1;
       opacity: 0.25;
 
       @media (min-width: ${props => props.theme.bpTablet}) {
-        font-size: 18rem;
+        font-size: 10rem;
       }
 
       @media (min-width: ${props => props.theme.bpDesksm}) {
-        font-size: 18rem;
+        font-size: 15rem;
       }
     }
   }

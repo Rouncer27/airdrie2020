@@ -31,6 +31,7 @@ const BulletImageStyled = styled.section`
     justify-content: center;
     width: 100%;
     margin: 2rem auto;
+    padding: 2rem;
 
     @media (min-width: ${props => props.theme.bpDesksm}) {
       margin: 5rem auto;
@@ -84,9 +85,11 @@ const BulletImageStyled = styled.section`
     &--image {
       position: relative;
       width: 100%;
+      margin-top: 5rem;
 
       @media (min-width: ${props => props.theme.bpTablet}) {
         width: 50%;
+        margin-top: 0;
       }
 
       &--title {

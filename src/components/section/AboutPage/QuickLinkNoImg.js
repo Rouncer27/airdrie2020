@@ -51,6 +51,10 @@ const QuickLinkNoImgStyled = styled.section`
     @media (min-width: ${props => props.theme.bpTablet}) {
       width: calc(33.33% - 8rem);
       margin: 2rem 4rem;
+      padding-bottom: 7.5rem;
+    }
+
+    @media (min-width: ${props => props.theme.bpDesksm}) {
       padding-bottom: 5rem;
     }
 
@@ -101,7 +105,13 @@ const QuickLinkNoImgStyled = styled.section`
         font-size: 2.8rem;
         line-height: 1.4;
 
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          padding: 1rem 2rem;
+          font-size: 2rem;
+        }
+
         @media (min-width: ${props => props.theme.bpDesksm}) {
+          padding: 0 5rem;
           font-size: 2.4rem;
         }
 

@@ -11,6 +11,10 @@ const HashtagStyled = styled.section`
   height: 40rem;
   overflow: hidden;
 
+  @media (min-width: ${props => props.theme.bpTablet}) {
+    height: 50rem;
+  }
+
   @media (min-width: ${props => props.theme.bpDesksm}) {
     height: 60rem;
   }
@@ -34,6 +38,11 @@ const HashtagStyled = styled.section`
       margin: 0;
       color: ${props => props.theme.white};
       font-family: ${props => props.theme.fontSec};
+      font-size: 3rem;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        font-size: 5rem;
+      }
 
       @media (min-width: ${props => props.theme.bpDesksm}) {
         font-size: 7rem;
