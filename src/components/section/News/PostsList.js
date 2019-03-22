@@ -76,7 +76,6 @@ class PostsList extends Component {
       <PostListStyled className="postlist">
         <StandardWrapper className="postlist__wrapper">
           {posts.map((post, index) => {
-            console.log(post)
             return (
               <Link
                 to={`/news/${post.node.slug}`}

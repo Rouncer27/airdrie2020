@@ -54,6 +54,8 @@ class SubItem extends Component {
         const parentPage = this.props.pages.filter(page => {
           if (page.node.wordpress_id === this.props.data.link.post_parent) {
             return page
+          } else {
+            return false
           }
         })
         const parentSlug = parentPage[0].node.slug
@@ -65,7 +67,11 @@ class SubItem extends Component {
       subMenuItemLink = <Link to={slug}>{this.props.data.title}</Link>
     } else {
       subMenuItemLink = (
-        <a target="_blank" href={this.props.data.other}>
+        <a
+          rel="noopener noreferrer"
+          target="_blank"
+          href={this.props.data.other}
+        >
           {this.props.data.title}
         </a>
       )

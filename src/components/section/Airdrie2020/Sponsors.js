@@ -159,7 +159,11 @@ class Sponsors extends Component {
             {logos.map((logo, index) => {
               return (
                 <div key={index} className="sponsorship__logo">
-                  <a target="_blank" href={logo.links}>
+                  <a
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    href={logo.links}
+                  >
                     <Img
                       fluid={logo.logo.localFile.childImageSharp.fluid}
                       alt={logo.logo.alt_text}

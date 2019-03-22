@@ -79,7 +79,11 @@ class VolunteerPosting extends Component {
                 <div key={index} className="volunpost__postings--item">
                   <h3>{post.team_name}</h3>
                   <p>{post.position}</p>
-                  <a target="_blank" href={post.website}>
+                  <a
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    href={post.website}
+                  >
                     Visit Website
                   </a>
                 </div>

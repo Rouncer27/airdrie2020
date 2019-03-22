@@ -134,7 +134,11 @@ class SponsoredTeam extends Component {
           <div className="sponteam__content">
             <div className="sponteam__content--header">
               <div className="sponteam__content--logo">
-                <a target="_blank" href={sponTeamLogoLink}>
+                <a
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  href={sponTeamLogoLink}
+                >
                   <Img
                     fluid={sponTeamLogo.localFile.childImageSharp.fluid}
                     alt={sponTeamLogo.alt_text}

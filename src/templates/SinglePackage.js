@@ -18,9 +18,9 @@ class SinglePackage extends Component {
     const herologo = acf._att_page_hero_logo
 
     const mainContent = acf._att_pack_main_content
-    const packName = acf._att_pack_name
+    // const packName = acf._att_pack_name
     const packLink = acf._att_pack_link
-    const packLoction = acf._att_pack_location
+    // const packLoction = acf._att_pack_location
 
     return (
       <Layout>

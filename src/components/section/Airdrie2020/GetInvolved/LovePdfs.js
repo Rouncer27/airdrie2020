@@ -225,7 +225,11 @@ class LovePdfs extends Component {
                     className="lovepdfs__love--item--intro"
                   />
                   <div className="lovepdfs__love--item--button">
-                    <NormalAchor href={spon.pdf.localFile.publicURL}>
+                    <NormalAchor
+                      rel="noopener noreferrer"
+                      target="_blank"
+                      href={spon.pdf.localFile.publicURL}
+                    >
                       Download PDF
                     </NormalAchor>
                   </div>

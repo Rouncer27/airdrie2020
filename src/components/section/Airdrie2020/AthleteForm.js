@@ -177,7 +177,7 @@ class AthleteForm extends Component {
           {active === "yes" && (
             <form onSubmit={this.submit} className="athleteform__form">
               <div className="athleteform__form--field">
-                <label for="bioimage">Choose a profile picture:</label>
+                <label htmlFor="bioimage">Choose a profile picture:</label>
                 <input
                   type="file"
                   id="bioimage"

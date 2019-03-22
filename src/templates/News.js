@@ -19,8 +19,6 @@ class News extends Component {
 
     const posts = this.props.data.allWordpressPost.edges
 
-    console.log(posts)
-
     return (
       <Layout>
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />

@@ -89,7 +89,7 @@ class QuickIconLinks extends Component {
   render() {
     const icons = this.props.data.quickIcons
     return (
-      <QuickIconLinksStyled class="quickicons">
+      <QuickIconLinksStyled className="quickicons">
         <StandardWrapper>
           {icons.map((icon, index) => {
             return (

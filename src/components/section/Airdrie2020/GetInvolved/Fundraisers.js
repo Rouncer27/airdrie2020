@@ -94,7 +94,7 @@ class Fundraisers extends Component {
           {fundraisers.map((fund, index) => {
             return (
               <div key={index} className="fundraiser__item">
-                <a target="_blank" href={fund.link}>
+                <a rel="noopener noreferrer" target="_blank" href={fund.link}>
                   <div className="fundraiser__item--image">
                     <div className="fundraiser__item--date">
                       <p>{fund.date_time}</p>

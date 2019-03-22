@@ -75,7 +75,6 @@ class AllPackages extends Component {
       <AllPackagesStyled className="packages">
         <StandardWrapper className="packages__wrapper">
           {packages.map((pack, index) => {
-            console.log(pack)
             return (
               <Link
                 to={`/packages/${pack.node.slug}`}

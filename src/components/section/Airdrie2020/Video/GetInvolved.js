@@ -30,12 +30,12 @@ class GetInvolved extends Component {
   render() {
     const { involvedTitle, involvedLink } = this.props.data
     return (
-      <GetInvolvedStyled class="videolink">
-        <StandardWrapper class="videolink__wrapper">
-          <div class="videolink__title">
+      <GetInvolvedStyled className="videolink">
+        <StandardWrapper className="videolink__wrapper">
+          <div className="videolink__title">
             <h3>{involvedTitle}</h3>
           </div>
-          <div class="videolink__button">
+          <div className="videolink__button">
             <NormalAchor target="_blank" href={involvedLink}>
               Get Involved
             </NormalAchor>

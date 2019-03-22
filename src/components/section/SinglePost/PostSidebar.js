@@ -135,6 +135,7 @@ class PostSidebar extends Component {
             if (cat.node.count === topCount) {
               return cat
             }
+            return false
           })
 
           let postCount = 0
@@ -145,12 +146,14 @@ class PostSidebar extends Component {
               if (cat.name === topCat[0].node.name) {
                 return post
               }
+              return false
             })
 
             if (postsReturned.length > 0 && postCount < 3) {
               postCount++
               return postsReturned
             }
+            return false
           })
 
           return (
