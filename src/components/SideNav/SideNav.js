@@ -141,16 +141,28 @@ class SideNav extends Component {
                   options {
                     _att_main_navigation_items {
                       title
-                      link
-                      slug
                       icon
+                      link {
+                        post_name
+                      }
                       sub_items {
                         title
-                        location_hash
-                        slug
+                        link {
+                          post_name
+                          post_parent
+                        }
                       }
                     }
                   }
+                }
+              }
+            }
+
+            allWordpressPage {
+              edges {
+                node {
+                  wordpress_id
+                  slug
                 }
               }
             }
@@ -160,6 +172,8 @@ class SideNav extends Component {
           const navItems =
             data.allWordpressAcfOptions.edges[0].node.options
               ._att_main_navigation_items
+
+          const allPages = data.allWordpressPage.edges
 
           const activeClass = this.state.isSideNavOpen
             ? " menu-active-open"
@@ -185,6 +199,7 @@ class SideNav extends Component {
                     <NavItem
                       key={index}
                       data={item}
+                      pages={allPages}
                       activeIcon={this.state.activeIcon}
                       smoothScroll={this.smoothScroll}
                     />

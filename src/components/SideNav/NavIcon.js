@@ -113,28 +113,23 @@ const StyledIcon = styled.div`
 
 class NavIcon extends Component {
   render() {
-    const fullURL = this.props.data.link
-    const fullURLParts = fullURL.split("/")
-    const domainIndex = fullURLParts.indexOf("airdrie2020")
-    const newSlugs = fullURLParts.slice(
-      `${domainIndex + 1}`,
-      fullURLParts.length
-    )
-    const slug = newSlugs.join("/") === "" ? "airdrie2020" : newSlugs.join("/")
-    const slugWithoutSlash = this.props.data.slug.split("/")[0]
+    const iconIdentifier = this.props.data.title
+      .split(" ")
+      .join("")
+      .toLowerCase()
 
     const activeClassName =
-      this.props.activeIcon === slugWithoutSlash ? " active-icon" : ""
+      this.props.activeIcon === iconIdentifier ? " active-icon" : ""
 
     return (
       <StyledIcon
-        data-slug={slugWithoutSlash}
+        data-slug={iconIdentifier}
         className={`sidenav__icon sidenav__icon--${
           this.props.data.icon
         }${activeClassName}`}
         onClick={this.props.toggleTheSideNav}
       >
-        <p data-slug={slugWithoutSlash} onClick={this.props.toggleTheSideNav}>
+        <p data-slug={iconIdentifier} onClick={this.props.toggleTheSideNav}>
           {this.props.data.title}
         </p>
       </StyledIcon>

@@ -197,7 +197,7 @@ class HeroSlider extends Component {
       autoplaySpeed: 5000,
       cssEase: "linear",
       afterChange: function(currentSlide) {
-        console.log(currentSlide)
+        console.log()
       },
     }
     return (

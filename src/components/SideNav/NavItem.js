@@ -47,24 +47,34 @@ const StyledSubMenu = styled.ul`
 class NavItem extends Component {
   render() {
     const subMenuItems = this.props.data.sub_items
-    const slugWithoutSlash = this.props.data.slug.split("/")[0]
+    const iconIdentifier = this.props.data.title
+      .split(" ")
+      .join("")
+      .toLowerCase()
 
-    const isActiveMenu =
-      this.props.activeIcon === slugWithoutSlash ? true : false
+    const mainTitleSlug =
+      this.props.data.link.post_name === "home"
+        ? "/"
+        : this.props.data.link.post_name
+
+    const pages = this.props.pages
+
+    const isActiveMenu = this.props.activeIcon === iconIdentifier ? true : false
 
     const activeClassName =
-      this.props.activeIcon === slugWithoutSlash ? " active-inside-menu" : ""
+      this.props.activeIcon === iconIdentifier ? " active-inside-menu" : ""
 
     return (
-      <StyledSubMenu className={activeClassName} data-slug={slugWithoutSlash}>
+      <StyledSubMenu className={activeClassName} data-slug={iconIdentifier}>
         <li className="nav-link-title">
-          <Link to={this.props.data.slug}>{this.props.data.title}</Link>
+          <Link to={mainTitleSlug}>{this.props.data.title}</Link>
         </li>
         {subMenuItems.map((subItem, index) => {
           return (
             <SubItem
               key={index}
               data={subItem}
+              pages={pages}
               isActive={isActiveMenu}
               index={index}
               smoothScroll={this.props.smoothScroll}

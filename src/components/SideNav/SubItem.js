@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { Link } from "gatsby"
+import axios from "axios"
 
 import styled from "styled-components"
 
@@ -32,16 +33,51 @@ const StyledSub = styled.li`
   }
 
   &.sub-item-active {
-    transition: all 0.3s ease-in-out ${props => `${(props.index + 1) / 3}s`} !important;
+    transition: all 0.3s ease-in-out ${props => `${(props.index + 1) / 5}s`} !important;
     opacity: ${props => props.isActive && "1 !important;"};
     transform: ${props => props.isActive && "translateX(0rem) !important;"};
   }
 `
 
 class SubItem extends Component {
+  constructor(props) {
+    super(props)
+    this.getParentSlug = this.getParentSlug.bind(this)
+  }
+
+  async getParentSlug(parentID) {
+    console.log("Hi there parent: ", parentID)
+
+    await axios
+      .get(`http://localhost/airdrie2020/wp-json/wp/v2/pages/${parentID}`)
+      .then(data => {
+        console.log(data)
+        return data.data.slug
+      })
+      .catch(e => {
+        console.log(e)
+      })
+  }
+
   render() {
-    const slug = this.props.data.slug
-    const hash = this.props.data.location_hash
+    let slug = ""
+    const mainTitleSlug =
+      this.props.data.link.post_name === "home"
+        ? "/"
+        : this.props.data.link.post_name
+
+    if (this.props.data.link.post_parent > 0) {
+      const parentPage = this.props.pages.filter(page => {
+        if (page.node.wordpress_id === this.props.data.link.post_parent) {
+          return page
+        }
+      })
+      const parentSlug = parentPage[0].node.slug
+      slug = `/${parentSlug}/${mainTitleSlug}`
+    } else {
+      slug = `/${mainTitleSlug}`
+    }
+
     const activeClassName = this.props.isActive ? " sub-item-active" : ""
 
     return (
@@ -51,7 +87,7 @@ class SubItem extends Component {
         index={this.props.index}
         className={`nav-link-sub${activeClassName}`}
       >
-        <Link to={`/${slug}/`}>{this.props.data.title}</Link>
+        <Link to={slug}>{this.props.data.title}</Link>
       </StyledSub>
     )
   }
