@@ -188,9 +188,7 @@ class GetInvolved extends Component {
         </div>
         <div className="getinvolved__wrapper">
           {this.props.data.getInvovoledLinks.map((link, index) => {
-            console.log(link)
             const pageLink = link.page_slug
-
             return (
               <div className="getinvolved__link" key={index}>
                 <div className="getinvolved__link--title">

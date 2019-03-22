@@ -51,8 +51,8 @@ class SubItem extends Component {
       let slug = ""
       const mainTitleSlug =
         this.props.data.link.post_name === "home"
-          ? "/"
-          : this.props.data.link.post_name
+          ? ""
+          : `${this.props.data.link.post_name}`
 
       if (this.props.data.link.post_parent > 0) {
         const parentPage = this.props.pages.filter(page => {
