@@ -151,6 +151,8 @@ class SideNav extends Component {
                           post_name
                           post_parent
                         }
+                        inside_outside
+                        other
                       }
                     }
                   }

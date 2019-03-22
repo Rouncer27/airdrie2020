@@ -60,22 +60,35 @@ class SubItem extends Component {
   }
 
   render() {
-    let slug = ""
-    const mainTitleSlug =
-      this.props.data.link.post_name === "home"
-        ? "/"
-        : this.props.data.link.post_name
+    const insideOutside = this.props.data.inside_outside
+    let subMenuItemLink = false
 
-    if (this.props.data.link.post_parent > 0) {
-      const parentPage = this.props.pages.filter(page => {
-        if (page.node.wordpress_id === this.props.data.link.post_parent) {
-          return page
-        }
-      })
-      const parentSlug = parentPage[0].node.slug
-      slug = `/${parentSlug}/${mainTitleSlug}`
+    if (insideOutside === "inside") {
+      let slug = ""
+      const mainTitleSlug =
+        this.props.data.link.post_name === "home"
+          ? "/"
+          : this.props.data.link.post_name
+
+      if (this.props.data.link.post_parent > 0) {
+        const parentPage = this.props.pages.filter(page => {
+          if (page.node.wordpress_id === this.props.data.link.post_parent) {
+            return page
+          }
+        })
+        const parentSlug = parentPage[0].node.slug
+        slug = `/${parentSlug}/${mainTitleSlug}`
+      } else {
+        slug = `/${mainTitleSlug}`
+      }
+
+      subMenuItemLink = <Link to={slug}>{this.props.data.title}</Link>
     } else {
-      slug = `/${mainTitleSlug}`
+      subMenuItemLink = (
+        <a target="_blank" href={this.props.data.other}>
+          {this.props.data.title}
+        </a>
+      )
     }
 
     const activeClassName = this.props.isActive ? " sub-item-active" : ""
@@ -87,7 +100,7 @@ class SubItem extends Component {
         index={this.props.index}
         className={`nav-link-sub${activeClassName}`}
       >
-        <Link to={slug}>{this.props.data.title}</Link>
+        {subMenuItemLink}
       </StyledSub>
     )
   }
