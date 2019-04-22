@@ -3,6 +3,29 @@ import Img from "gatsby-image"
 import styled from "styled-components"
 
 const BulletImageStyled = styled.section`
+  .bulletimage__title {
+    width: 100%;
+    max-width: 45rem;
+    margin: 0 auto;
+    text-align: center;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      max-width: 75rem;
+    }
+
+    h2 {
+      font-family: ${props => props.theme.fontSec};
+    }
+
+    p {
+      font-weight: 300;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        font-size: 2.2rem;
+      }
+    }
+  }
+
   .bulletimage__wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -169,6 +192,14 @@ class BulletImage extends Component {
     const sections = this.props.data.bulletImageSections
     return (
       <BulletImageStyled className="bulletimage">
+        <div className="bulletimage__title">
+          <h2>Airdrie's Scoreboard</h2>
+          <p>
+            Airdrie has played host to many successful sport events over the
+            years and is excited to welcome a series of new ones to the score
+            sheet{" "}
+          </p>
+        </div>
         <div className="bulletimage__wrapper">
           {sections.map((sec, index) => {
             const title = sec.title
