@@ -10,6 +10,16 @@ const AllPackagesStyled = styled.section`
     justify-content: flex-start;
   }
 
+  .packages__coming-soon {
+    width: 100%;
+    margin-bottom: 5rem;
+    text-align: center;
+
+    @media (min-width: ${props => props.theme.bpDesksm}) {
+      margin-bottom: 10rem;
+    }
+  }
+
   .packages__item {
     display: block;
     position: relative;
@@ -74,7 +84,10 @@ class AllPackages extends Component {
     return (
       <AllPackagesStyled className="packages">
         <StandardWrapper className="packages__wrapper">
-          {packages.map((pack, index) => {
+          <div className="packages__coming-soon">
+            <h2>Packages Coming Soon</h2>
+          </div>
+          {/* {packages.map((pack, index) => {
             return (
               <Link
                 to={`/packages/${pack.node.slug}`}
@@ -101,7 +114,7 @@ class AllPackages extends Component {
                 <div className="packages__item--background" />
               </Link>
             )
-          })}
+          })} */}
         </StandardWrapper>
       </AllPackagesStyled>
     )
