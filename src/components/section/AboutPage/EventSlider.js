@@ -242,6 +242,9 @@ class EventSlider extends Component {
     return (
       <EventSliderStyled id={hash} className="eventslider">
         <div className="eventslider__wrapper">
+          <div className="eventslider__wrapper--title">
+            <h2>Spotlight Teams</h2>
+          </div>
           <Slider {...setting} className="eventslider__slider">
             {slides.map((slide, index) => {
               return (
