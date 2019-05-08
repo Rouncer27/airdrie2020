@@ -72,17 +72,38 @@ const EventsListStyled = styled.section`
 class EventsList extends Component {
   render() {
     const events = this.props.data
+    const groupAge = this.props.groupAge.edges
+    const groupCats = this.props.groupCategories.edges
+
     return (
       <EventsListStyled className="eventlist">
         <StandardWrapper className="eventlist__wrapper">
           {events.map((event, index) => {
+            event.groupAge = []
+            event.groupCats = []
+
+            event.node.group_age.forEach(age => {
+              groupAge.forEach(gAge => {
+                if (gAge.node.wordpress_id === age) {
+                  event.groupAge.push(gAge.node.name)
+                }
+              })
+            })
+
+            event.node.group_category.forEach(cat => {
+              groupCats.forEach(gCat => {
+                if (gCat.node.wordpress_id === cat) {
+                  event.groupCats.push(gCat.node.name)
+                }
+              })
+            })
             const slug = event.node.slug
-            const title = event.node.acf._att_event_title
-            const excerpt = event.node.acf._att_event_excerpt
-            const age = event.node.acf._att_event_age_group
+            const title = event.node.title
+            const excerpt = event.node.acf._att_group_excerpt
             const img =
-              event.node.acf._att_page_hero_img.localFile.childImageSharp.fluid
-            const imgAlt = event.node.acf._att_page_hero_img.alt_text
+              event.node.acf._att_group_featured_img.localFile.childImageSharp
+                .fluid
+            const imgAlt = event.node.acf._att_group_featured_img.alt_text
             return (
               <Link
                 to={`/local-sports-groups/${slug}`}
@@ -91,7 +112,16 @@ class EventsList extends Component {
               >
                 <div className="eventlist__event--image">
                   <div className="eventlist__event--image--date">
-                    <p>{age}</p>
+                    {event.groupAge.length > 0 &&
+                      event.groupAge.map((ageGroup, index) => {
+                        return <p key={index}>{ageGroup}</p>
+                      })}
+                  </div>
+                  <div className="eventlist__event--image--cat">
+                    {event.groupCats.length > 0 &&
+                      event.groupCats.map((catGroup, index) => {
+                        return <p key={index}>{catGroup}</p>
+                      })}
                   </div>
                   <Img fluid={img} alt={imgAlt} />
                 </div>

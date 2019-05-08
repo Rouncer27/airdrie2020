@@ -16,6 +16,8 @@ class LocalGroups extends Component {
     const heroTitle = acf._att_page_hero_title
 
     const localGroups = this.props.data.allWordpressWpLocalGroups.edges
+    const groupAges = this.props.data.allWordpressWpGroupAge
+    const groupCategories = this.props.data.allWordpressWpGroupCategory
 
     const wereSocialImages = acf._att_were_social_images
     const wereSocialHash = acf._att_were_social_hash
@@ -24,7 +26,11 @@ class LocalGroups extends Component {
       <Layout>
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
         <HeroImage data={{ heroImage, heroTitle }} />
-        <GroupsList data={localGroups} />
+        <GroupsList
+          data={localGroups}
+          groupAge={groupAges}
+          groupCategories={groupCategories}
+        />
         <Submit />
         <WereSocial data={{ wereSocialImages, wereSocialHash }} />
       </Layout>
@@ -69,6 +75,47 @@ export const query = graphql`
         node {
           slug
           title
+          group_age
+          group_category
+          acf {
+            _att_group_excerpt
+            _att_group_featured_img {
+              alt_text
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 800) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    allWordpressWpGroupAge {
+      edges {
+        node {
+          wordpress_id
+          name
+          count
+          taxonomy {
+            name
+          }
+        }
+      }
+    }
+
+    allWordpressWpGroupCategory {
+      edges {
+        node {
+          wordpress_id
+          name
+          count
+          taxonomy {
+            name
+          }
         }
       }
     }

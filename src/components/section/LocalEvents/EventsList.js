@@ -170,7 +170,7 @@ const EventsListStyled = styled.section`
 
     @media (min-width: ${props => props.theme.bpDesksm}) {
       width: calc(33.3333% - 4rem);
-      margin: 2rem;
+      margin: 5rem 2rem;
     }
 
     &--image {
@@ -186,6 +186,12 @@ const EventsListStyled = styled.section`
         margin: 0 auto;
         text-align: center;
         z-index: 100;
+
+        p {
+          @media (min-width: ${props => props.theme.bpDesksm}) {
+            font-size: 1.4rem;
+          }
+        }
       }
 
       p {

@@ -7,7 +7,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 import { StandardWrapper } from "../components/styles/commons/Wrappers"
-import { NormalAchor } from "../components/styles/commons/Buttons"
+import { NormalAchor, NormalLink } from "../components/styles/commons/Buttons"
 
 const SingleLocalEventStyled = styled.article`
   padding: 2rem 0;
@@ -39,6 +39,10 @@ const SingleLocalEventStyled = styled.article`
     width: 100%;
     @media (min-width: ${props => props.theme.bpTablet}) {
       width: calc(60%);
+    }
+
+    .event-main-learn-more {
+      margin-bottom: 2rem;
     }
   }
 
@@ -83,6 +87,24 @@ const SingleLocalEventStyled = styled.article`
       }
     }
 
+    .event-category {
+      margin: 2rem 0;
+
+      h4 {
+        font-size: 1.4rem;
+      }
+
+      p {
+        margin: 0;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+
+        @media (min-width: ${props => props.theme.bpDesksm}) {
+          font-size: 1.4rem;
+        }
+      }
+    }
+
     .event-group-description {
       position: relative;
       margin-bottom: 1rem;
@@ -121,6 +143,16 @@ class SingleLocalEvent extends Component {
     const mainContent = acf._att_event_main_content
     const learnMore = acf._att_event_learn_more
 
+    const allEventCategories = this.props.data.allWordpressWpEventCategory.edges
+    const thisEventsCategories = []
+    this.props.data.wordpressWpLocalEvents.event_category.forEach(evCat => {
+      allEventCategories.forEach(cat => {
+        if (cat.node.wordpress_id === evCat) {
+          thisEventsCategories.push(cat.node.name)
+        }
+      })
+    })
+
     return (
       <Layout>
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
@@ -137,10 +169,17 @@ class SingleLocalEvent extends Component {
               <div dangerouslySetInnerHTML={{ __html: mainContent }} />
 
               {learnMore && (
-                <NormalAchor target="_blank" href={learnMore}>
+                <NormalAchor
+                  className="event-main-learn-more"
+                  target="_blank"
+                  href={learnMore}
+                >
                   Learn More
                 </NormalAchor>
               )}
+              <NormalLink to="/local-sports-events/">
+                Back To Events Page
+              </NormalLink>
             </div>
             <div className="event-meta-descriptions">
               <div className="event-name">
@@ -176,6 +215,15 @@ class SingleLocalEvent extends Component {
                   }}
                 />
               </div>
+
+              {thisEventsCategories.length > 0 && (
+                <div className="event-category">
+                  <h4>Event category</h4>
+                  {thisEventsCategories.map((cat, index) => {
+                    return <p key={index}>{cat}</p>
+                  })}
+                </div>
+              )}
             </div>
           </StandardWrapper>
         </SingleLocalEventStyled>
@@ -188,6 +236,7 @@ export const query = graphql`
   query LocalEvent($id: Int!) {
     wordpressWpLocalEvents(wordpress_id: { eq: $id }) {
       title
+      event_category
       acf {
         _att_event_img {
           alt_text
@@ -206,6 +255,19 @@ export const query = graphql`
         _att_event_learn_more
         _att_event_group
         _att_event_group_description
+      }
+    }
+
+    allWordpressWpEventCategory {
+      edges {
+        node {
+          wordpress_id
+          name
+          count
+          taxonomy {
+            name
+          }
+        }
       }
     }
   }
