@@ -68,21 +68,7 @@ export const query = graphql`
       edges {
         node {
           slug
-          acf {
-            _att_page_hero_img {
-              alt_text
-              localFile {
-                childImageSharp {
-                  fluid(maxWidth: 800) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
-            }
-            _att_event_title
-            _att_event_excerpt
-            _att_event_age_group
-          }
+          title
         }
       }
     }

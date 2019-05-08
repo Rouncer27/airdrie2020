@@ -40,29 +40,7 @@ class SingleLocalGroup extends Component {
 export const query = graphql`
   query LocalGroup($id: Int!) {
     wordpressWpLocalGroups(wordpress_id: { eq: $id }) {
-      acf {
-        _att_page_hero_title
-        _att_page_hero_img {
-          alt_text
-          localFile {
-            childImageSharp {
-              fluid(maxWidth: 2000) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-        }
-
-        _att_event_date
-        _att_event_age_group
-        _att_event_location
-        _att_event_location_google
-        _att_event_title
-        _att_event_group
-        _att_event_group_description
-        _att_event_main_content
-        _att_event_learn_more
-      }
+      title
     }
   }
 `

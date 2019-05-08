@@ -353,8 +353,11 @@ class LocalAthlets extends Component {
           </div>
           <div className="localathletes__container">
             {localAthlets.map((athlete, index) => {
+              console.log(athlete)
               const { name, bio_title, bio_content, action_word } = athlete
-              const bioImg = athlete.image.localFile.childImageSharp.fluid
+              const bioImg = athlete.image.localFile
+                ? athlete.image.localFile.childImageSharp.fluid
+                : false
               const bioImgAlt = athlete.image.alt_text
               const bioActiveClass =
                 this.state.activeAthlete === index ? " bio-active" : ""
@@ -365,7 +368,7 @@ class LocalAthlets extends Component {
                   className={`localathletes__athlete${bioActiveClass}`}
                 >
                   <div className="localathletes__athlete--image">
-                    <Img fluid={bioImg} alt={bioImgAlt} />
+                    {bioImg && <Img fluid={bioImg} alt={bioImgAlt} />}
                   </div>
 
                   <div className="localathletes__athlete--meta">
@@ -391,7 +394,7 @@ class LocalAthlets extends Component {
                   <div className="localathletes__athlete--bio">
                     <div className="localathletes__athlete--bio--modal">
                       <div className="localathletes__athlete--image">
-                        <Img fluid={bioImg} alt={bioImgAlt} />
+                        {bioImg && <Img fluid={bioImg} alt={bioImgAlt} />}
                       </div>
                       <div className="localathletes__athlete--meta">
                         <div className="localathletes__athlete--meta--title">

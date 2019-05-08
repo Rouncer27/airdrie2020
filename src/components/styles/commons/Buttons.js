@@ -21,6 +21,12 @@ const NormalButton = styled.button`
     cursor: pointer;
   }
 
+  &:disabled {
+    border: 0.3rem solid ${props => props.theme.grey};
+    color: ${props => props.theme.grey};
+    cursor: not-allowed;
+  }
+
   &:focus {
     outline: none;
   }

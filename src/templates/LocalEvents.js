@@ -20,11 +20,13 @@ class LocalEvents extends Component {
     const wereSocialImages = acf._att_were_social_images
     const wereSocialHash = acf._att_were_social_hash
 
+    const eventCategories = this.props.data.allWordpressWpEventCategory.edges
+
     return (
       <Layout>
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
         <HeroImage data={{ heroImage, heroTitle }} />
-        <EventsList data={localEvents} />
+        <EventsList data={localEvents} eventCategories={eventCategories} />
         <Submit />
         <WereSocial data={{ wereSocialImages, wereSocialHash }} />
       </Layout>
@@ -68,8 +70,10 @@ export const query = graphql`
       edges {
         node {
           slug
+          title
+          event_category
           acf {
-            _att_page_hero_img {
+            _att_event_img {
               alt_text
               localFile {
                 childImageSharp {
@@ -79,9 +83,22 @@ export const query = graphql`
                 }
               }
             }
-            _att_event_title
-            _att_event_excerpt
+            _att_event_cal_start
             _att_event_date
+            _att_event_excerpt
+          }
+        }
+      }
+    }
+
+    allWordpressWpEventCategory {
+      edges {
+        node {
+          wordpress_id
+          name
+          count
+          taxonomy {
+            name
           }
         }
       }
