@@ -267,10 +267,19 @@ class EventsList extends Component {
       allEvents: this.props.data,
       allCategories: this.props.eventCategories,
       currentlyShowing: this.props.data,
-      startDate: new Date(),
+      startDate: "",
       endDate: "",
       dataModelActive: false,
     }
+  }
+
+  componentDidMount() {
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        startDate: new Date(),
+      }
+    })
   }
 
   handleDateStart(date) {
