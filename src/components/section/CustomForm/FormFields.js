@@ -8,6 +8,7 @@ import { NormalButton } from "../../styles/commons/Buttons"
 import TextField from "./FormParts/TextField"
 import TextArea from "./FormParts/TextArea"
 import SelectField from "./FormParts/SelectField"
+import UploadField from "./FormParts/UploadField"
 
 const FormFieldsStyled = styled.section`
   position: relative;
@@ -141,6 +142,7 @@ class FormFields extends Component {
     this.closeErrorModal = this.closeErrorModal.bind(this)
     this.formSentSuccess = this.formSentSuccess.bind(this)
     this.closeSentModal = this.closeSentModal.bind(this)
+    this.handleFiles = this.handleFiles.bind(this)
     this.state = {
       submitting: false,
       formHasErrors: false,
@@ -154,6 +156,7 @@ class FormFields extends Component {
       groupName: "",
       eventCats: "",
       description: "",
+      photo: null,
       link: "",
     }
   }
@@ -176,6 +179,7 @@ class FormFields extends Component {
     bodyFormData.append("groupName", this.state.groupName)
     bodyFormData.append("eventCats", this.state.eventCats)
     bodyFormData.append("description", this.state.description)
+    bodyFormData.append("photo", this.state.photo)
     bodyFormData.append("link", this.state.link)
 
     //const baseURL = "http://localhost/gatsby-airdrieangel";
@@ -217,7 +221,6 @@ class FormFields extends Component {
   }
 
   closeSentModal() {
-    console.log("CLOSED")
     this.setState(prevState => {
       return {
         ...prevState,
@@ -233,6 +236,7 @@ class FormFields extends Component {
         groupName: "",
         eventCats: "",
         description: "",
+        photo: null,
         link: "",
       }
     })
@@ -262,6 +266,16 @@ class FormFields extends Component {
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value })
+  }
+
+  handleFiles(e) {
+    let file = e.target.files[0]
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        photo: file,
+      }
+    })
   }
 
   render() {
@@ -327,7 +341,17 @@ class FormFields extends Component {
                   />
                 )
               } else if (type === "upload") {
-                inputFieldType = ""
+                inputFieldType = (
+                  <UploadField
+                    type={type}
+                    label={label}
+                    name={name}
+                    value={value}
+                    options={options}
+                    onChange={this.handleFiles}
+                    errors={this.state.errors}
+                  />
+                )
               }
 
               return (
