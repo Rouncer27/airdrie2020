@@ -89,7 +89,7 @@ const EventsListStyled = styled.section`
     position: relative;
     width: 100%;
     padding: 5rem 1rem;
-    z-index: 500;
+    z-index: 499;
 
     .eventlist__search--categories {
       width: 33%;
