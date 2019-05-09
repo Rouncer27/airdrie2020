@@ -164,7 +164,6 @@ class MobileNav extends Component {
         `}
         render={data => {
           const menuItems = data.wordpressWpApiMenusMenusItems.items
-          console.log(menuItems)
           return (
             <MobileNavWrapper>
               <button
