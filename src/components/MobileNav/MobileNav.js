@@ -134,7 +134,7 @@ class MobileNav extends Component {
     this.toggleMobileNav = this.toggleMobileNav.bind(this)
 
     this.state = {
-      isNavOpen: true,
+      isNavOpen: false,
     }
   }
 
@@ -181,7 +181,7 @@ class MobileNav extends Component {
                   <ul className="mobileNav__items">
                     {menuItems.map((item, index) => {
                       return (
-                        <li className="mobileNav__item">
+                        <li key={index} className="mobileNav__item">
                           <Link
                             to={
                               item.object_slug === "home"
