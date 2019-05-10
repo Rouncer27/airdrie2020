@@ -28,9 +28,11 @@ const DanceStyled = styled.section`
 
   .dance__meta {
     width: calc(100%);
+    margin-bottom: 5rem;
 
     @media (min-width: ${props => props.theme.bpDesksm}) {
       width: calc(50% - 4rem);
+      margin-bottom: 0;
     }
 
     &--title {

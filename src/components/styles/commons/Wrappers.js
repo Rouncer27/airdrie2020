@@ -7,6 +7,7 @@ const StandardWrapper = styled.div`
   width: 100%;
   max-width: 45rem;
   margin: 0 auto;
+  padding: 2rem;
 
   @media (min-width: ${props => props.theme.bpTablet}) {
     max-width: 95rem;

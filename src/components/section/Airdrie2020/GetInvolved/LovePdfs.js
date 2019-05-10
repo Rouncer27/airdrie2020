@@ -20,8 +20,14 @@ const LovePdfsStyled = styled.section`
 
   .lovepdfs__vols,
   .lovepdfs__spon {
-    width: calc(50%);
+    width: calc(100%);
+    margin-bottom: 5rem;
     text-align: center;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      width: calc(50% - 4rem);
+      margin: 2rem;
+    }
 
     @media (min-width: ${props => props.theme.bpDesksm}) {
       width: calc(33% - 4rem);

@@ -20,8 +20,14 @@ const FundraisersStyled = styled.section`
   }
 
   .fundraiser__item {
-    width: calc(50%);
+    width: calc(100%);
+    margin-bottom: 5rem;
     text-align: center;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      width: calc(33.3333% - 4rem);
+      margin: 2rem;
+    }
 
     @media (min-width: ${props => props.theme.bpDesksm}) {
       width: calc(33.3333% - 4rem);
@@ -45,6 +51,7 @@ const FundraisersStyled = styled.section`
         margin: 0;
         padding: 0.5rem 2rem;
         background: ${props => props.theme.white};
+        color: #000;
       }
     }
 
@@ -77,6 +84,11 @@ const FundraisersStyled = styled.section`
         @media (min-width: ${props => props.theme.bpDesksm}) {
           font-size: 1.6rem;
         }
+      }
+
+      p {
+        color: #000;
+        font-weight: 500;
       }
     }
   }

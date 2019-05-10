@@ -11,6 +11,11 @@ const IntroStyled = styled.section`
     p {
       color: ${props => props.theme.pacificBlue};
       font-weight: 400;
+      font-size: 2rem;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        font-size: 1.8rem;
+      }
     }
   }
 `

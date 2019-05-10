@@ -88,7 +88,8 @@ const AirdriePicksStyled = styled.section`
   .airpicks__stay,
   .airpicks__play {
     text-align: center;
-    @media (min-width: ${props => props.theme.bpDesksm}) {
+    width: 100%;
+    @media (min-width: ${props => props.theme.bpTablet}) {
       width: calc(33.3333333% - 4rem);
       margin: 2rem;
     }
