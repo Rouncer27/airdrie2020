@@ -144,21 +144,23 @@ class FormFields extends Component {
     this.closeSentModal = this.closeSentModal.bind(this)
     this.handleFiles = this.handleFiles.bind(this)
     this.state = {
+      cf7ID: "",
       submitting: false,
       formHasErrors: false,
       errors: [],
+      totalFeilds: [],
       formSent: false,
-      fullName: "",
-      email: "",
-      eventName: "",
-      dateTime: "",
-      location: "",
-      groupName: "",
-      eventCats: "",
-      description: "",
-      photo: null,
-      link: "",
     }
+  }
+
+  componentDidMount() {
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        cf7ID: this.props.formId,
+        totalFeilds: this.props.data,
+      }
+    })
   }
 
   submitTheForm(e) {
@@ -171,24 +173,17 @@ class FormFields extends Component {
     })
 
     const bodyFormData = new FormData()
-    bodyFormData.append("fullName", this.state.fullName)
-    bodyFormData.append("email", this.state.email)
-    bodyFormData.append("eventName", this.state.eventName)
-    bodyFormData.append("dateTime", this.state.dateTime)
-    bodyFormData.append("location", this.state.location)
-    bodyFormData.append("groupName", this.state.groupName)
-    bodyFormData.append("eventCats", this.state.eventCats)
-    bodyFormData.append("description", this.state.description)
-    bodyFormData.append("photo", this.state.photo)
-    bodyFormData.append("link", this.state.link)
 
-    //const baseURL = "http://localhost/gatsby-airdrieangel";
+    this.state.totalFeilds.forEach(field => {
+      bodyFormData.append(field.name, this.state[field.name])
+    })
     const baseURL = "https://database.airdrie2020.com/"
     const config = { headers: { "Content-Type": "multipart/form-data" } }
+    const formID = this.state.cf7ID
 
     axios
       .post(
-        `${baseURL}/wp-json/contact-form-7/v1/contact-forms/774/feedback`,
+        `${baseURL}/wp-json/contact-form-7/v1/contact-forms/${formID}/feedback`,
         bodyFormData,
         config
       )
@@ -196,8 +191,6 @@ class FormFields extends Component {
         if (res.data.status === "mail_sent") {
           setTimeout(() => {
             this.formSentSuccess(res.data.message)
-            console.log("SUCCESS!!!!")
-            console.log(res.data.message)
           }, 1000)
         } else if (res.data.status === "validation_failed") {
           setTimeout(() => {
@@ -221,23 +214,19 @@ class FormFields extends Component {
   }
 
   closeSentModal() {
+    let fieldsToReset = {}
+    this.state.totalFeilds.forEach(fields => {
+      fieldsToReset[fields.name] = ""
+    })
+
     this.setState(prevState => {
       return {
         ...prevState,
+        ...fieldsToReset,
         submitting: false,
         formHasErrors: false,
         errors: [],
         formSent: false,
-        fullName: "",
-        email: "",
-        eventName: "",
-        dateTime: "",
-        location: "",
-        groupName: "",
-        eventCats: "",
-        description: "",
-        photo: null,
-        link: "",
       }
     })
   }

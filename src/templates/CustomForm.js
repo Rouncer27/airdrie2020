@@ -20,13 +20,14 @@ class CustomForm extends Component {
     const introContent = acf._att_intro_content
 
     const formFields = acf._att_form_fields
+    const formId = acf._att_contact_form_7_id
 
     return (
       <Layout>
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
         <HeroImage data={{ heroImage, heroTitle }} />
         <Intro data={{ introTitle, introContent }} />
-        <FormFields data={formFields} />
+        <FormFields data={formFields} formId={formId} />
       </Layout>
     )
   }
@@ -51,6 +52,7 @@ export const query = graphql`
         _att_intro_content_title
         _att_intro_content
 
+        _att_contact_form_7_id
         _att_form_fields {
           type
           name
