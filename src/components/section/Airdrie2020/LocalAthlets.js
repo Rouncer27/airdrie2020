@@ -30,7 +30,14 @@ const LocalAthletsStyled = styled.section`
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
-    margin: 4rem 1rem;
+    max-width: 30rem;
+    margin: 4rem auto;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      width: calc(33.33% - 2rem);
+      max-width: 100%;
+      margin: 4rem 1rem;
+    }
 
     @media (min-width: ${props => props.theme.bpDesksm}) {
       width: calc(50% - 2rem);
@@ -41,13 +48,20 @@ const LocalAthletsStyled = styled.section`
       width: calc(100%);
       padding: 0 2rem;
 
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        padding: 0 2rem;
+      }
+
       @media (min-width: ${props => props.theme.bpDesksm}) {
         width: calc(50% - 2rem);
+        padding: 0 2rem;
         margin-right: 2rem;
       }
 
       img {
+        width: 100%;
         max-width: 100%;
+        object-fit: cover;
       }
     }
 
@@ -166,9 +180,9 @@ const LocalAthletsStyled = styled.section`
 
         @media (min-width: ${props => props.theme.bpTablet}) {
           width: 100%;
-          max-width: 75rem;
+          max-width: 45rem;
           padding: 5rem;
-          overflow-y: visible;
+          overflow-y: scroll;
         }
 
         @media (min-width: ${props => props.theme.bpDesksm}) {
@@ -242,8 +256,8 @@ const LocalAthletsStyled = styled.section`
             transition: all 0.3s ease;
 
             @media (min-width: ${props => props.theme.bpTablet}) {
-              top: -2.5rem;
-              right: -2.5rem;
+              top: 0rem;
+              right: 0rem;
               width: 5rem;
               height: 5rem;
             }

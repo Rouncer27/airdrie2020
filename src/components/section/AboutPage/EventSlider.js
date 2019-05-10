@@ -196,7 +196,7 @@ const EventSliderStyled = styled.section`
         font-weight: 300;
         text-align: center;
 
-        @media (min-width: ${props => props.theme.bpDesksm}) {
+        @media (min-width: ${props => props.theme.bpTablet}) {
           color: #000;
           font-size: 1.4rem;
           text-align: left;
