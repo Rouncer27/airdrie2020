@@ -41,21 +41,33 @@ const EventSliderStyled = styled.section`
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 38rem;
-      height: 38rem;
+      width: 40rem;
+      height: 40rem;
       transition: all 2s ease-in-out;
       transform-origin: 0% 0%;
       transform: rotate(180deg) translate(-50%, -50%);
       background: ${props => props.theme.persianIndigo};
       opacity: 0;
       z-index: -1;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        width: 38rem;
+        height: 38rem;
+      }
     }
 
     &--sidea {
       position: relative;
-      width: calc(50% - 5rem);
-      margin-top: 5rem;
-      margin-right: 5rem;
+      width: calc(100%);
+      margin-top: 2.5rem;
+      margin-right: auto;
+      margin-left: auto;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        width: calc(50% - 5rem);
+        margin-top: 5rem;
+        margin-right: 5rem;
+      }
     }
 
     &--namea {
@@ -88,11 +100,20 @@ const EventSliderStyled = styled.section`
     &--action {
       width: 100%;
       text-align: center;
+
       p {
         margin: 0;
+        margin-top: 2rem;
         padding: 0;
+        color: ${props => props.theme.white};
         font-family: ${props => props.theme.fontSec};
+        font-size: 4rem;
         line-height: 1.25;
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          margin-top: 0;
+          color: #000;
+        }
 
         @media (min-width: ${props => props.theme.bpDesksm}) {
           font-size: 8rem;
@@ -103,9 +124,13 @@ const EventSliderStyled = styled.section`
     &--image {
       width: 100%;
       max-width: 40rem;
-      margin: 0 auto;
+      margin: 0;
       transition: all 2s ease-in-out;
       opacity: 0;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        margin: 0 auto;
+      }
     }
 
     &--imgone {
@@ -121,37 +146,72 @@ const EventSliderStyled = styled.section`
 
     &--sideb {
       position: relative;
-      width: calc(50% - 5rem);
-      margin-bottom: 5rem;
-      margin-left: 5rem;
+      width: calc(100%);
+      margin-bottom: 2.5rem;
+      margin-left: 0;
+      margin-right: auto;
+      margin-left: auto;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        width: calc(50% - 5rem);
+        margin-bottom: 5rem;
+        margin-left: 5rem;
+      }
     }
 
     &--nameb {
+      margin-top: 5rem;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        margin-top: 0;
+      }
+
       h3 {
         margin: 0;
         padding: 0;
+        color: ${props => props.theme.white};
         font-family: ${props => props.theme.fontSec};
-        text-align: left;
+        text-align: center;
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          color: #000;
+          text-align: left;
+        }
       }
     }
 
     &--content {
+      max-width: 30rem;
+      margin: 0 auto 5rem;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        max-width: 100%;
+        margin: 0 auto;
+      }
+
       p {
         margin: 0;
         padding: 0;
+        color: ${props => props.theme.white};
         font-weight: 300;
-        text-align: left;
+        text-align: center;
 
         @media (min-width: ${props => props.theme.bpDesksm}) {
+          color: #000;
           font-size: 1.4rem;
+          text-align: left;
         }
       }
     }
 
     &--link {
-      text-align: left;
+      text-align: center;
       margin-top: 1rem;
       margin-bottom: 4rem;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        text-align: left;
+      }
 
       a {
         display: inline-block;
@@ -231,7 +291,7 @@ class EventSlider extends Component {
       speed: 2000,
       fade: true,
       focusOnSelect: false,
-      autoplay: false,
+      autoplay: true,
       autoplaySpeed: 5000,
       cssEase: "linear",
     }
