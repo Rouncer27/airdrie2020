@@ -13,6 +13,19 @@ import UploadField from "./FormParts/UploadField"
 const FormFieldsStyled = styled.section`
   position: relative;
   padding: 5rem 0;
+  width: 100%;
+  padding: 0 2rem;
+
+  @media (min-width: ${props => props.theme.bpTablet}) {
+    max-width: 60rem;
+    margin: 0 auto;
+  }
+
+  @media (min-width: ${props => props.theme.bpDesksm}) {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
 
   .form-send-modal,
   .submitting-the-forms {
@@ -103,6 +116,8 @@ const FormFieldsStyled = styled.section`
 
   .customform__wrapper {
     width: 100%;
+    padding: 2rem;
+
     @media (min-width: ${props => props.theme.bpDesksm}) {
       max-width: 75rem;
     }
@@ -139,6 +154,12 @@ const FormFieldsStyled = styled.section`
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
+    margin: 1rem 0;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      width: calc(50% - 4rem);
+      margin: 2rem 0;
+    }
 
     @media (min-width: ${props => props.theme.bpDesksm}) {
       width: calc(50% - 4rem);

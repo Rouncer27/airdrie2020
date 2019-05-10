@@ -5,6 +5,20 @@ import { StandardWrapper } from "../../styles/commons/Wrappers"
 import { StandardParagraphs } from "../../styles/commons/Paragraphs"
 
 const IntroStyled = styled.section`
+  width: 100%;
+  padding: 0 2rem;
+
+  @media (min-width: ${props => props.theme.bpTablet}) {
+    max-width: 60rem;
+    margin: 0 auto;
+  }
+
+  @media (min-width: ${props => props.theme.bpDesksm}) {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
   .formintro__title {
     width: 100%;
     h2 {
