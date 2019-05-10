@@ -58,6 +58,7 @@ export const query = graphql`
           name
           label
           placeholder
+          required
           options {
             option
           }

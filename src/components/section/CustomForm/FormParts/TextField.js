@@ -48,9 +48,9 @@ class TextField extends Component {
           type={this.props.type}
           id={this.props.name}
           name={this.props.name}
-          placeholder={this.props.placeholder}
           value={this.props.value}
           onChange={this.props.onChange}
+          required={this.props.required}
         />
       </TextFieldStyled>
     )

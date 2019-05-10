@@ -10,6 +10,7 @@ class UploadField extends Component {
           name={this.props.name}
           onChange={this.props.onChange}
           accept=".jpg, .png, .jpeg"
+          required={this.props.required}
         />
       </div>
     )

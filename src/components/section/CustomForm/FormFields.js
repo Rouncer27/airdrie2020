@@ -33,6 +33,17 @@ const FormFieldsStyled = styled.section`
       background: ${props => props.theme.white};
       text-align: center;
       z-index: 5;
+
+      p {
+        font-weight: bold;
+      }
+
+      &--button {
+        display: block;
+        margin-top: 4rem;
+        margin-right: auto;
+        margin-left: auto;
+      }
     }
 
     &__background {
@@ -65,6 +76,17 @@ const FormFieldsStyled = styled.section`
       background: ${props => props.theme.white};
       text-align: center;
       z-index: 5;
+
+      p {
+        font-weight: bold;
+      }
+
+      &--button {
+        display: block;
+        margin-top: 4rem;
+        margin-right: auto;
+        margin-left: auto;
+      }
     }
 
     &__background {
@@ -105,6 +127,11 @@ const FormFieldsStyled = styled.section`
     flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
+
+    &--button {
+      margin-top: 5rem;
+      width: 100%;
+    }
   }
 
   .customform__field {
@@ -154,9 +181,15 @@ class FormFields extends Component {
   }
 
   componentDidMount() {
+    let fieldsSet = {}
+    this.props.data.forEach(fields => {
+      fieldsSet[fields.name] = ""
+    })
+
     this.setState(prevState => {
       return {
         ...prevState,
+        ...fieldsSet,
         cf7ID: this.props.formId,
         totalFeilds: this.props.data,
       }
@@ -277,8 +310,14 @@ class FormFields extends Component {
           </div>
           <form onSubmit={this.submitTheForm} className="customform__form">
             {fields.map((field, index) => {
+              const requiredField = field.required === "yes" ? true : false
               const { type, name, label, placeholder, options } = field
               const value = this.state[name] ? this.state[name] : ""
+
+              const labelMessage = requiredField
+                ? `${label} * Required`
+                : `${label}`
+
               let inputFieldType = ""
               if (type === "text") {
                 inputFieldType = (
@@ -291,6 +330,7 @@ class FormFields extends Component {
                     value={value}
                     onChange={this.onChange}
                     errors={this.state.errors}
+                    required={requiredField}
                   />
                 )
               } else if (type === "textarea") {
@@ -303,6 +343,7 @@ class FormFields extends Component {
                     value={value}
                     onChange={this.onChange}
                     errors={this.state.errors}
+                    required={requiredField}
                   />
                 )
               } else if (type === "email") {
@@ -316,6 +357,7 @@ class FormFields extends Component {
                     value={value}
                     onChange={this.onChange}
                     errors={this.state.errors}
+                    required={requiredField}
                   />
                 )
               } else if (type === "select") {
@@ -327,6 +369,7 @@ class FormFields extends Component {
                     options={options}
                     onChange={this.onChange}
                     errors={this.state.errors}
+                    required={requiredField}
                   />
                 )
               } else if (type === "upload") {
@@ -339,6 +382,7 @@ class FormFields extends Component {
                     options={options}
                     onChange={this.handleFiles}
                     errors={this.state.errors}
+                    required={requiredField}
                   />
                 )
               }
@@ -348,12 +392,12 @@ class FormFields extends Component {
                   key={index}
                   className={`customform__field customform__field--${type}`}
                 >
-                  <label htmlFor={name}>{label}</label>
+                  <label htmlFor={name}>{labelMessage}</label>
                   {inputFieldType}
                 </div>
               )
             })}
-            <div className="athleteform__form--button">
+            <div className="customform__form--button">
               <NormalButton disabled={this.state.submitting}>
                 Submit
               </NormalButton>
@@ -372,8 +416,16 @@ class FormFields extends Component {
         {this.state.formHasErrors && (
           <div onClick={this.closeErrorModal} className="form-error-modal">
             <div className="form-error-modal__message">
-              Your Form Has Errors. Please fix to submit form.
-              <button onClick={this.closeErrorModal}>Close</button>
+              <p>
+                Your Form Has Errors. Please fix the required fields to submit
+                form.
+              </p>
+              <NormalButton
+                className="form-error-modal__message--button"
+                onClick={this.closeErrorModal}
+              >
+                Close
+              </NormalButton>
             </div>
             <div className="form-error-modal__background" />
           </div>
@@ -382,8 +434,13 @@ class FormFields extends Component {
         {this.state.formSent && (
           <div onClick={this.closeSentModal} className="form-send-modal">
             <div className="form-send-modal__message">
-              Success! Your Form Have Been Sent.
-              <button onClick={this.closeSentModal}>Close</button>
+              <p>Success! Your Form Have Been Sent.</p>
+              <NormalButton
+                className="form-send-modal__message--button"
+                onClick={this.closeSentModal}
+              >
+                Close
+              </NormalButton>
             </div>
             <div className="form-send-modal__background" />
           </div>

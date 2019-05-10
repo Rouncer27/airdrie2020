@@ -29,6 +29,7 @@ class SelectField extends Component {
           name={this.props.name}
           onChange={this.props.onChange}
           value={this.props.value}
+          required={this.props.required}
         >
           <option value=""> -- select an option -- </option>
           {this.props.options.map((option, index) => {
