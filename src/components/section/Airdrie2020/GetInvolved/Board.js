@@ -33,6 +33,14 @@ const BoardStyled = styled.section`
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
+    max-width: 30rem;
+    margin: 4rem auto;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      width: calc(33.33% - 2rem);
+      max-width: 100%;
+      margin: 4rem 1rem;
+    }
 
     @media (min-width: ${props => props.theme.bpDesksm}) {
       width: calc(50% - 2rem);
@@ -43,23 +51,35 @@ const BoardStyled = styled.section`
       width: calc(100%);
       padding: 0 2rem;
 
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        padding: 0 2rem;
+      }
+
       @media (min-width: ${props => props.theme.bpDesksm}) {
         width: calc(50% - 2rem);
+        padding: 0 2rem;
         margin-right: 2rem;
       }
 
       img {
+        width: 100%;
         max-width: 100%;
+        object-fit: cover;
       }
     }
 
     &--meta {
-      width: calc(50% - 2rem);
-      margin-left: 2rem;
+      width: calc(100%);
+      padding: 0 2rem;
+
+      @media (min-width: ${props => props.theme.bpDesksm}) {
+        width: calc(50% - 2rem);
+        margin-left: 2rem;
+      }
 
       &--title {
         h2 {
-          display: inline-block;
+          display: block;
           margin: 0;
           background-color: ${props => props.theme.mandarinOrange};
           padding: 0.25rem 2rem;
@@ -68,6 +88,10 @@ const BoardStyled = styled.section`
           text-align: center;
           text-transform: uppercase;
 
+          @media (min-width: ${props => props.theme.bpTablet}) {
+            display: inline-block;
+          }
+
           @media (min-width: ${props => props.theme.bpDesksm}) {
             font-size: 1.6rem;
           }
@@ -75,6 +99,11 @@ const BoardStyled = styled.section`
 
         h3 {
           font-family: ${props => props.theme.fontSec};
+          text-align: center;
+
+          @media (min-width: ${props => props.theme.bpTablet}) {
+            text-align: left;
+          }
 
           @media (min-width: ${props => props.theme.bpDesksm}) {
             font-size: 2rem;
@@ -83,15 +112,34 @@ const BoardStyled = styled.section`
       }
 
       &--action {
+        text-align: center;
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          text-align: left;
+        }
+
         p {
           margin: 0;
           margin-bottom: 1rem;
           color: ${props => props.theme.mandarinOrange};
           font-family: ${props => props.theme.fontSec};
+          font-size: 4rem;
+
+          @media (min-width: ${props => props.theme.bpTablet}) {
+            font-size: 2rem;
+          }
 
           @media (min-width: ${props => props.theme.bpDesksm}) {
             font-size: 4rem;
           }
+        }
+      }
+
+      &--button {
+        text-align: center;
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          text-align: left;
         }
       }
     }
@@ -108,6 +156,9 @@ const BoardStyled = styled.section`
       opacity: 0;
       z-index: 500;
 
+      @media (min-width: ${props => props.theme.bpTablet}) {
+      }
+
       @media (min-width: ${props => props.theme.bpDesksm}) {
         width: 100%;
       }
@@ -120,12 +171,23 @@ const BoardStyled = styled.section`
         flex-wrap: wrap;
         justify-content: flex-start;
         width: 100%;
+        max-width: 90%;
+        max-height: 90vh;
         margin: 2.5rem auto;
         margin: auto;
-        padding: 5rem;
+        padding: 1rem;
         transform: translate(-50%, -50%);
         background: ${props => props.theme.white};
+        overflow-y: scroll;
         z-index: 20;
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          width: 100%;
+          max-width: 45rem;
+          padding: 5rem;
+          overflow-y: scroll;
+        }
+
         @media (min-width: ${props => props.theme.bpDesksm}) {
           max-width: 75rem;
         }
@@ -138,15 +200,22 @@ const BoardStyled = styled.section`
         &--button {
           button {
             position: absolute;
-            top: -2.5rem;
-            right: -2.5rem;
+            top: 1rem;
+            right: 1rem;
             display: inline-block;
-            width: 5rem;
-            height: 5rem;
+            width: 7.5rem;
+            height: 7.5rem;
             background: ${props => props.theme.white};
             border-radius: 50%;
             border: 0.2rem solid ${props => props.theme.pacificBlue};
             transition: all 0.3s ease;
+
+            @media (min-width: ${props => props.theme.bpTablet}) {
+              top: 0rem;
+              right: 0rem;
+              width: 5rem;
+              height: 5rem;
+            }
 
             &::after {
               display: block;
