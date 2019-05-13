@@ -17,7 +17,7 @@ const PillarsStyled = styled.section`
     }
 
     @media (min-width: ${props => props.theme.bpDesksm}) {
-      max-width: 115rem;
+      max-width: 110rem;
     }
   }
 
@@ -37,10 +37,27 @@ const PillarsStyled = styled.section`
     justify-content: center;
     width: 100%;
     text-align: center;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      max-width: 55rem;
+    }
+
+    @media (min-width: ${props => props.theme.bpDesksm}) {
+      max-width: 85rem;
+    }
+
+    @media (min-width: 1200px) {
+      max-width: 90rem;
+    }
   }
 
   .pillars__item {
     @media (min-width: ${props => props.theme.bpDesksm}) {
+      width: calc(50% - 4rem);
+      margin: 0 2rem;
+    }
+
+    @media (min-width: 1200px) {
       width: calc(25% - 4rem);
       margin: 0 2rem;
     }

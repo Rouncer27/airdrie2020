@@ -16,6 +16,11 @@ const WeBelieveStyled = styled.section`
     @media (min-width: ${props => props.theme.bpTablet}) {
       padding: 2.5rem 0;
     }
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      padding: 2.5rem 3.5rem;
+    }
+
     h2 {
       width: 100%;
       margin: 0 auto;
@@ -27,7 +32,7 @@ const WeBelieveStyled = styled.section`
 
       @media (min-width: ${props => props.theme.bpTablet}) {
         max-width: 75rem;
-        font-size: 6rem;
+        font-size: 5rem;
       }
 
       @media (min-width: ${props => props.theme.bpDesksm}) {
@@ -58,7 +63,7 @@ const WeBelieveStyled = styled.section`
       opacity: 0.25;
 
       @media (min-width: ${props => props.theme.bpTablet}) {
-        font-size: 10rem;
+        font-size: 8rem;
       }
 
       @media (min-width: ${props => props.theme.bpDesksm}) {
@@ -73,13 +78,28 @@ const WeBelieveStyled = styled.section`
     margin: 0 auto;
     text-align: center;
 
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      max-width: 55rem;
+    }
+
     @media (min-width: ${props => props.theme.bpDesksm}) {
       max-width: 90rem;
     }
   }
 
   .believed__content {
+    width: 100%;
+    margin: 0 auto;
     padding: 0;
+    text-align: center;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      max-width: 55rem;
+    }
+
+    @media (min-width: ${props => props.theme.bpDesksm}) {
+      max-width: 90rem;
+    }
     p {
       font-weight: 300;
     }

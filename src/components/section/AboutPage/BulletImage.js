@@ -35,7 +35,7 @@ const BulletImageStyled = styled.section`
     margin: 0 auto;
 
     @media (min-width: ${props => props.theme.bpTablet}) {
-      max-width: 95rem;
+      max-width: 60rem;
     }
 
     @media (min-width: ${props => props.theme.bpDesksm}) {
@@ -64,6 +64,11 @@ const BulletImageStyled = styled.section`
       width: 100%;
 
       @media (min-width: ${props => props.theme.bpTablet}) {
+        width: 60%;
+        padding: 2rem 2.5rem;
+      }
+
+      @media (min-width: ${props => props.theme.bpDesksm}) {
         width: 50%;
         padding: 2rem 7.5rem;
       }
@@ -99,6 +104,10 @@ const BulletImageStyled = styled.section`
         margin-bottom: 1.5rem;
         font-weight: 300;
 
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          font-size: 1.2rem;
+        }
+
         @media (min-width: ${props => props.theme.bpDesksm}) {
           font-size: 1.4rem;
         }
@@ -111,8 +120,12 @@ const BulletImageStyled = styled.section`
       margin-top: 5rem;
 
       @media (min-width: ${props => props.theme.bpTablet}) {
-        width: 50%;
+        width: 40%;
         margin-top: 0;
+      }
+
+      @media (min-width: ${props => props.theme.bpDesksm}) {
+        width: 50%;
       }
 
       &--title {
@@ -131,6 +144,10 @@ const BulletImageStyled = styled.section`
           color: ${props => props.theme.white};
           font-weight: 100;
           text-transform: uppercase;
+
+          @media (min-width: ${props => props.theme.bpTablet}) {
+            font-size: 1.4rem;
+          }
 
           @media (min-width: ${props => props.theme.bpDesksm}) {
             font-size: 2rem;

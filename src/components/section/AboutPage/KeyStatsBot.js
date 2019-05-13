@@ -21,10 +21,16 @@ const KeyStatsBotStyled = styled.section`
     padding: 2rem;
 
     @media (min-width: ${props => props.theme.bpTablet}) {
-      max-width: 95rem;
+      max-width: 60rem;
+      text-align: center;
     }
 
     @media (min-width: ${props => props.theme.bpDesksm}) {
+      max-width: 90rem;
+      text-align: left;
+    }
+
+    @media (min-width: 1200px) {
       max-width: 100rem;
     }
 
