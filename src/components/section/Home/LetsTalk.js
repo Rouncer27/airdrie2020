@@ -66,6 +66,10 @@ const LetsTalkStyled = styled.section`
           border-radius: 50%;
           border: 0.1rem solid ${props => props.theme.grey};
           color: transparent;
+
+          &::before {
+            display: none;
+          }
         }
 
         &.slick-active {

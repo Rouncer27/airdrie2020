@@ -52,10 +52,18 @@ const GetInvolvedStyled = styled.section`
     padding: 2rem;
 
     @media (min-width: ${props => props.theme.bpTablet}) {
-      max-width: 95rem;
+      max-width: 55rem;
+    }
+
+    @media (min-width: 900px) {
+      max-width: 75rem;
     }
 
     @media (min-width: ${props => props.theme.bpDesksm}) {
+      max-width: 97.5rem;
+    }
+
+    @media (min-width: 1200px) {
       max-width: 110rem;
     }
   }
@@ -67,6 +75,12 @@ const GetInvolvedStyled = styled.section`
     width: 100%;
 
     @media (min-width: ${props => props.theme.bpTablet}) {
+      width: calc(50% - 8rem);
+      margin: 2rem 4rem;
+      padding-bottom: 10rem;
+    }
+
+    @media (min-width: 900px) {
       width: calc(33.33% - 8rem);
       margin: 2rem 4rem;
       padding-bottom: 10rem;

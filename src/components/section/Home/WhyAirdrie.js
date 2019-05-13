@@ -27,6 +27,10 @@ const WhyAirdrieStyled = styled.section`
     padding: 0;
 
     @media (min-width: ${props => props.theme.bpTablet}) {
+      padding: 5rem;
+    }
+
+    @media (min-width: ${props => props.theme.bpDesksm}) {
       padding: 5rem 0;
     }
 
@@ -81,6 +85,10 @@ const WhyAirdrieStyled = styled.section`
     margin: 0 auto;
     padding: 3rem 0;
     text-align: center;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      max-width: 55rem;
+    }
 
     @media (min-width: ${props => props.theme.bpDesksm}) {
       max-width: 90rem;
