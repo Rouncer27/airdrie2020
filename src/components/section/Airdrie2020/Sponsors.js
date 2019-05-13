@@ -70,6 +70,9 @@ const SponsorsStyled = styled.section`
     width: 100%;
 
     p {
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        font-size: 8rem;
+      }
       @media (min-width: ${props => props.theme.bpDesksm}) {
         font-size: 15rem;
       }

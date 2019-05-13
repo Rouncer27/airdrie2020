@@ -11,6 +11,24 @@ import scoreBoard from "../../../images/icons/airdrie2020/AIR-2020-Icons-scoring
 import scrollMap from "../../../images/icons/airdrie2020/AIR-2020-Icons-visitor.svg"
 
 const QuickIconLinksStyled = styled.section`
+  .quickicons__wrapper {
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      max-width: 55rem;
+    }
+
+    @media (min-width: 900px) {
+      max-width: 75rem;
+    }
+
+    @media (min-width: ${props => props.theme.bpDesksm}) {
+      max-width: 100rem;
+    }
+
+    @media (min-width: 1200px) {
+      max-width: 110rem;
+    }
+  }
+
   .quickicons__item {
     width: calc(50% - 4rem);
     margin: 2rem;
@@ -90,7 +108,7 @@ class QuickIconLinks extends Component {
     const icons = this.props.data.quickIcons
     return (
       <QuickIconLinksStyled className="quickicons">
-        <StandardWrapper>
+        <StandardWrapper className="quickicons__wrapper">
           {icons.map((icon, index) => {
             return (
               <div key={index} className="quickicons__item">

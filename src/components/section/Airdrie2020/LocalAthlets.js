@@ -8,6 +8,24 @@ import { StandardParagraphs } from "../../styles/commons/Paragraphs"
 import { NormalButton } from "../../styles/commons/Buttons"
 
 const LocalAthletsStyled = styled.section`
+  .localathletes__wrapper {
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      max-width: 55rem;
+    }
+
+    @media (min-width: 900px) {
+      max-width: 75rem;
+    }
+
+    @media (min-width: ${props => props.theme.bpDesksm}) {
+      max-width: 100rem;
+    }
+
+    @media (min-width: 1200px) {
+      max-width: 110rem;
+    }
+  }
+
   .localathletes__intro--title {
     h2 {
       @media (min-width: ${props => props.theme.bpDesksm}) {
@@ -34,6 +52,12 @@ const LocalAthletsStyled = styled.section`
     margin: 4rem auto;
 
     @media (min-width: ${props => props.theme.bpTablet}) {
+      width: calc(50% - 2rem);
+      max-width: 100%;
+      margin: 4rem 1rem;
+    }
+
+    @media (min-width: 900px) {
       width: calc(33.33% - 2rem);
       max-width: 100%;
       margin: 4rem 1rem;
@@ -87,6 +111,11 @@ const LocalAthletsStyled = styled.section`
 
           @media (min-width: ${props => props.theme.bpTablet}) {
             display: inline-block;
+            font-size: 2rem;
+          }
+
+          @media (min-width: 900px) {
+            font-size: 1.8rem;
           }
 
           @media (min-width: ${props => props.theme.bpDesksm}) {
@@ -99,6 +128,7 @@ const LocalAthletsStyled = styled.section`
           text-align: center;
 
           @media (min-width: ${props => props.theme.bpTablet}) {
+            font-size: 1.8rem;
             text-align: left;
           }
 
