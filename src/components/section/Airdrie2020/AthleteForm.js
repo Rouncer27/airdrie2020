@@ -309,6 +309,7 @@ class AthleteForm extends Component {
       submitting: false,
       formSent: false,
       formHasErrors: false,
+      errors: [],
     }
   }
 
@@ -378,6 +379,7 @@ class AthleteForm extends Component {
         submitting: false,
         formSent: false,
         formHasErrors: false,
+        errors: [],
       }
     })
   }
@@ -423,7 +425,27 @@ class AthleteForm extends Component {
     const content = this.props.data.athletsFormContent
     const active = this.props.data.athletsFormActive
 
-    const errorMessage = false
+    let errorYourName = false
+    let errorYourEmail = false
+    let errorAthleteName = false
+    let errorAthleteSport = false
+    let errorAthleteBio = false
+
+    if (this.state.errors.length > 0) {
+      this.state.errors.forEach(error => {
+        if (error.idref === "yourName") {
+          errorYourName = error.message
+        } else if (error.idref === "yourEmail") {
+          errorYourEmail = error.message
+        } else if (error.idref === "athleteName") {
+          errorAthleteName = error.message
+        } else if (error.idref === "athleteSport") {
+          errorAthleteSport = error.message
+        } else if (error.idref === "athleteBio") {
+          errorAthleteBio = error.message
+        }
+      })
+    }
 
     return (
       <AthleteFormStyled className="athleteform">
@@ -440,8 +462,8 @@ class AthleteForm extends Component {
               <div className="athleteform__form--field">
                 <label htmlFor="yourName">Your Name</label>
                 <TextFieldStyled>
-                  {errorMessage && (
-                    <p className="error-warning">{errorMessage}</p>
+                  {errorYourName && (
+                    <p className="error-warning">{errorYourName}</p>
                   )}
                   <input
                     type="text"
@@ -456,8 +478,8 @@ class AthleteForm extends Component {
               <div className="athleteform__form--field">
                 <label htmlFor="yourEmail">Your Email</label>
                 <TextFieldStyled>
-                  {errorMessage && (
-                    <p className="error-warning">{errorMessage}</p>
+                  {errorYourEmail && (
+                    <p className="error-warning">{errorYourEmail}</p>
                   )}
                   <input
                     type="email"
@@ -472,8 +494,8 @@ class AthleteForm extends Component {
               <div className="athleteform__form--field">
                 <label htmlFor="athleteName">Athlete's Name</label>
                 <TextFieldStyled>
-                  {errorMessage && (
-                    <p className="error-warning">{errorMessage}</p>
+                  {errorAthleteName && (
+                    <p className="error-warning">{errorAthleteName}</p>
                   )}
                   <input
                     type="text"
@@ -489,8 +511,8 @@ class AthleteForm extends Component {
               <div className="athleteform__form--field">
                 <label htmlFor="athleteSport">Athlete's Sport</label>
                 <TextFieldStyled>
-                  {errorMessage && (
-                    <p className="error-warning">{errorMessage}</p>
+                  {errorAthleteSport && (
+                    <p className="error-warning">{errorAthleteSport}</p>
                   )}
                   <input
                     type="text"
@@ -506,8 +528,8 @@ class AthleteForm extends Component {
               <div className="athleteform__form--field">
                 <label htmlFor="athleteBio">Bio &#42;</label>
                 <TextAreaStyled>
-                  {errorMessage && (
-                    <p className="error-warning">{errorMessage}</p>
+                  {errorAthleteBio && (
+                    <p className="error-warning">{errorAthleteBio}</p>
                   )}
                   <textarea
                     cols="40"
