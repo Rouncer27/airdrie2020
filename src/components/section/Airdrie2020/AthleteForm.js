@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import styled from "styled-components"
+import axios from "axios"
 
 import { StandardWrapper } from "../../styles/commons/Wrappers"
 import { NormalButton } from "../../styles/commons/Buttons"
@@ -11,6 +12,93 @@ const AthleteFormStyled = styled.section`
   position: relative;
   padding: 15rem 0;
   background: #000;
+
+  .form-send-modal,
+  .submitting-the-forms {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 501;
+
+    &__message {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      max-width: 50rem;
+      padding: 7.5rem;
+      transform: translate(-50%, -50%);
+      background: ${props => props.theme.white};
+      text-align: center;
+      z-index: 5;
+
+      p {
+        font-weight: bold;
+      }
+
+      &--button {
+        display: block;
+        margin-top: 4rem;
+        margin-right: auto;
+        margin-left: auto;
+      }
+    }
+
+    &__background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: ${props => props.theme.pacificBlue};
+      opacity: 0.75;
+      z-index: 1;
+    }
+  }
+
+  .form-error-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 501;
+
+    &__message {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      max-width: 50rem;
+      padding: 7.5rem;
+      transform: translate(-50%, -50%);
+      background: ${props => props.theme.white};
+      text-align: center;
+      z-index: 5;
+
+      p {
+        font-weight: bold;
+      }
+
+      &--button {
+        display: block;
+        margin-top: 4rem;
+        margin-right: auto;
+        margin-left: auto;
+      }
+    }
+
+    &__background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: ${props => props.theme.mandarinOrange};
+      opacity: 0.75;
+      z-index: 1;
+    }
+  }
 
   .athleteform__wrapper {
     @media (min-width: ${props => props.theme.bpDesksm}) {
@@ -137,23 +225,193 @@ const AthleteFormStyled = styled.section`
   }
 `
 
+const TextFieldStyled = styled.div`
+  position: relative;
+  width: 100%;
+  padding-top: 2.5rem;
+
+  p.error-warning {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    color: red;
+    font-size: 1.2rem;
+  }
+
+  input {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.1rem;
+    border: none;
+    color: ${props => props.theme.grey};
+    box-shadow: 0 0 0 0.2rem ${props => props.theme.black};
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 0.2rem ${props => props.theme.mandarinOrange};
+    }
+  }
+`
+
+const TextAreaStyled = styled.div`
+  position: relative;
+  width: 100%;
+  padding-top: 2.5rem;
+
+  p.error-warning {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    color: red;
+    font-size: 1.2rem;
+  }
+
+  textarea {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.1rem;
+    border: none;
+    color: ${props => props.theme.black};
+    font-weight: bold;
+    box-shadow: 0 0 0 0.2rem ${props => props.theme.black};
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 0.2rem ${props => props.theme.mandarinOrange};
+    }
+  }
+`
+
 class AthleteForm extends Component {
   constructor() {
     super()
     this.submit = this.submit.bind(this)
     this.onChange = this.onChange.bind(this)
+    this.formHaveErrors = this.formHaveErrors.bind(this)
+    this.formSentSuccess = this.formSentSuccess.bind(this)
+    this.closeSentModal = this.closeSentModal.bind(this)
+    this.handleFiles = this.handleFiles.bind(this)
+    this.closeErrorModal = this.closeErrorModal.bind(this)
+
     this.state = {
-      name: "",
-      email: "",
-      bio: "",
-      bioimage: "",
+      yourName: "",
+      yourEmail: "",
+      athleteName: "",
+      athleteSport: "",
+      athleteBio: "",
+      athletePhoto: "",
       submitting: false,
+      formSent: false,
+      formHasErrors: false,
     }
   }
 
   submit(e) {
     e.preventDefault()
-    console.log("submit!")
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        submitting: !prevState.submitting,
+      }
+    })
+
+    const bodyFormData = new FormData()
+    bodyFormData.append("yourName", this.state.yourName)
+    bodyFormData.append("yourEmail", this.state.yourEmail)
+    bodyFormData.append("athleteName", this.state.athleteName)
+    bodyFormData.append("athleteSport", this.state.athleteSport)
+    bodyFormData.append("athleteBio", this.state.athleteBio)
+    bodyFormData.append("athletePhoto", this.state.athletePhoto)
+
+    const baseURL = "https://database.airdrie2020.com/"
+    const config = { headers: { "Content-Type": "multipart/form-data" } }
+
+    axios
+      .post(
+        `${baseURL}/wp-json/contact-form-7/v1/contact-forms/796/feedback`,
+        bodyFormData,
+        config
+      )
+      .then(res => {
+        if (res.data.status === "mail_sent") {
+          setTimeout(() => {
+            this.formSentSuccess(res.data.message)
+          }, 1000)
+        } else if (res.data.status === "validation_failed") {
+          setTimeout(() => {
+            this.formHaveErrors(res.data.message, res.data.invalidFields)
+          }, 1000)
+        }
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
+
+  formSentSuccess(mess) {
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        formSent: true,
+        submitting: false,
+      }
+    })
+  }
+
+  closeSentModal() {
+    console.log("closed!!")
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        yourName: "",
+        yourEmail: "",
+        athleteName: "",
+        athleteSport: "",
+        athleteBio: "",
+        athletePhoto: "",
+        submitting: false,
+        formSent: false,
+        formHasErrors: false,
+      }
+    })
+  }
+
+  formHaveErrors(mess, fields) {
+    console.log(mess)
+    console.log(fields)
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        submitting: false,
+        formHasErrors: true,
+        errors: fields,
+      }
+    })
+  }
+
+  closeErrorModal() {
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        formHasErrors: false,
+      }
+    })
+  }
+
+  handleFiles(e) {
+    let file = e.target.files[0]
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        athletePhoto: file,
+      }
+    })
   }
 
   onChange(e) {
@@ -164,6 +422,9 @@ class AthleteForm extends Component {
     const title = this.props.data.athletsFormTitle
     const content = this.props.data.athletsFormContent
     const active = this.props.data.athletsFormActive
+
+    const errorMessage = false
+
     return (
       <AthleteFormStyled className="athleteform">
         <StandardWrapper className="athleteform__wrapper">
@@ -177,50 +438,103 @@ class AthleteForm extends Component {
           {active === "yes" && (
             <form onSubmit={this.submit} className="athleteform__form">
               <div className="athleteform__form--field">
-                <label htmlFor="bioimage">Choose a profile picture:</label>
-                <input
-                  type="file"
-                  id="bioimage"
-                  name="bioimage"
-                  accept="image/png, image/jpeg"
-                  value={this.state.bioimage}
-                  onChange={this.onChange}
-                />
+                <label htmlFor="yourName">Your Name</label>
+                <TextFieldStyled>
+                  {errorMessage && (
+                    <p className="error-warning">{errorMessage}</p>
+                  )}
+                  <input
+                    type="text"
+                    id="yourName"
+                    name="yourName"
+                    value={this.state.yourName}
+                    onChange={this.onChange}
+                    required={false}
+                  />
+                </TextFieldStyled>
               </div>
               <div className="athleteform__form--field">
-                <label htmlFor="name">Full Name</label>
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  placeholder="Full Name"
-                  value={this.state.name}
-                  onChange={this.onChange}
-                />
+                <label htmlFor="yourEmail">Your Email</label>
+                <TextFieldStyled>
+                  {errorMessage && (
+                    <p className="error-warning">{errorMessage}</p>
+                  )}
+                  <input
+                    type="email"
+                    id="yourEmail"
+                    name="yourEmail"
+                    value={this.state.yourEmail}
+                    onChange={this.onChange}
+                    required={false}
+                  />
+                </TextFieldStyled>
               </div>
               <div className="athleteform__form--field">
-                <label htmlFor="name">email</label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="email"
-                  value={this.state.email}
-                  onChange={this.onChange}
-                />
+                <label htmlFor="athleteName">Athlete's Name</label>
+                <TextFieldStyled>
+                  {errorMessage && (
+                    <p className="error-warning">{errorMessage}</p>
+                  )}
+                  <input
+                    type="text"
+                    id="athleteName"
+                    name="athleteName"
+                    value={this.state.athleteName}
+                    onChange={this.onChange}
+                    required={false}
+                  />
+                </TextFieldStyled>
               </div>
 
               <div className="athleteform__form--field">
-                <label htmlFor="bio">Bio &#42;</label>
-                <textarea
-                  cols="40"
-                  rows="4"
-                  name="bio"
-                  id="bio"
-                  onChange={this.onChange}
-                  value={this.state.bio}
-                />
+                <label htmlFor="athleteSport">Athlete's Sport</label>
+                <TextFieldStyled>
+                  {errorMessage && (
+                    <p className="error-warning">{errorMessage}</p>
+                  )}
+                  <input
+                    type="text"
+                    id="athleteSport"
+                    name="athleteSport"
+                    value={this.state.athleteSport}
+                    onChange={this.onChange}
+                    required={false}
+                  />
+                </TextFieldStyled>
               </div>
+
+              <div className="athleteform__form--field">
+                <label htmlFor="athleteBio">Bio &#42;</label>
+                <TextAreaStyled>
+                  {errorMessage && (
+                    <p className="error-warning">{errorMessage}</p>
+                  )}
+                  <textarea
+                    cols="40"
+                    rows="8"
+                    name="athleteBio"
+                    id="athleteBio"
+                    onChange={this.onChange}
+                    value={this.state.athleteBio}
+                    required={false}
+                  />
+                </TextAreaStyled>
+              </div>
+
+              <div className="athleteform__form--field">
+                <label htmlFor="athletePhoto">Athlete's Photo</label>
+                <div>
+                  <input
+                    type="file"
+                    id="athletePhoto"
+                    name="athletePhoto"
+                    onChange={this.handleFiles}
+                    accept=".jpg, .png, .jpeg"
+                    required={false}
+                  />
+                </div>
+              </div>
+
               <div className="athleteform__form--button">
                 <NormalButton disabled={this.state.submitting}>
                   Submit
@@ -231,6 +545,48 @@ class AthleteForm extends Component {
         </StandardWrapper>
         <div className="athleteform__rip athleteform__rip--top" />
         <div className="athleteform__rip athleteform__rip--bot" />
+
+        {this.state.submitting && (
+          <div className="submitting-the-forms">
+            <div className="submitting-the-forms__message">
+              <p>Submitting The Form. Please wait...</p>
+            </div>
+            <div className="submitting-the-forms__background" />
+          </div>
+        )}
+
+        {this.state.formSent && (
+          <div onClick={this.closeSentModal} className="form-send-modal">
+            <div className="form-send-modal__message">
+              <p>Success! Your Form Have Been Sent.</p>
+              <NormalButton
+                className="form-send-modal__message--button"
+                onClick={this.closeSentModal}
+              >
+                Close
+              </NormalButton>
+            </div>
+            <div className="form-send-modal__background" />
+          </div>
+        )}
+
+        {this.state.formHasErrors && (
+          <div onClick={this.closeErrorModal} className="form-error-modal">
+            <div className="form-error-modal__message">
+              <p>
+                Your Form Has Errors. Please fix the required fields to submit
+                form.
+              </p>
+              <NormalButton
+                className="form-error-modal__message--button"
+                onClick={this.closeErrorModal}
+              >
+                Close
+              </NormalButton>
+            </div>
+            <div className="form-error-modal__background" />
+          </div>
+        )}
       </AthleteFormStyled>
     )
   }
