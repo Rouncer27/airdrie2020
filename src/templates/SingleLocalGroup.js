@@ -195,6 +195,12 @@ const SingleSportGroupsStyled = styled.article`
         background: ${props => props.theme.pacificBlue};
         content: "";
       }
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        &::after {
+          right: auto;
+        }
+      }
     }
   }
 `

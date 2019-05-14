@@ -46,11 +46,13 @@ const SingleLocalEventStyled = styled.article`
     margin: 0 auto 5rem;
 
     p {
-      margin: 2rem auto;
+      margin: 2rem auto 0;
       font-family: ${props => props.theme.fontSec};
       text-align: center;
+      font-size: 4rem;
 
       @media (min-width: ${props => props.theme.bpTablet}) {
+        margin: 2rem auto;
         font-size: 7rem;
       }
     }
@@ -58,8 +60,13 @@ const SingleLocalEventStyled = styled.article`
 
   .event-main-content {
     width: 100%;
+    margin-bottom: 7.5rem;
+    text-align: center;
+
     @media (min-width: ${props => props.theme.bpTablet}) {
       width: calc(50%);
+      margin-bottom: 0;
+      text-align: left;
     }
 
     @media (min-width: ${props => props.theme.bpDesksm}) {
@@ -72,7 +79,9 @@ const SingleLocalEventStyled = styled.article`
 
     .event-main-learn-more,
     .event-main-back-btn {
+      padding: 1rem 2rem;
       text-align: center;
+      font-size: 2.2rem;
 
       @media (min-width: ${props => props.theme.bpTablet}) {
         padding: 1rem;
@@ -89,9 +98,12 @@ const SingleLocalEventStyled = styled.article`
   .event-meta-descriptions {
     position: relative;
     width: 100%;
+    text-align: center;
+
     @media (min-width: ${props => props.theme.bpTablet}) {
       width: calc(50% - 5rem);
       margin: 0 2.5rem 0 0;
+      text-align: left;
     }
 
     @media (min-width: ${props => props.theme.bpDesksm}) {
@@ -103,6 +115,7 @@ const SingleLocalEventStyled = styled.article`
       h1 {
         margin: 0;
         font-family: ${props => props.theme.fontSec};
+        font-size: 2rem;
         line-height: 1.13;
 
         @media (min-width: ${props => props.theme.bpTablet}) {
@@ -187,11 +200,19 @@ const SingleLocalEventStyled = styled.article`
       &::after {
         position: absolute;
         bottom: 0;
+        right: 0;
         left: 0;
         width: 14rem;
         height: 0.9rem;
+        margin: auto;
         background: ${props => props.theme.pacificBlue};
         content: "";
+      }
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        &::after {
+          right: auto;
+        }
       }
     }
   }
