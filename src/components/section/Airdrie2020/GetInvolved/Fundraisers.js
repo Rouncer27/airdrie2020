@@ -8,6 +8,22 @@ import { StandardParagraphs } from "../../../styles/commons/Paragraphs"
 const FundraisersStyled = styled.section`
   .fundraiser__wrapper {
     justify-content: flex-start;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      max-width: 65rem;
+    }
+
+    @media (min-width: 900px) {
+      max-width: 75rem;
+    }
+
+    @media (min-width: ${props => props.theme.bpDesksm}) {
+      max-width: 90rem;
+    }
+
+    @media (min-width: 1200px) {
+      max-width: 110rem;
+    }
   }
 
   .fundraiser__title {
@@ -25,8 +41,13 @@ const FundraisersStyled = styled.section`
     text-align: center;
 
     @media (min-width: ${props => props.theme.bpTablet}) {
-      width: calc(33.3333% - 4rem);
+      width: calc(50% - 4rem);
       margin: 2rem;
+    }
+
+    @media (min-width: 900px) {
+      width: calc(33.3333% - 2rem);
+      margin: 1rem;
     }
 
     @media (min-width: ${props => props.theme.bpDesksm}) {
@@ -81,14 +102,29 @@ const FundraisersStyled = styled.section`
       h3 {
         color: ${props => props.theme.pacificBlue};
         text-transform: uppercase;
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          font-size: 2rem;
+        }
+        @media (min-width: 900px) {
+          font-size: 1.8rem;
+        }
         @media (min-width: ${props => props.theme.bpDesksm}) {
           font-size: 1.6rem;
         }
       }
 
       p {
+        margin-bottom: 1rem;
         color: #000;
         font-weight: 500;
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          font-size: 1.4rem;
+        }
+
+        @media (min-width: 1200px) {
+          font-size: 1.6rem;
+        }
       }
     }
   }
