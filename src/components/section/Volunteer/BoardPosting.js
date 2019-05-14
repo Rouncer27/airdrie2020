@@ -11,6 +11,24 @@ const BoardPostingStyled = styled.section`
   padding: 15rem 0;
   background: #000;
 
+  .boardpost__wrapper {
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      max-width: 55rem;
+    }
+
+    @media (min-width: 900px) {
+      max-width: 75rem;
+    }
+
+    @media (min-width: ${props => props.theme.bpDesksm}) {
+      max-width: 90rem;
+    }
+
+    @media (min-width: 1200px) {
+      max-width: 110rem;
+    }
+  }
+
   .boardpost__title {
     margin-bottom: 4rem;
 
@@ -18,6 +36,12 @@ const BoardPostingStyled = styled.section`
       margin: 0;
       color: ${props => props.theme.pacificBlue};
       font-family: ${props => props.theme.fontSec};
+      font-size: 3rem;
+      text-align: center;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        font-size: 2.2rem;
+      }
 
       @media (min-width: ${props => props.theme.bpDesksm}) {
         font-size: 2.6rem;
@@ -31,6 +55,13 @@ const BoardPostingStyled = styled.section`
     justify-content: flex-start;
 
     &--item {
+      margin: 2rem auto;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        width: calc(50% - 4rem);
+        margin: 1rem 2rem;
+      }
+
       @media (min-width: ${props => props.theme.bpDesksm}) {
         width: calc(50% - 6rem);
         margin: 1rem 3rem;
@@ -41,6 +72,10 @@ const BoardPostingStyled = styled.section`
         color: ${props => props.theme.white};
         font-weight: 300;
         text-transform: uppercase;
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          font-size: 1.6rem;
+        }
 
         @media (min-width: ${props => props.theme.bpDesksm}) {
           font-size: 1.6rem;
