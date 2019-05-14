@@ -9,16 +9,40 @@ import calendar from "../../../images/icons/formLink/Icons-sitewide-groups-01.sv
 import shoes from "../../../images/icons/formLink/Icons-sitewide-volunteer.svg"
 
 const FormLinksStyled = styled.section`
+  .formlinks__wrapper {
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      max-width: 55rem;
+    }
+
+    @media (min-width: 900px) {
+      max-width: 75rem;
+    }
+
+    @media (min-width: ${props => props.theme.bpDesksm}) {
+      max-width: 90rem;
+    }
+
+    @media (min-width: 1200px) {
+      max-width: 110rem;
+    }
+  }
+
   .formlinks__item {
     position: relative;
     width: calc(100%);
+    margin: 2rem;
     padding-top: 7rem;
     padding-bottom: 4rem;
     text-align: center;
 
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      width: calc(50% - 4rem);
+      padding-bottom: 8rem;
+    }
+
     @media (min-width: ${props => props.theme.bpDesksm}) {
       width: calc(33.3333% - 4rem);
-      margin: 2rem;
+      padding-bottom: 8rem;
     }
 
     &::after {
