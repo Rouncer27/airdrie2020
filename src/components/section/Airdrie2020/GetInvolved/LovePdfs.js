@@ -14,8 +14,25 @@ import check from "../../../../images/icons/airdrie2020/Icons-sitewide-checkmark
 const LovePdfsStyled = styled.section`
   padding-top: 10rem;
 
+  .lovepdfs__wrapperb,
   .lovepdfs__wrappert {
     justify-content: space-evenly;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      max-width: 55rem;
+    }
+
+    @media (min-width: 900px) {
+      max-width: 75rem;
+    }
+
+    @media (min-width: ${props => props.theme.bpDesksm}) {
+      max-width: 90rem;
+    }
+
+    @media (min-width: 1200px) {
+      max-width: 110rem;
+    }
   }
 
   .lovepdfs__vols,
@@ -25,12 +42,17 @@ const LovePdfsStyled = styled.section`
     text-align: center;
 
     @media (min-width: ${props => props.theme.bpTablet}) {
+      width: calc(100% - 4rem);
+      margin: 2rem;
+    }
+
+    @media (min-width: 900px) {
       width: calc(50% - 4rem);
       margin: 2rem;
     }
 
     @media (min-width: ${props => props.theme.bpDesksm}) {
-      width: calc(33% - 4rem);
+      width: calc(50% - 4rem);
       margin: 2rem;
     }
 
@@ -88,8 +110,14 @@ const LovePdfsStyled = styled.section`
     background-color: ${props => props.theme.black};
 
     &--item {
-      width: calc(50%);
+      width: calc(100%);
+      margin: 2rem auto;
       text-align: center;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        width: calc(50% - 4rem);
+        margin: 2rem;
+      }
 
       @media (min-width: ${props => props.theme.bpDesksm}) {
         width: calc(33.3333% - 4rem);

@@ -6,6 +6,24 @@ import { StandardWrapper } from "../../../styles/commons/Wrappers"
 import { NormalAchor } from "../../../styles/commons/Buttons"
 
 const DanceStyled = styled.section`
+  .dance__wrapper {
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      max-width: 65rem;
+    }
+
+    @media (min-width: 900px) {
+      max-width: 75rem;
+    }
+
+    @media (min-width: ${props => props.theme.bpDesksm}) {
+      max-width: 90rem;
+    }
+
+    @media (min-width: 1200px) {
+      max-width: 110rem;
+    }
+  }
+
   .dance__next {
     display: flex;
     align-items: center;
@@ -30,9 +48,14 @@ const DanceStyled = styled.section`
     width: calc(100%);
     margin-bottom: 5rem;
 
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      width: calc(50% - 5rem);
+      margin: 0 2.5rem;
+    }
+
     @media (min-width: ${props => props.theme.bpDesksm}) {
       width: calc(50% - 4rem);
-      margin-bottom: 0;
+      margin: 0 2rem;
     }
 
     &--title {
@@ -81,6 +104,11 @@ const DanceStyled = styled.section`
   .dance__image {
     position: relative;
     width: calc(100%);
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      width: calc(50% - 2rem);
+      margin: 0 1rem;
+    }
 
     @media (min-width: ${props => props.theme.bpDesksm}) {
       width: calc(50% - 2rem);

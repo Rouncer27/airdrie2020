@@ -6,6 +6,38 @@ import { BackgroundTitle } from "../../../styles/commons/Titles"
 import { StandardParagraphs } from "../../../styles/commons/Paragraphs"
 
 const IntroStyled = styled.section`
+  .involveintro__wrapper {
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      max-width: 55rem;
+    }
+
+    @media (min-width: 900px) {
+      max-width: 75rem;
+    }
+
+    @media (min-width: ${props => props.theme.bpDesksm}) {
+      max-width: 90rem;
+    }
+
+    @media (min-width: 1200px) {
+      max-width: 110rem;
+    }
+  }
+
+  .involveintro__title {
+    width: 100%;
+
+    p {
+      font-size: 5rem;
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        font-size: 8rem;
+      }
+      @media (min-width: ${props => props.theme.bpDesksm}) {
+        font-size: 12rem;
+      }
+    }
+  }
+
   .involveintro__blue {
     padding: 3rem 0 0;
     p {
