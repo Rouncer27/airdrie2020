@@ -8,6 +8,22 @@ import { StandardWrapper } from "../../styles/commons/Wrappers"
 const EventsListStyled = styled.section`
   .grouplist__wrapper {
     justify-content: flex-start;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      max-width: 55rem;
+    }
+
+    @media (min-width: 900px) {
+      max-width: 75rem;
+    }
+
+    @media (min-width: ${props => props.theme.bpDesksm}) {
+      max-width: 90rem;
+    }
+
+    @media (min-width: 1200px) {
+      max-width: 110rem;
+    }
   }
 
   .grouplist__search {
@@ -21,7 +37,18 @@ const EventsListStyled = styled.section`
 
     .grouplist__search--categories,
     .grouplist__search--agegroup {
-      width: 33%;
+      width: 100%;
+      margin: 0 auto 5rem;
+      text-align: center;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        width: calc(100%);
+      }
+
+      @media (min-width: ${props => props.theme.bpDesksm}) {
+        width: 33%;
+        margin: 0 auto;
+      }
 
       label {
         font-size: 1.2rem;
@@ -31,9 +58,10 @@ const EventsListStyled = styled.section`
       .select-container {
         position: relative;
         background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
-        height: 29px;
+        height: 3rem;
         overflow: hidden;
-        width: 240px;
+        width: 25rem;
+        margin: auto;
         border-radius: 0;
         background-color: ${props => props.theme.pacificBlue};
       }
@@ -53,12 +81,18 @@ const EventsListStyled = styled.section`
   .grouplist__group {
     display: block;
     position: relative;
-    width: calc(50%);
+    width: calc(100% - 4rem);
+    margin: 2rem;
     text-align: center;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      width: calc(50% - 4rem);
+      margin: 5rem 2rem;
+    }
 
     @media (min-width: ${props => props.theme.bpDesksm}) {
       width: calc(33.3333% - 4rem);
-      margin: 2rem;
+      margin: 5rem 2rem;
     }
 
     &--image {
@@ -114,8 +148,13 @@ const EventsListStyled = styled.section`
 
       h3 {
         color: ${props => props.theme.pacificBlue};
+        font-size: 2rem;
         font-weight: 500;
         text-transform: uppercase;
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          font-size: 1.4rem;
+        }
 
         @media (min-width: ${props => props.theme.bpDesksm}) {
           font-size: 1.4rem;
@@ -124,6 +163,11 @@ const EventsListStyled = styled.section`
 
       p {
         color: ${props => props.theme.black};
+        font-size: 1.8rem;
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          font-size: 1.4rem;
+        }
 
         @media (min-width: ${props => props.theme.bpDesksm}) {
           font-size: 1.4rem;

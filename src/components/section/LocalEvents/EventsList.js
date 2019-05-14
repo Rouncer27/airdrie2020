@@ -108,7 +108,18 @@ const EventsListStyled = styled.section`
     z-index: 499;
 
     .eventlist__search--categories {
-      width: 33%;
+      width: 100%;
+      margin: 0 auto 5rem;
+      text-align: center;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        width: calc(100%);
+      }
+
+      @media (min-width: ${props => props.theme.bpDesksm}) {
+        width: 33%;
+        margin: 0 auto;
+      }
 
       label {
         font-size: 1.2rem;
@@ -118,9 +129,10 @@ const EventsListStyled = styled.section`
       .select-container {
         position: relative;
         background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
-        height: 29px;
+        height: 3rem;
         overflow: hidden;
-        width: 240px;
+        width: 27.5rem;
+        margin: auto;
         border-radius: 0;
         background-color: ${props => props.theme.pacificBlue};
       }
@@ -140,7 +152,16 @@ const EventsListStyled = styled.section`
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      width: 33%;
+      width: calc(100%);
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        width: calc(50%);
+      }
+
+      @media (min-width: ${props => props.theme.bpDesksm}) {
+        width: 33%;
+        margin: 0 auto;
+      }
 
       p {
         margin: 0;
@@ -174,6 +195,8 @@ const EventsListStyled = styled.section`
       &--button {
         width: 100%;
         margin-top: 1rem;
+        margin: 1rem auto;
+        text-align: center;
       }
     }
   }
