@@ -9,10 +9,30 @@ const SponsoredTeamStyled = styled.section`
 
   .sponteam__wrapper {
     align-items: center;
+    flex-direction: column-reverse;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      flex-direction: column-reverse;
+      max-width: 55rem;
+    }
+
+    @media (min-width: 900px) {
+      max-width: 75rem;
+    }
+
+    @media (min-width: ${props => props.theme.bpDesksm}) {
+      flex-direction: row-reverse;
+      max-width: 90rem;
+    }
+
+    @media (min-width: 1200px) {
+      max-width: 110rem;
+    }
   }
 
   .sponteam__content {
     width: calc(100%);
+
     @media (min-width: ${props => props.theme.bpDesksm}) {
       width: calc(50% - 4rem);
       margin: 2rem;
@@ -82,6 +102,8 @@ const SponsoredTeamStyled = styled.section`
   .sponteam__image {
     position: relative;
     width: calc(100%);
+    margin: 0 0 2rem;
+
     @media (min-width: ${props => props.theme.bpDesksm}) {
       width: calc(50% - 4rem);
       margin: 2rem;
@@ -102,7 +124,12 @@ const SponsoredTeamStyled = styled.section`
         padding: 1rem 2rem;
         background-color: ${props => props.theme.pacificBlue};
         color: ${props => props.theme.white};
+        font-size: 2.6rem;
         text-transform: uppercase;
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          font-size: 2rem;
+        }
 
         @media (min-width: ${props => props.theme.bpDesksm}) {
           font-size: 1.4rem;

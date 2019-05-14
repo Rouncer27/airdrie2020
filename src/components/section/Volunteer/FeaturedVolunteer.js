@@ -9,10 +9,29 @@ const FeaturedVolunteerStyled = styled.section`
 
   .featvol__wrapper {
     align-items: center;
+    flex-direction: column-reverse;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      max-width: 55rem;
+    }
+
+    @media (min-width: 900px) {
+      max-width: 75rem;
+    }
+
+    @media (min-width: ${props => props.theme.bpDesksm}) {
+      flex-direction: row-reverse;
+      max-width: 90rem;
+    }
+
+    @media (min-width: 1200px) {
+      max-width: 110rem;
+    }
   }
 
   .featvol__content {
     width: calc(100%);
+
     @media (min-width: ${props => props.theme.bpDesksm}) {
       width: calc(50% - 4rem);
       margin: 2rem;
@@ -77,6 +96,8 @@ const FeaturedVolunteerStyled = styled.section`
   .featvol__image {
     position: relative;
     width: calc(100%);
+    margin: 0 0 2rem;
+
     @media (min-width: ${props => props.theme.bpDesksm}) {
       width: calc(50% - 4rem);
       margin: 2rem;
@@ -97,7 +118,12 @@ const FeaturedVolunteerStyled = styled.section`
         padding: 1rem 2rem;
         background-color: ${props => props.theme.persianIndigo};
         color: ${props => props.theme.white};
+        font-size: 2.2rem;
         text-transform: uppercase;
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          font-size: 2rem;
+        }
 
         @media (min-width: ${props => props.theme.bpDesksm}) {
           font-size: 1.4rem;

@@ -3,11 +3,9 @@ import { Link } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
 import DatePicker from "react-datepicker"
-import moment from "moment"
 
 import { StandardWrapper } from "../../styles/commons/Wrappers"
 import { NormalButton } from "../../styles/commons/Buttons"
-import EventsSearch from "./EventsSearch"
 import "react-datepicker/dist/react-datepicker.css"
 
 const EventsListStyled = styled.section`

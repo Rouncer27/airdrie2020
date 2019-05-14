@@ -9,7 +9,25 @@ const FeaturedAmbassadorStyled = styled.section`
 
   .featambass__wrapper {
     align-items: center;
-    flex-direction: row-reverse;
+    flex-direction: column-reverse;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      flex-direction: column-reverse;
+      max-width: 55rem;
+    }
+
+    @media (min-width: 900px) {
+      max-width: 75rem;
+    }
+
+    @media (min-width: ${props => props.theme.bpDesksm}) {
+      flex-direction: row;
+      max-width: 90rem;
+    }
+
+    @media (min-width: 1200px) {
+      max-width: 110rem;
+    }
   }
 
   .featambass__content {
@@ -78,6 +96,8 @@ const FeaturedAmbassadorStyled = styled.section`
   .featambass__image {
     position: relative;
     width: calc(100%);
+    margin: 0 0 2rem;
+
     @media (min-width: ${props => props.theme.bpDesksm}) {
       width: calc(50% - 4rem);
       margin: 2rem;
@@ -98,7 +118,12 @@ const FeaturedAmbassadorStyled = styled.section`
         padding: 1rem 2rem;
         background-color: ${props => props.theme.mandarinOrange};
         color: ${props => props.theme.white};
+        font-size: 2.2rem;
         text-transform: uppercase;
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          font-size: 2rem;
+        }
 
         @media (min-width: ${props => props.theme.bpDesksm}) {
           font-size: 1.4rem;
