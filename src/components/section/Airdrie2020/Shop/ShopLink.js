@@ -7,7 +7,34 @@ import { NormalAchor } from "../../../styles/commons/Buttons"
 
 const ShopLinkStyled = styled.section`
   padding: 5rem 0;
+
+  .shoplink__wrapper {
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      max-width: 55rem;
+    }
+
+    @media (min-width: 900px) {
+      max-width: 75rem;
+    }
+
+    @media (min-width: ${props => props.theme.bpDesksm}) {
+      max-width: 90rem;
+    }
+
+    @media (min-width: 1200px) {
+      max-width: 110rem;
+    }
+  }
+
   .shoplink__img {
+    width: calc(100% - 4rem);
+    margin: 2rem;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      width: calc(33.33% - 2rem);
+      margin: 1rem;
+    }
+
     @media (min-width: ${props => props.theme.bpDesksm}) {
       width: calc(33.33% - 6rem);
       margin: 3rem;
