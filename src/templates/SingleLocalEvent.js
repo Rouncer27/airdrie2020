@@ -16,6 +16,27 @@ const SingleLocalEventStyled = styled.article`
 
     @media (min-width: ${props => props.theme.bpTablet}) {
       flex-direction: row-reverse;
+      max-width: 55rem;
+    }
+
+    @media (min-width: 800px) {
+      max-width: 65rem;
+    }
+
+    @media (min-width: 850px) {
+      max-width: 70rem;
+    }
+
+    @media (min-width: 900px) {
+      max-width: 75rem;
+    }
+
+    @media (min-width: ${props => props.theme.bpDesksm}) {
+      max-width: 90rem;
+    }
+
+    @media (min-width: 1200px) {
+      max-width: 100rem;
     }
   }
 
@@ -38,11 +59,30 @@ const SingleLocalEventStyled = styled.article`
   .event-main-content {
     width: 100%;
     @media (min-width: ${props => props.theme.bpTablet}) {
+      width: calc(50%);
+    }
+
+    @media (min-width: ${props => props.theme.bpDesksm}) {
       width: calc(60%);
     }
 
     .event-main-learn-more {
       margin-bottom: 2rem;
+    }
+
+    .event-main-learn-more,
+    .event-main-back-btn {
+      text-align: center;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        padding: 1rem;
+        font-size: 1.8rem;
+      }
+
+      @media (min-width: ${props => props.theme.bpDesksm}) {
+        padding: 0 5rem;
+        font-size: 2.8rem;
+      }
     }
   }
 
@@ -50,8 +90,13 @@ const SingleLocalEventStyled = styled.article`
     position: relative;
     width: 100%;
     @media (min-width: ${props => props.theme.bpTablet}) {
+      width: calc(50% - 5rem);
+      margin: 0 2.5rem 0 0;
+    }
+
+    @media (min-width: ${props => props.theme.bpDesksm}) {
       width: calc(40% - 10rem);
-      margin: 0 10rem 0 0;
+      margin: 0 5rem 0 5rem;
     }
 
     .event-name {
@@ -61,7 +106,7 @@ const SingleLocalEventStyled = styled.article`
         line-height: 1.13;
 
         @media (min-width: ${props => props.theme.bpTablet}) {
-          font-size: 3rem;
+          font-size: 2rem;
         }
 
         @media (min-width: ${props => props.theme.bpDesksm}) {
@@ -78,7 +123,19 @@ const SingleLocalEventStyled = styled.article`
         font-weight: 300;
 
         @media (min-width: ${props => props.theme.bpTablet}) {
-          font-size: 3rem;
+          font-size: 1.6rem;
+        }
+
+        @media (min-width: ${props => props.theme.bpDesksm}) {
+          font-size: 1.6rem;
+        }
+      }
+    }
+
+    .event-location {
+      p {
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          font-size: 1.4rem;
         }
 
         @media (min-width: ${props => props.theme.bpDesksm}) {
@@ -119,6 +176,10 @@ const SingleLocalEventStyled = styled.article`
         }
 
         @media (min-width: ${props => props.theme.bpTablet}) {
+          font-size: 1.4rem;
+        }
+
+        @media (min-width: ${props => props.theme.bpDesksm}) {
           font-size: 1.6rem;
         }
       }
@@ -177,7 +238,10 @@ class SingleLocalEvent extends Component {
                   Learn More
                 </NormalAchor>
               )}
-              <NormalLink to="/local-sports-events/">
+              <NormalLink
+                className="event-main-back-btn"
+                to="/local-sports-events/"
+              >
                 Back To Events Page
               </NormalLink>
             </div>
@@ -198,7 +262,7 @@ class SingleLocalEvent extends Component {
                 />
               </div>
               <div className="event-location">
-                <div
+                <p
                   dangerouslySetInnerHTML={{
                     __html: this.props.data.wordpressWpLocalEvents.acf
                       ._att_event_date,

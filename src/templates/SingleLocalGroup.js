@@ -16,6 +16,27 @@ const SingleSportGroupsStyled = styled.article`
 
     @media (min-width: ${props => props.theme.bpTablet}) {
       flex-direction: row-reverse;
+      max-width: 55rem;
+    }
+
+    @media (min-width: 800px) {
+      max-width: 65rem;
+    }
+
+    @media (min-width: 850px) {
+      max-width: 70rem;
+    }
+
+    @media (min-width: 900px) {
+      max-width: 75rem;
+    }
+
+    @media (min-width: ${props => props.theme.bpDesksm}) {
+      max-width: 90rem;
+    }
+
+    @media (min-width: 1200px) {
+      max-width: 100rem;
     }
   }
 
@@ -25,11 +46,13 @@ const SingleSportGroupsStyled = styled.article`
     margin: 0 auto 5rem;
 
     p {
-      margin: 2rem auto;
+      margin: 2rem auto 0;
       font-family: ${props => props.theme.fontSec};
       text-align: center;
+      font-size: 5rem;
 
       @media (min-width: ${props => props.theme.bpTablet}) {
+        margin: 2rem auto;
         font-size: 7rem;
       }
     }
@@ -37,21 +60,54 @@ const SingleSportGroupsStyled = styled.article`
 
   .group-main-content {
     width: 100%;
+    margin-bottom: 7.5rem;
+    text-align: center;
+
     @media (min-width: ${props => props.theme.bpTablet}) {
+      width: calc(50%);
+      margin-bottom: 0;
+      text-align: left;
+    }
+
+    @media (min-width: ${props => props.theme.bpDesksm}) {
       width: calc(60%);
     }
 
     .group-main-learn-more {
       margin-bottom: 2rem;
     }
+
+    .group-main-back-btn,
+    .group-main-learn-more {
+      padding: 1rem 2rem;
+      text-align: center;
+      font-size: 2.2rem;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        font-size: 1.8rem;
+      }
+
+      @media (min-width: ${props => props.theme.bpDesksm}) {
+        padding: 0 5rem;
+        font-size: 2.8rem;
+      }
+    }
   }
 
   .group-meta-descriptions {
     position: relative;
     width: 100%;
+    text-align: center;
+
     @media (min-width: ${props => props.theme.bpTablet}) {
+      width: calc(50% - 5rem);
+      margin: 0 2.5rem 0 0;
+      text-align: left;
+    }
+
+    @media (min-width: ${props => props.theme.bpDesksm}) {
       width: calc(40% - 10rem);
-      margin: 0 10rem 0 0;
+      margin: 0 5rem 0 5rem;
     }
 
     .group-name {
@@ -61,7 +117,7 @@ const SingleSportGroupsStyled = styled.article`
         line-height: 1.13;
 
         @media (min-width: ${props => props.theme.bpTablet}) {
-          font-size: 3rem;
+          font-size: 2rem;
         }
 
         @media (min-width: ${props => props.theme.bpDesksm}) {
@@ -78,7 +134,7 @@ const SingleSportGroupsStyled = styled.article`
         font-weight: 300;
 
         @media (min-width: ${props => props.theme.bpTablet}) {
-          font-size: 3rem;
+          font-size: 1.6rem;
         }
 
         @media (min-width: ${props => props.theme.bpDesksm}) {
@@ -120,6 +176,10 @@ const SingleSportGroupsStyled = styled.article`
         }
 
         @media (min-width: ${props => props.theme.bpTablet}) {
+          font-size: 1.4rem;
+        }
+
+        @media (min-width: ${props => props.theme.bpDesksm}) {
           font-size: 1.6rem;
         }
       }
@@ -127,9 +187,11 @@ const SingleSportGroupsStyled = styled.article`
       &::after {
         position: absolute;
         top: 0;
+        right: 0;
         left: 0;
         width: 14rem;
         height: 0.9rem;
+        margin: auto;
         background: ${props => props.theme.pacificBlue};
         content: "";
       }
@@ -195,7 +257,10 @@ class SingleLocalGroup extends Component {
                   Learn More
                 </NormalAchor>
               )}
-              <NormalLink to="/local-sports-groups/">
+              <NormalLink
+                className="group-main-back-btn"
+                to="/local-sports-groups/"
+              >
                 Back To Sport Groups Page
               </NormalLink>
             </div>
