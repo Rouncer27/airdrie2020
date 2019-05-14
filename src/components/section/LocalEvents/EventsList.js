@@ -80,6 +80,22 @@ const EventsListStyled = styled.section`
 
   .eventlist__wrapper {
     justify-content: flex-start;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      max-width: 55rem;
+    }
+
+    @media (min-width: 900px) {
+      max-width: 75rem;
+    }
+
+    @media (min-width: ${props => props.theme.bpDesksm}) {
+      max-width: 90rem;
+    }
+
+    @media (min-width: 1200px) {
+      max-width: 110rem;
+    }
   }
 
   .eventlist__search {
@@ -165,8 +181,14 @@ const EventsListStyled = styled.section`
   .eventlist__event {
     display: block;
     position: relative;
-    width: calc(50%);
+    width: calc(100% - 4rem);
+    margin: 2rem;
     text-align: center;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      width: calc(50% - 4rem);
+      margin: 5rem 2rem;
+    }
 
     @media (min-width: ${props => props.theme.bpDesksm}) {
       width: calc(33.3333% - 4rem);
@@ -188,6 +210,12 @@ const EventsListStyled = styled.section`
         z-index: 100;
 
         p {
+          font-size: 1.4rem;
+
+          @media (min-width: ${props => props.theme.bpTablet}) {
+            font-size: 1.2rem;
+          }
+
           @media (min-width: ${props => props.theme.bpDesksm}) {
             font-size: 1.4rem;
           }
@@ -232,8 +260,13 @@ const EventsListStyled = styled.section`
 
       h3 {
         color: ${props => props.theme.pacificBlue};
+        font-size: 2rem;
         font-weight: 500;
         text-transform: uppercase;
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          font-size: 1.4rem;
+        }
 
         @media (min-width: ${props => props.theme.bpDesksm}) {
           font-size: 1.4rem;
@@ -242,6 +275,11 @@ const EventsListStyled = styled.section`
 
       p {
         color: ${props => props.theme.black};
+        font-size: 1.8rem;
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          font-size: 1.4rem;
+        }
 
         @media (min-width: ${props => props.theme.bpDesksm}) {
           font-size: 1.4rem;
@@ -407,8 +445,8 @@ class EventsList extends Component {
                 </select>
               </div>
             </form>
-            <div class="eventlist__search--dates">
-              <div class="eventlist__search--dates--start">
+            <div className="eventlist__search--dates">
+              <div className="eventlist__search--dates--start">
                 <p>Start Date</p>
                 <DatePicker
                   onChange={this.handleDateStart}
@@ -421,7 +459,7 @@ class EventsList extends Component {
                   showYearDropdown
                 />
               </div>
-              <div class="eventlist__search--dates--end">
+              <div className="eventlist__search--dates--end">
                 <p>End Date</p>
                 <DatePicker
                   onChange={this.handleDateEnd}
@@ -435,7 +473,7 @@ class EventsList extends Component {
                   placeholderText="Choose an end date"
                 />
               </div>
-              <div class="eventlist__search--dates--button">
+              <div className="eventlist__search--dates--button">
                 <NormalButton
                   onClick={() => {
                     this.updateEventsByDate()
