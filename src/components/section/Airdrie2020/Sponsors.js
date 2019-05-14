@@ -32,10 +32,18 @@ const SponsorsStyled = styled.section`
 
   .sponsorship__video {
     width: 100%;
+    max-width: 100%;
+    overflow: hidden;
 
     iframe {
       display: block;
+      width: 100%;
+      max-width: 100%;
       margin: auto;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        max-width: 65rem;
+      }
     }
   }
 
@@ -70,11 +78,12 @@ const SponsorsStyled = styled.section`
     width: 100%;
 
     p {
+      font-size: 5rem;
       @media (min-width: ${props => props.theme.bpTablet}) {
         font-size: 8rem;
       }
       @media (min-width: ${props => props.theme.bpDesksm}) {
-        font-size: 15rem;
+        font-size: 12rem;
       }
     }
   }

@@ -142,7 +142,26 @@ const AthleteFormStyled = styled.section`
     max-width: 75rem;
     margin: 0 auto;
 
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      max-width: 55rem;
+    }
+
+    @media (min-width: 900px) {
+      max-width: 65rem;
+    }
+
+    @media (min-width: ${props => props.theme.bpDesksm}) {
+      max-width: 75rem;
+    }
+
     &--field {
+      width: 100%;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        width: calc(50% - 1rem);
+        margin: 2rem 0;
+      }
+
       @media (min-width: ${props => props.theme.bpDesksm}) {
         width: calc(50% - 4rem);
         margin: 2rem 0;
@@ -173,7 +192,12 @@ const AthleteFormStyled = styled.section`
     }
 
     &--button {
+      margin-top: 5rem;
       text-align: center;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        margin: 2rem 0;
+      }
 
       @media (min-width: ${props => props.theme.bpDesksm}) {
         width: calc(100% - 4rem);
