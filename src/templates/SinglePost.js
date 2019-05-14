@@ -13,6 +13,22 @@ import PostSidebar from "../components/section/SinglePost/PostSidebar"
 import PostNav from "../components/section/SinglePost/PostNav"
 
 const ArticleWrapper = styled(StandardWrapper)`
+  @media (min-width: ${props => props.theme.bpTablet}) {
+    max-width: 55rem;
+  }
+
+  @media (min-width: 900px) {
+    max-width: 75rem;
+  }
+
+  @media (min-width: ${props => props.theme.bpDesksm}) {
+    max-width: 90rem;
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 110rem;
+  }
+
   .postart {
     width: 100%;
 

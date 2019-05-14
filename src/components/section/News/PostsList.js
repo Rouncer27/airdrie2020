@@ -2,19 +2,42 @@ import React, { Component } from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
+import moment from "moment"
 
 import { StandardWrapper } from "../../styles/commons/Wrappers"
 
 const PostListStyled = styled.section`
   .postlist__wrapper {
     justify-content: flex-start;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      max-width: 55rem;
+    }
+
+    @media (min-width: 900px) {
+      max-width: 75rem;
+    }
+
+    @media (min-width: ${props => props.theme.bpDesksm}) {
+      max-width: 90rem;
+    }
+
+    @media (min-width: 1200px) {
+      max-width: 110rem;
+    }
   }
 
   .postlist__post {
     display: block;
     position: relative;
-    width: calc(50%);
+    width: calc(100%- 4rem);
+    margin: 2rem;
     text-align: center;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      width: calc(50% - 4rem);
+      margin: 2rem;
+    }
 
     @media (min-width: ${props => props.theme.bpDesksm}) {
       width: calc(33.3333% - 4rem);
@@ -42,6 +65,14 @@ const PostListStyled = styled.section`
         padding: 1rem 2rem;
         background: ${props => props.theme.white};
         color: ${props => props.theme.black};
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          font-size: 1.6rem;
+        }
+
+        @media (min-width: ${props => props.theme.bpDesksm}) {
+          font-size: 1.4rem;
+        }
       }
     }
 
@@ -53,6 +84,10 @@ const PostListStyled = styled.section`
         font-weight: 500;
         text-transform: uppercase;
 
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          font-size: 1.6rem;
+        }
+
         @media (min-width: ${props => props.theme.bpDesksm}) {
           font-size: 1.4rem;
         }
@@ -60,6 +95,10 @@ const PostListStyled = styled.section`
 
       p {
         color: ${props => props.theme.black};
+
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          font-size: 1.4rem;
+        }
 
         @media (min-width: ${props => props.theme.bpDesksm}) {
           font-size: 1.4rem;
@@ -84,7 +123,7 @@ class PostsList extends Component {
               >
                 <div className="postlist__post--image">
                   <div className="postlist__post--image--date">
-                    <p>{post.node.date}</p>
+                    <p>{moment(post.node.date).format("MMMM Do, YYYY")}</p>
                   </div>
                   <Img
                     fluid={

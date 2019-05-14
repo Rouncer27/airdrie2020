@@ -17,9 +17,27 @@ const PostSidebarStyled = styled.aside`
     }
   }
 
+  .postside__posts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
   .postside__post {
     display: block;
     padding-bottom: 5rem;
+    width: 100%;
+
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      width: calc(33.33% - 4rem);
+      margin: 0 2rem;
+    }
+
+    @media (min-width: ${props => props.theme.bpDesksm}) {
+      width: 100%;
+      margin: 0;
+    }
 
     &--image {
       position: relative;
@@ -57,6 +75,10 @@ const PostSidebarStyled = styled.aside`
           font-weight: 500;
           text-transform: uppercase;
 
+          @media (min-width: ${props => props.theme.bpTablet}) {
+            font-size: 1.4rem;
+          }
+
           @media (min-width: ${props => props.theme.bpDesksm}) {
             font-size: 1.4rem;
           }
@@ -68,6 +90,10 @@ const PostSidebarStyled = styled.aside`
 
         p {
           color: ${props => props.theme.black};
+
+          @media (min-width: ${props => props.theme.bpTablet}) {
+            font-size: 1.4rem;
+          }
 
           @media (min-width: ${props => props.theme.bpDesksm}) {
             font-size: 1.4rem;

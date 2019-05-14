@@ -10,12 +10,30 @@ const PostNavStyled = styled.div`
 
   .postnav__container {
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
     justify-content: space-between;
+    width: 100%;
 
     &--btn {
+      width: calc(100% - 4rem);
+      margin-bottom: 2rem;
       margin-right: 2rem;
       margin-left: 2rem;
+      text-align: center;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        width: calc(33.33% - 4rem);
+        font-size: 2rem;
+      }
+
+      @media (min-width: ${props => props.theme.bpDesksm}) {
+        margin-right: 1rem;
+        margin-left: 1rem;
+        padding: 1rem 2rem;
+        width: calc(33.33% - 2rem);
+        font-size: 2rem;
+      }
     }
   }
 `
