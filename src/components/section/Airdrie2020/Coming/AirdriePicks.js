@@ -10,6 +10,24 @@ import play from "../../../../images/icons/airdrie2020/AIR-Icons-hotpicks-play.s
 import stay from "../../../../images/icons/airdrie2020/AIR-Icons-hotpicks-sleep.svg"
 
 const AirdriePicksStyled = styled.section`
+  .airpicks__wrapper {
+    @media (min-width: ${props => props.theme.bpTablet}) {
+      max-width: 65rem;
+    }
+
+    @media (min-width: 900px) {
+      max-width: 75rem;
+    }
+
+    @media (min-width: ${props => props.theme.bpDesksm}) {
+      max-width: 90rem;
+    }
+
+    @media (min-width: 1200px) {
+      max-width: 110rem;
+    }
+  }
+
   .airpicks__title {
     width: 100%;
     text-align: center;
@@ -90,8 +108,16 @@ const AirdriePicksStyled = styled.section`
     text-align: center;
     width: 100%;
     @media (min-width: ${props => props.theme.bpTablet}) {
+      width: calc(50% - 4rem);
+      margin: 2rem;
+    }
+
+    @media (min-width: 900px) {
       width: calc(33.3333333% - 4rem);
       margin: 2rem;
+    }
+
+    @media (min-width: ${props => props.theme.bpDesksm}) {
     }
 
     &--item {
@@ -113,6 +139,9 @@ const AirdriePicksStyled = styled.section`
       }
 
       h3 {
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          font-size: 1.4rem;
+        }
         @media (min-width: ${props => props.theme.bpDesksm}) {
           font-size: 1.4rem;
         }
@@ -122,6 +151,9 @@ const AirdriePicksStyled = styled.section`
         margin: 0;
         color: ${props => props.theme.pacificBlue};
         font-family: ${props => props.theme.fontSec};
+        @media (min-width: ${props => props.theme.bpTablet}) {
+          font-size: 1.4rem;
+        }
         @media (min-width: ${props => props.theme.bpDesksm}) {
           font-size: 1.4rem;
         }
