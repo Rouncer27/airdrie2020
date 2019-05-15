@@ -78,7 +78,7 @@ const MobileNavStyled = styled.nav`
   width: 100%;
   height: 100%;
   justify-content: space-around;
-  background: ${props => props.theme.grey};
+  background: ${props => props.theme.chathamsBlue};
   transition: all 0.3s ease;
   transform: ${props =>
     props.isOpen ? "translateX(0)" : "translateX(calc(-100% - 2rem))"};
@@ -99,20 +99,37 @@ const MobileNavStyled = styled.nav`
   }
 
   .mobileNav__item {
+    position: relative;
     width: 100%;
+    overflow: hidden;
+    border-bottom: 0.1rem solid ${props => props.theme.white};
+
+    .submenu-toggle {
+      position: absolute;
+      top: 0.4rem;
+      right: 0;
+      width: 5rem;
+      height: 5rem;
+      background: ${props => props.theme.white};
+      z-index: 10;
+
+      &:hover {
+        background: ${props => props.theme.mandarinOrange};
+        cursor: pointer;
+      }
+    }
 
     a {
       display: block;
       width: 100%;
-      margin-bottom: 2rem;
-      padding-bottom: 2rem;
-      border-bottom: 0.1rem solid ${props => props.theme.white};
-      color: ${props => props.theme.pacificBlue};
-      font-size: 3rem;
+      margin: 0 auto;
+      padding: 1.5rem;
+      color: ${props => props.theme.greyLight};
+      font-size: 1.8rem;
       text-align: center;
 
       &:hover {
-        color: ${props => props.theme.white};
+        color: ${props => props.theme.mandarinOrange};
       }
 
       &:last-of-type {
@@ -125,6 +142,29 @@ const MobileNavStyled = styled.nav`
       background: ${props => props.theme.pacificBlue};
     }
   }
+
+  .mobileNav__submenu {
+    box-shadow: 0rem 0rem 0rem 0.1rem ${props => props.theme.white};
+    background: ${props => props.theme.pacificBlue};
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+
+    &--open {
+      max-height: 100%;
+      opacity: 1;
+    }
+
+    li {
+      border-bottom: 0.1rem solid ${props => props.theme.white};
+      a {
+        margin: 0;
+        padding: 2rem 3rem;
+        color: ${props => props.theme.white};
+        font-size: 1.8rem;
+      }
+    }
+  }
 `
 
 class MobileNav extends Component {
@@ -132,6 +172,7 @@ class MobileNav extends Component {
     super(props)
 
     this.toggleMobileNav = this.toggleMobileNav.bind(this)
+    this.subMenuToggle = this.subMenuToggle.bind(this)
 
     this.state = {
       isNavOpen: false,
@@ -147,6 +188,18 @@ class MobileNav extends Component {
     })
   }
 
+  subMenuToggle(event, name) {
+    console.log(this.state)
+
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        [`${name}`]:
+          this.state[`${name}`] === undefined ? true : !this.state[name],
+      }
+    })
+  }
+
   render() {
     return (
       <StaticQuery
@@ -158,12 +211,18 @@ class MobileNav extends Component {
                 wordpress_id
                 title
                 object_slug
+                wordpress_children {
+                  title
+                  object_slug
+                }
               }
             }
           }
         `}
         render={data => {
           const menuItems = data.wordpressWpApiMenusMenusItems.items
+
+          console.log(menuItems)
           return (
             <MobileNavWrapper>
               <button
@@ -190,6 +249,46 @@ class MobileNav extends Component {
                           >
                             {item.title}
                           </Link>
+                          {item.wordpress_children !== null && (
+                            <>
+                              <button
+                                onClick={event => {
+                                  this.subMenuToggle(event, item.object_slug)
+                                }}
+                                className="submenu-toggle"
+                              >
+                                +
+                              </button>
+                              <ul
+                                className={`mobileNav__submenu${
+                                  this.state[item.object_slug]
+                                    ? " mobileNav__submenu--open"
+                                    : ""
+                                }`}
+                              >
+                                {item.wordpress_children.map((cItem, index) => {
+                                  return (
+                                    <li
+                                      className="mobileNav__submenu--item"
+                                      key={index}
+                                    >
+                                      <Link
+                                        to={
+                                          item.object_slug === "home"
+                                            ? `/${cItem.object_slug}`
+                                            : `/${item.object_slug}/${
+                                                cItem.object_slug
+                                              }`
+                                        }
+                                      >
+                                        {cItem.title}
+                                      </Link>
+                                    </li>
+                                  )
+                                })}
+                              </ul>
+                            </>
+                          )}
                         </li>
                       )
                     })}

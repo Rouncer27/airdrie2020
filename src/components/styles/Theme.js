@@ -2,7 +2,7 @@ const theme = {
   pacificBlue: "#00ABC8",
   mandarinOrange: "#F05C3B",
   persianIndigo: "#28287E",
-  chathamsBlue: "##18498B",
+  chathamsBlue: "#18498B",
   white: "#fff",
   grey: "#797e83",
   greyLight: "#e1e1e1",
