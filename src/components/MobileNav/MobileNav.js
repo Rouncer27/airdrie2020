@@ -222,6 +222,7 @@ class MobileNav extends Component {
                 wordpress_children {
                   title
                   object_slug
+                  url
                 }
               }
             }
@@ -273,22 +274,28 @@ class MobileNav extends Component {
                                 }`}
                               >
                                 {item.wordpress_children.map((cItem, index) => {
+                                  const brokenURL = cItem.url.split("/")
+
+                                  const indexForLink = brokenURL.findIndex(
+                                    url => {
+                                      return (
+                                        url === "airdrie2020" ||
+                                        url === "airdrie2020.netlify.com" ||
+                                        url === "airdrie2020.com"
+                                      )
+                                    }
+                                  )
+                                  const linkURLParts = brokenURL.slice(
+                                    indexForLink + 1,
+                                    brokenURL.length
+                                  )
+                                  const linkURL = linkURLParts.join("/")
                                   return (
                                     <li
                                       className="mobileNav__submenu--item"
                                       key={index}
                                     >
-                                      <Link
-                                        to={
-                                          item.object_slug === "home"
-                                            ? `/${cItem.object_slug}`
-                                            : `/${item.object_slug}/${
-                                                cItem.object_slug
-                                              }`
-                                        }
-                                      >
-                                        {cItem.title}
-                                      </Link>
+                                      <Link to={linkURL}>{cItem.title}</Link>
                                     </li>
                                   )
                                 })}
