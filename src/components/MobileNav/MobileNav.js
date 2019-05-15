@@ -146,12 +146,15 @@ const MobileNavStyled = styled.nav`
   .mobileNav__submenu {
     box-shadow: 0rem 0rem 0rem 0.1rem ${props => props.theme.white};
     background: ${props => props.theme.pacificBlue};
+    transition: all 0.5s ease;
     overflow: hidden;
-    max-height: 0;
-    opacity: 0;
+
+    &--closed {
+      max-height: 0 !important;
+      opacity: 0;
+    }
 
     &--open {
-      max-height: 100%;
       opacity: 1;
     }
 
@@ -188,9 +191,14 @@ class MobileNav extends Component {
     })
   }
 
-  subMenuToggle(event, name) {
-    console.log(this.state)
+  componentDidMount() {
+    const subMenus = document.querySelectorAll(".mobileNav__submenu")
+    subMenus.forEach(item => {
+      item.style.maxHeight = item.scrollHeight + "px"
+    })
+  }
 
+  subMenuToggle(event, name) {
     this.setState(prevState => {
       return {
         ...prevState,
@@ -221,8 +229,6 @@ class MobileNav extends Component {
         `}
         render={data => {
           const menuItems = data.wordpressWpApiMenusMenusItems.items
-
-          console.log(menuItems)
           return (
             <MobileNavWrapper>
               <button
@@ -263,7 +269,7 @@ class MobileNav extends Component {
                                 className={`mobileNav__submenu${
                                   this.state[item.object_slug]
                                     ? " mobileNav__submenu--open"
-                                    : ""
+                                    : " mobileNav__submenu--closed"
                                 }`}
                               >
                                 {item.wordpress_children.map((cItem, index) => {
