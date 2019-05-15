@@ -281,7 +281,8 @@ class MobileNav extends Component {
                                       return (
                                         url === "airdrie2020" ||
                                         url === "airdrie2020.netlify.com" ||
-                                        url === "airdrie2020.com"
+                                        url === "airdrie2020.com" ||
+                                        url === "database.airdrie2020.com"
                                       )
                                     }
                                   )
