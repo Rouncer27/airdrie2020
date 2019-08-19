@@ -6,8 +6,7 @@ import SEO from "../components/seo"
 
 import HeroImage from "../components/section/Airdrie2020/HeroImage"
 import QuickIconLinks from "../components/section/Airdrie2020/QuickIconLinks"
-import LocalAthlets from "../components/section/Airdrie2020/LocalAthlets"
-import AthleteForm from "../components/section/Airdrie2020/AthleteForm"
+import KeyStatsTop from "../components/section/AboutPage/KeyStatsTop"
 import Sponsors from "../components/section/Airdrie2020/Sponsors"
 import Pillars from "../components/section/AboutPage/Pillars"
 
@@ -20,15 +19,6 @@ class Airdrie2020 extends Component {
     const herologo = acf._att_page_hero_logo
 
     const quickIcons = acf._att_quick_icon_links
-
-    const localAthletsTitle = acf._att_local_athletes_title
-    const localAthletsBg = acf._att_local_athletes_bg
-    const localAthletsIntro = acf._att_local_athletes_intro
-    const localAthlets = acf._att_local_athletes
-
-    const athletsFormTitle = acf._att_athletes_form_title
-    const athletsFormContent = acf._att_athletes_form_content
-    const athletsFormActive = acf._att_athletes_form
 
     const sponsorTitleTop = acf._att_sponsors_video_title_top
     const sponsorTitleBot = acf._att_sponsors_video_title_bot
@@ -47,24 +37,21 @@ class Airdrie2020 extends Component {
     const pillars = acf._att_pillars
     const pillarsContent = acf._att_pillars_bot
 
+    // Key stats top data fields. //
+    const KeyStatsTopHash = acf._att_key_stats_hash
+    const KeyStatsTopTitle = acf._att_key_stats_title
+    const KeyStatsTopStats = acf._att_key_stats
+
     return (
       <Layout>
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
         <HeroImage data={{ heroTitle, heroColour, heroImg, herologo }} />
         <QuickIconLinks data={{ quickIcons }} />
-        <LocalAthlets
-          data={{
-            localAthletsTitle,
-            localAthletsBg,
-            localAthletsIntro,
-            localAthlets,
-          }}
-        />
-        <AthleteForm
-          data={{ athletsFormTitle, athletsFormContent, athletsFormActive }}
-        />
         <Pillars
           data={{ pillarsHash, pillarsTitle, pillars, pillarsContent }}
+        />
+        <KeyStatsTop
+          data={{ KeyStatsTopHash, KeyStatsTopTitle, KeyStatsTopStats }}
         />
         <Sponsors
           data={{
@@ -119,29 +106,16 @@ export const query = graphql`
           external
         }
 
-        _att_local_athletes_title
-        _att_local_athletes_bg
-        _att_local_athletes_intro
-        _att_local_athletes {
-          name
-          bio_title
-          bio_content
-          action_word
-          image {
-            alt_text
-            localFile {
-              childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
+        _att_key_stats_hash
+        _att_key_stats_title
+        _att_key_stats {
+          type
+          text
+          number
+          percent
+          money
+          stat
         }
-
-        _att_athletes_form_title
-        _att_athletes_form_content
-        _att_athletes_form
 
         _att_sponsor_become_title
         _att_sponsor_become_bg

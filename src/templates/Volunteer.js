@@ -10,6 +10,8 @@ import FeaturedAmbassador from "../components/section/Volunteer/FeaturedAmbassad
 import FeaturedVolunteer from "../components/section/Volunteer/FeaturedVolunteer"
 import BoardPosting from "../components/section/Volunteer/BoardPosting"
 import VolunteerPosting from "../components/section/Volunteer/VolunteerPosting"
+import LocalAthlets from "../components/section/Airdrie2020/LocalAthlets"
+import AthleteForm from "../components/section/Airdrie2020/AthleteForm"
 
 class Volunteer extends Component {
   render() {
@@ -33,6 +35,15 @@ class Volunteer extends Component {
     const volunteerName = acf._att_featured_vol_name
     const volunteerSub = acf._att_featured_vol_sub
     const volunteerContent = acf._att_featured_vol_content
+
+    const localAthletsTitle = acf._att_local_athletes_title
+    const localAthletsBg = acf._att_local_athletes_bg
+    const localAthletsIntro = acf._att_local_athletes_intro
+    const localAthlets = acf._att_local_athletes
+
+    const athletsFormTitle = acf._att_athletes_form_title
+    const athletsFormContent = acf._att_athletes_form_content
+    const athletsFormActive = acf._att_athletes_form
 
     const boardTitle = acf._att_board_postings_title
     const boardPostings = acf._att_board_postings
@@ -69,6 +80,17 @@ class Volunteer extends Component {
             volunteerSub,
             volunteerContent,
           }}
+        />
+        <LocalAthlets
+          data={{
+            localAthletsTitle,
+            localAthletsBg,
+            localAthletsIntro,
+            localAthlets,
+          }}
+        />
+        <AthleteForm
+          data={{ athletsFormTitle, athletsFormContent, athletsFormActive }}
         />
         <BoardPosting data={{ boardTitle, boardPostings }} />
         <VolunteerPosting data={{ volunteerTitle, volunteerPostings }} />
@@ -145,6 +167,30 @@ export const query = graphql`
         _att_featured_vol_name
         _att_featured_vol_sub
         _att_featured_vol_content
+
+        _att_local_athletes_title
+        _att_local_athletes_bg
+        _att_local_athletes_intro
+        _att_local_athletes {
+          name
+          bio_title
+          bio_content
+          action_word
+          image {
+            alt_text
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 800) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+
+        _att_athletes_form_title
+        _att_athletes_form_content
+        _att_athletes_form
 
         _att_board_postings_title
         _att_board_postings {
