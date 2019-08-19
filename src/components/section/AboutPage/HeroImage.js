@@ -9,15 +9,15 @@ const HeroImageStyled = styled.section`
 
   .pagehero__wrapper {
     position: relative;
-    min-height: 45rem;
-    max-height: 45rem;
+    min-height: 40rem;
+    max-height: 40rem;
     @media (min-width: ${props => props.theme.bpTablet}) {
-      min-height: 65rem;
-      max-height: 65rem;
+      min-height: 50rem;
+      max-height: 50rem;
     }
 
     @media (min-width: ${props => props.theme.bpDesksm}) {
-      min-height: 75rem;
+      min-height: 70rem;
       max-height: 100vh;
     }
     z-index: 100;

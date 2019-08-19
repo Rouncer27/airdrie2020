@@ -9,6 +9,7 @@ import QuickIconLinks from "../components/section/Airdrie2020/QuickIconLinks"
 import LocalAthlets from "../components/section/Airdrie2020/LocalAthlets"
 import AthleteForm from "../components/section/Airdrie2020/AthleteForm"
 import Sponsors from "../components/section/Airdrie2020/Sponsors"
+import Pillars from "../components/section/AboutPage/Pillars"
 
 class Airdrie2020 extends Component {
   render() {
@@ -40,6 +41,12 @@ class Airdrie2020 extends Component {
     const sponsorPDF = acf._att_sponsor_become_pdf
     const sponsorLogos = acf._att_sponsors_logos
 
+    // The pillars data fields. //
+    const pillarsHash = acf._att_pillars_hash
+    const pillarsTitle = acf._att_pillars_main_title
+    const pillars = acf._att_pillars
+    const pillarsContent = acf._att_pillars_bot
+
     return (
       <Layout>
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
@@ -55,6 +62,9 @@ class Airdrie2020 extends Component {
         />
         <AthleteForm
           data={{ athletsFormTitle, athletsFormContent, athletsFormActive }}
+        />
+        <Pillars
+          data={{ pillarsHash, pillarsTitle, pillars, pillarsContent }}
         />
         <Sponsors
           data={{
@@ -158,6 +168,13 @@ export const query = graphql`
               }
             }
           }
+        }
+        _att_pillars_hash
+        _att_pillars_main_title
+        _att_pillars_bot
+        _att_pillars {
+          title
+          content
         }
       }
     }

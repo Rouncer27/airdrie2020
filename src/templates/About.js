@@ -63,15 +63,16 @@ class About extends Component {
             weBelieveContent,
           }}
         />
-        <Hashtag data={{ hashtagImage, hashtagTitle }} />
-        <Pillars
+
+        {/* <Pillars
           data={{ pillarsHash, pillarsTitle, pillars, pillarsContent }}
-        />
+        /> */}
         <KeyStatsTop
           data={{ KeyStatsTopHash, KeyStatsTopTitle, KeyStatsTopStats }}
         />
         <BulletImage data={{ bulletImageSections }} />
-        <KeyStatsBot data={{ keyStatsBot }} />
+        <Hashtag data={{ hashtagImage, hashtagTitle }} />
+        {/* <KeyStatsBot data={{ keyStatsBot }} /> */}
         <QuickLinkNoImg data={{ quickLinks }} />
         <EventSlider data={{ eventSliderHash, eventSlider }} />
       </Layout>

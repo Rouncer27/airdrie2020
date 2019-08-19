@@ -3,15 +3,15 @@ import rippedPaper from "../../../images/ripped/AIR-2020-paper-01.svg"
 
 const HeroWrapper = styled.div`
   position: relative;
-  min-height: 45rem;
-  max-height: 45rem;
+  min-height: 40rem;
+  max-height: 40rem;
   @media (min-width: ${props => props.theme.bpTablet}) {
-    min-height: 65rem;
-    max-height: 65rem;
+    min-height: 50rem;
+    max-height: 50rem;
   }
 
   @media (min-width: ${props => props.theme.bpDesksm}) {
-    min-height: 75rem;
+    min-height: 70rem;
     max-height: 100vh;
   }
   z-index: 100;
@@ -44,15 +44,15 @@ const HeroWrapper = styled.div`
 const HeroImageStyle = styled.div`
   overflow: hidden;
   position: relative;
-  min-height: 45rem;
-  max-height: 45rem;
+  min-height: 40rem;
+  max-height: 40rem;
   @media (min-width: ${props => props.theme.bpTablet}) {
-    min-height: 65rem;
-    max-height: 65rem;
+    min-height: 50rem;
+    max-height: 50rem;
   }
 
   @media (min-width: ${props => props.theme.bpDesksm}) {
-    min-height: 75rem;
+    min-height: 70rem;
     max-height: 100vh;
   }
   z-index: 1;

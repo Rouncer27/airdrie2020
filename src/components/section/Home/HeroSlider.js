@@ -28,17 +28,16 @@ const HeroContainer = styled.div`
 
 const HeroSliderStyled = styled(Slider)`
   width: 100%;
-  min-height: 45rem;
-  max-height: 45rem;
+  min-height: 40rem;
+  max-height: 40rem;
 
   @media (min-width: ${props => props.theme.bpTablet}) {
-    min-height: 65rem;
-    max-height: 65rem;
+    min-height: 50rem;
+    max-height: 50rem;
   }
 
   @media (min-width: ${props => props.theme.bpDesksm}) {
-    min-height: 75rem;
-    max-height: 100vh;
+    min-height: 70rem;
   }
 
   &::after {

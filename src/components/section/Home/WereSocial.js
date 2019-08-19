@@ -189,7 +189,7 @@ class WereSocial extends Component {
                 </div>
 
                 <div className="wesocial__icons">
-                  <h3>#focusedonthefuture</h3>
+                  <h3>#focusedonthefuture #airdriesports</h3>
                   <ul>
                     {socialIcons.map((icon, index) => {
                       return (

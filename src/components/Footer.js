@@ -121,12 +121,20 @@ const FooterStyled = styled.footer`
       justify-content: center;
       margin-top: 4rem;
       h3 {
+        margin: 0;
         font-family: ${props => props.theme.fontSec};
 
         @media (min-width: ${props => props.theme.bpDesksm}) {
-          width: 35%;
+          width: 100%;
           font-size: 2rem;
         }
+      }
+
+      p {
+        width: 100%;
+        margin-bottom: 2rem;
+        align-self: center;
+        font-weight: 500;
       }
 
       ul {
@@ -134,7 +142,7 @@ const FooterStyled = styled.footer`
         justify-content: flex-start;
 
         @media (min-width: ${props => props.theme.bpDesksm}) {
-          width: 65%;
+          width: 105%;
         }
       }
     }
@@ -338,6 +346,7 @@ class Footer extends Component {
                   </div>
                   <div className="mainfooter__social--icons">
                     <h3>We're Social</h3>
+                    <p>#focusedonthefuture #airdriesports</p>
                     <ul>
                       {footerSocialMedia.map((icon, index) => {
                         return (
