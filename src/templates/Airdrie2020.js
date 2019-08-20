@@ -9,6 +9,7 @@ import QuickIconLinks from "../components/section/Airdrie2020/QuickIconLinks"
 import KeyStatsTop from "../components/section/AboutPage/KeyStatsTop"
 import Sponsors from "../components/section/Airdrie2020/Sponsors"
 import Pillars from "../components/section/AboutPage/Pillars"
+import Tickets from "../components/section/Airdrie2020/Tickets"
 
 class Airdrie2020 extends Component {
   render() {
@@ -53,6 +54,7 @@ class Airdrie2020 extends Component {
         <KeyStatsTop
           data={{ KeyStatsTopHash, KeyStatsTopTitle, KeyStatsTopStats }}
         />
+        <Tickets />
         <Sponsors
           data={{
             sponsorTitleTop,

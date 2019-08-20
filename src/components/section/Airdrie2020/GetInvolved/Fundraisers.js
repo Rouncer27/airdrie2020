@@ -1,9 +1,11 @@
 import React, { Component } from "react"
 import Img from "gatsby-image"
 import styled from "styled-components"
+import { Link } from "gatsby"
 
 import { StandardWrapper } from "../../../styles/commons/Wrappers"
 import { StandardParagraphs } from "../../../styles/commons/Paragraphs"
+import { NormalLink } from "../../../styles/commons/Buttons"
 
 const FundraisersStyled = styled.section`
   .fundraiser__wrapper {
@@ -33,6 +35,16 @@ const FundraisersStyled = styled.section`
     h2 {
       font-family: ${props => props.theme.fontSec};
     }
+  }
+
+  .fundraiser-description {
+    width: 100%;
+    text-align: center;
+  }
+
+  .fundraiser-button {
+    width: 100%;
+    text-align: center;
   }
 
   .fundraiser__item {
@@ -139,7 +151,16 @@ class Fundraisers extends Component {
           <div className="fundraiser__title">
             <h2>Current Fundraisers</h2>
           </div>
-          {fundraisers.map((fund, index) => {
+          <div className="fundraiser-description">
+            <p>
+              To learn more about any Games Fundraisers happening check out the
+              Sports Events listing
+            </p>
+          </div>
+          <div className="fundraiser-button">
+            <NormalLink to="/local-sports-events">Sports Events</NormalLink>
+          </div>
+          {/* {fundraisers.map((fund, index) => {
             return (
               <div key={index} className="fundraiser__item">
                 <a rel="noopener noreferrer" target="_blank" href={fund.link}>
@@ -164,7 +185,7 @@ class Fundraisers extends Component {
                 </a>
               </div>
             )
-          })}
+          })} */}
         </StandardWrapper>
       </FundraisersStyled>
     )

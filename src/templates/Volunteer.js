@@ -55,6 +55,17 @@ class Volunteer extends Component {
       <Layout>
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
         <HeroImage data={{ heroImage, heroTitle }} />
+        <LocalAthlets
+          data={{
+            localAthletsTitle,
+            localAthletsBg,
+            localAthletsIntro,
+            localAthlets,
+          }}
+        />
+        <AthleteForm
+          data={{ athletsFormTitle, athletsFormContent, athletsFormActive }}
+        />
         <SponsoredTeam
           data={{
             sponTeamImg,
@@ -81,17 +92,7 @@ class Volunteer extends Component {
             volunteerContent,
           }}
         />
-        <LocalAthlets
-          data={{
-            localAthletsTitle,
-            localAthletsBg,
-            localAthletsIntro,
-            localAthlets,
-          }}
-        />
-        <AthleteForm
-          data={{ athletsFormTitle, athletsFormContent, athletsFormActive }}
-        />
+
         <BoardPosting data={{ boardTitle, boardPostings }} />
         <VolunteerPosting data={{ volunteerTitle, volunteerPostings }} />
       </Layout>

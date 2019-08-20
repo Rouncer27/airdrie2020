@@ -64,10 +64,10 @@ class Airdrie2020GetInvolved extends Component {
             introContent,
           }}
         />
-        <Dance data={{ nextData, learnData }} />
-        <LovePdfs data={{ volIntro, volLink, sponIntro, sponPdf, loveSpon }} />
-        <Fundraisers data={{ fundraisers }} />
         <Board data={{ boardTitle, boardMembers }} />
+        <Dance data={{ nextData, learnData }} />
+        {/* <LovePdfs data={{ volIntro, volLink, sponIntro, sponPdf, loveSpon }} /> */}
+        <Fundraisers data={{ fundraisers }} />
       </Layout>
     )
   }
