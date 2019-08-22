@@ -8,8 +8,8 @@ import { BackgroundTitle } from "../../styles/commons/Titles"
 import { StandardParagraphs } from "../../styles/commons/Paragraphs"
 import { NormalAchor } from "../../styles/commons/Buttons"
 
-// import "../../../../node_modules/slick-carousel/slick/slick.css"
-// import "../../../../node_modules/slick-carousel/slick/slick-theme.css"
+import "../../../../node_modules/slick-carousel/slick/slick.css"
+import "../../../../node_modules/slick-carousel/slick/slick-theme.css"
 
 const SponsorsStyled = styled.section`
   padding-bottom: 10rem;

@@ -87,7 +87,7 @@ class AllPackages extends Component {
           <div className="packages__coming-soon">
             <h2>Packages Coming Soon</h2>
           </div>
-          {/* {packages.map((pack, index) => {
+          {packages.map((pack, index) => {
             return (
               <Link
                 to={`/packages/${pack.node.slug}`}
@@ -114,7 +114,7 @@ class AllPackages extends Component {
                 <div className="packages__item--background" />
               </Link>
             )
-          })} */}
+          })}
         </StandardWrapper>
       </AllPackagesStyled>
     )

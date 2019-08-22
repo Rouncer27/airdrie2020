@@ -27,6 +27,19 @@ const FormLinksStyled = styled.section`
     }
   }
 
+  .general-inquires {
+    width: 100%;
+    text-align: center;
+
+    h3 {
+      width: 100%;
+    }
+
+    a {
+      margin: 1rem 2rem;
+    }
+  }
+
   .formlinks__item {
     position: relative;
     width: calc(100%);
@@ -157,6 +170,13 @@ class FormLinks extends Component {
               </div>
             )
           })}
+          <div className="general-inquires">
+            <h3>Contact us for general inquires</h3>
+            <NormalAchor href="tel+">phone (NEED)</NormalAchor>
+            <NormalAchor href="mailto:hello@airdrie2020.com?subject=General Inquires">
+              email
+            </NormalAchor>
+          </div>
         </StandardWrapper>
       </FormLinksStyled>
     )
