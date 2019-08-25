@@ -105,26 +105,30 @@ const AirdriePicksStyled = styled.section`
   .airpicks__eats,
   .airpicks__stay,
   .airpicks__play {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     text-align: center;
     width: 100%;
-    @media (min-width: ${props => props.theme.bpTablet}) {
-      width: calc(50% - 4rem);
-      margin: 2rem;
-    }
-
-    @media (min-width: 900px) {
-      width: calc(33.3333333% - 4rem);
-      margin: 2rem;
-    }
-
-    @media (min-width: ${props => props.theme.bpDesksm}) {
-    }
 
     &--item {
       position: relative;
       width: 100%;
       margin: 3rem auto;
       padding-top: 2.5rem;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        width: calc(50% - 4rem);
+        margin: 2rem;
+      }
+
+      @media (min-width: 900px) {
+        width: calc(33.3333333% - 4rem);
+        margin: 2rem;
+      }
+
+      @media (min-width: ${props => props.theme.bpDesksm}) {
+      }
 
       &::after {
         position: absolute;
@@ -173,6 +177,26 @@ class AirdriePicks extends Component {
       picksStays,
       picksPlays,
     } = this.props.data
+
+    const newEats = picksEats.map(eat => {
+      eat.category = "eats"
+      return eat
+    })
+
+    const newStays = picksStays.map(stay => {
+      stay.category = "stays"
+      return stay
+    })
+
+    const newPlays = picksPlays.map(play => {
+      play.category = "plays"
+      return play
+    })
+
+    const allPicks = newEats.concat(newStays, newPlays).sort(function() {
+      return 0.5 - Math.random()
+    })
+
     return (
       <AirdriePicksStyled className="airpicks">
         <StandardWrapper className="airpicks__wrapper">
@@ -193,34 +217,21 @@ class AirdriePicks extends Component {
 
           <div className="airpicks__container">
             <div className="airpicks__eats">
-              {picksEats.map((eat, index) => {
+              {allPicks.map((pick, index) => {
+                let thisPicksClass = ""
+
+                if (pick.category === "eats") {
+                  thisPicksClass = "airpicks__eats--item"
+                } else if (pick.category === "stays") {
+                  thisPicksClass = "airpicks__stay--item"
+                } else if (pick.category === "plays") {
+                  thisPicksClass = "airpicks__play--item"
+                }
                 return (
-                  <div key={index} className="airpicks__eats--item">
-                    <h3>{eat.title}</h3>
-                    <p>{eat.comment}</p>
-                    <p>{eat.handle}</p>
-                  </div>
-                )
-              })}
-            </div>
-            <div className="airpicks__stay">
-              {picksStays.map((stay, index) => {
-                return (
-                  <div key={index} className="airpicks__stay--item">
-                    <h3>{stay.title}</h3>
-                    <p>{stay.comment}</p>
-                    <p>{stay.handle}</p>
-                  </div>
-                )
-              })}
-            </div>
-            <div className="airpicks__play">
-              {picksPlays.map((play, index) => {
-                return (
-                  <div key={index} className="airpicks__play--item">
-                    <h3>{play.title}</h3>
-                    <p>{play.comment}</p>
-                    <p>{play.handle}</p>
+                  <div key={index} className={`${thisPicksClass}`}>
+                    <h3>{pick.title}</h3>
+                    <p>{pick.comment}</p>
+                    <p>{pick.handle}</p>
                   </div>
                 )
               })}

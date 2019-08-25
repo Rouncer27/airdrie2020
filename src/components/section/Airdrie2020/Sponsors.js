@@ -48,11 +48,16 @@ const SponsorsStyled = styled.section`
   }
 
   .sponsorship__logos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     margin: 4rem auto;
   }
 
   .sponsorship__logo {
+    align-self: center;
     width: 50%;
 
     @media (min-width: ${props => props.theme.bpTablet}) {
@@ -127,11 +132,11 @@ class Sponsors extends Component {
       dots: false,
       infinite: true,
       arrows: true,
-      speed: 500,
+      speed: 3000,
       fade: false,
       focusOnSelect: false,
       autoplay: true,
-      autoplaySpeed: 5000,
+      autoplaySpeed: 3000,
       cssEase: "linear",
       responsive: [
         {
