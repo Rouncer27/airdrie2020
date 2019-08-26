@@ -157,7 +157,7 @@ class HomeGame extends Component {
               rel="noopener noreferrer"
               href={this.props.data.homeGamrLink}
             >
-              Airdrie 2020
+              Alberta Games
             </a>
           </div>
         </div>

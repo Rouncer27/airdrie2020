@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import styled from "styled-components"
-import { StaticQuery, graphql } from "gatsby"
+import { StaticQuery, graphql, Link } from "gatsby"
 import rippedPaper from "../images/ripped/AIR-2020-paper-01.svg"
 
 const FooterStyled = styled.footer`
@@ -335,13 +335,7 @@ class Footer extends Component {
                     <h3>The Latest in Airdrie</h3>
                     <p>The latest on sports in Airdrie</p>
                     <div>
-                      <a
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href={footerLatestNews}
-                      >
-                        News
-                      </a>
+                      <Link to="/news">News</Link>
                     </div>
                   </div>
                   <div className="mainfooter__social--icons">

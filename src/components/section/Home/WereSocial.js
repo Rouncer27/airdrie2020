@@ -181,7 +181,7 @@ class WereSocial extends Component {
 
           return (
             <WereSocialStyled id={this.props.data.wereSocialHash}>
-              <div className="wesocial__wrapper">
+              {/* <div className="wesocial__wrapper">
                 <div className="wesocial__title">
                   <h2>
                     We're Social. <span>Check out the latest.</span>
@@ -209,7 +209,7 @@ class WereSocial extends Component {
                     })}
                   </ul>
                 </div>
-              </div>
+              </div> */}
 
               <div className="wesocial__images">
                 {this.props.data.wereSocialImages.map((img, index) => {
