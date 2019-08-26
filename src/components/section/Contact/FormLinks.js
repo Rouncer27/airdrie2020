@@ -3,6 +3,7 @@ import styled from "styled-components"
 
 import { StandardWrapper } from "../../styles/commons/Wrappers"
 import { NormalAchor, NormalLink } from "../../styles/commons/Buttons"
+import { StandardParagraphs } from "../../styles/commons/Paragraphs"
 
 import clipboard from "../../../images/icons/formLink/Icons-sitewide-events-01.svg"
 import calendar from "../../../images/icons/formLink/Icons-sitewide-groups-01.svg"
@@ -37,6 +38,18 @@ const FormLinksStyled = styled.section`
 
     a {
       margin: 1rem 2rem;
+    }
+
+    &__address {
+      width: 100%;
+      margin-top: 3rem;
+      text-align: center;
+
+      p {
+        margin: 0;
+        font-weight: 300;
+        font-size: 2.2rem;
+      }
     }
   }
 
@@ -172,10 +185,13 @@ class FormLinks extends Component {
           })}
           <div className="general-inquires">
             <h3>Contact us for general inquires</h3>
-            <NormalAchor href="tel+">phone (NEED)</NormalAchor>
+            <NormalAchor href="tel+587-254-8020">587-254-8020</NormalAchor>
             <NormalAchor href="mailto:hello@airdrie2020.com?subject=General Inquires">
-              email
+              hello@airdrie2020.com
             </NormalAchor>
+            <div className="general-inquires__address">
+              <p>Address: 805 Main Street South Airdrie, AB T4B 3G1</p>
+            </div>
           </div>
         </StandardWrapper>
       </FormLinksStyled>
