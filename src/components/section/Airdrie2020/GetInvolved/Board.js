@@ -327,17 +327,17 @@ class Board extends Component {
                       <p>{position}</p>
                     </div>
 
-                    <div className="boardmembers__member--meta--button">
+                    {/* <div className="boardmembers__member--meta--button">
                       <NormalButton
                         data-board={index}
                         onClick={this.toggleTheBioModel}
                       >
                         Read
                       </NormalButton>
-                    </div>
+                    </div> */}
                   </div>
 
-                  <div className="boardmembers__member--bio">
+                  {/* <div className="boardmembers__member--bio">
                     <div className="boardmembers__member--bio--modal">
                       <div className="boardmembers__member--image">
                         <Img fluid={bioImg} alt={bioImgAlt} />
@@ -368,7 +368,7 @@ class Board extends Component {
                       onClick={this.closeTheBioModel}
                       className="boardmembers__member--bio--background"
                     />
-                  </div>
+                  </div> */}
                 </div>
               )
             })}
