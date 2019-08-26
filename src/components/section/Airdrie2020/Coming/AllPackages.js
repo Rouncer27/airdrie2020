@@ -84,9 +84,6 @@ class AllPackages extends Component {
     return (
       <AllPackagesStyled className="packages">
         <StandardWrapper className="packages__wrapper">
-          <div className="packages__coming-soon">
-            <h2>Packages Coming Soon</h2>
-          </div>
           {packages.map((pack, index) => {
             return (
               <Link
