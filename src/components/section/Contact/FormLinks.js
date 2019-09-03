@@ -139,6 +139,20 @@ const FormLinksStyled = styled.section`
       }
     }
   }
+
+  .general-inquires {
+    &__story {
+      margin-top: 5rem;
+      p {
+        font-weight: bold;
+        font-size: 2rem;
+
+        span {
+          display: block;
+        }
+      }
+    }
+  }
 `
 
 class FormLinks extends Component {
@@ -191,6 +205,15 @@ class FormLinks extends Component {
             </NormalAchor>
             <div className="general-inquires__address">
               <p>Address: 805 Main Street South Airdrie, AB T4B 3G1</p>
+            </div>
+            <div className="general-inquires__story">
+              <p>
+                Do you have an interesting sports related article to share?
+                <span>
+                  Submit your article for the NEWS section to
+                  hello@airdrie2020.com
+                </span>
+              </p>
             </div>
           </div>
         </StandardWrapper>

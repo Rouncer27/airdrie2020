@@ -321,9 +321,9 @@ class Footer extends Component {
                     className="mainfooter__about--content"
                     dangerouslySetInnerHTML={{ __html: footerContent }}
                   />
-                  <div className="mainfooter__about--button">
+                  {/* <div className="mainfooter__about--button">
                     <a href={footerBtnLink}>{footerBtnText}</a>
-                  </div>
+                  </div> */}
                   <div className="mainfooter__about--contact">
                     <h3>Contact Us</h3>
                     <a href={`mailto:${footerEmail}`}>Email</a>
