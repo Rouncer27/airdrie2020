@@ -126,7 +126,7 @@ const EventsListStyled = styled.section`
 
       .select-container {
         position: relative;
-        background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+        ${"" /* background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0; */}
         height: 3rem;
         overflow: hidden;
         width: 27.5rem;
@@ -142,7 +142,8 @@ const EventsListStyled = styled.section`
         height: 29px;
         padding: 5px;
         width: 268px;
-        color: #fff;
+        color: #000;
+        font-weight: 900;
       }
     }
 
@@ -272,6 +273,10 @@ const EventsListStyled = styled.section`
 
         p.cat-name-Live {
           background: ${props => props.theme.persianIndigo};
+        }
+
+        p.cat-name-Registration {
+          background: ${props => props.theme.chathamsBlue};
         }
       }
     }
