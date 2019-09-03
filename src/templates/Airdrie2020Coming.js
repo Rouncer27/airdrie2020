@@ -103,16 +103,19 @@ export const query = graphql`
           title
           comment
           handle
+          url
         }
         _att_ap_stay {
           title
           comment
           handle
+          url
         }
         _att_ap_play {
           title
           comment
           handle
+          url
         }
       }
     }

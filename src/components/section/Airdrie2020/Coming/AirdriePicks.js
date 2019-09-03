@@ -163,6 +163,30 @@ const AirdriePicksStyled = styled.section`
         }
       }
     }
+
+    p.pick-handle {
+      color: ${props => props.theme.black};
+      font-family: ${props => props.theme.fontPrim};
+      font-weight: 900;
+    }
+
+    a.pick-link {
+      margin: 0;
+      color: ${props => props.theme.pacificBlue};
+      font-family: ${props => props.theme.fontPrim};
+      font-weight: 600;
+
+      @media (min-width: ${props => props.theme.bpTablet}) {
+        font-size: 1.4rem;
+      }
+      @media (min-width: ${props => props.theme.bpDesksm}) {
+        font-size: 1.4rem;
+      }
+
+      &:hover {
+        color: ${props => props.theme.mandarinOrange};
+      }
+    }
   }
 `
 
@@ -230,8 +254,13 @@ class AirdriePicks extends Component {
                 return (
                   <div key={index} className={`${thisPicksClass}`}>
                     <h3>{pick.title}</h3>
-                    <p>{pick.comment}</p>
-                    <p>{pick.handle}</p>
+                    <p className="pick-comment">"{pick.comment}"</p>
+                    <p className="pick-handle">{pick.handle}</p>
+                    {pick.url && (
+                      <a className="pick-link" href={pick.url}>
+                        Vist Website
+                      </a>
+                    )}
                   </div>
                 )
               })}
