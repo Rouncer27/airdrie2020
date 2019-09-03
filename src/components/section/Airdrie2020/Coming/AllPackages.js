@@ -52,7 +52,7 @@ const AllPackagesStyled = styled.section`
       p {
         margin: 0;
         margin-bottom: 1rem;
-        font-weight: 200;
+        font-weight: 500;
 
         @media (min-width: ${props => props.theme.bpDesksm}) {
           font-size: 1.4rem;

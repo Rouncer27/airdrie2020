@@ -82,9 +82,9 @@ const BoardStyled = styled.section`
           display: block;
           margin: 0;
           background-color: ${props => props.theme.mandarinOrange};
-          padding: 0.25rem 2rem;
+          padding: 0.5rem 2rem;
           color: ${props => props.theme.white};
-          font-weight: 200;
+          font-weight: 500;
           text-align: center;
           text-transform: uppercase;
 
@@ -124,13 +124,14 @@ const BoardStyled = styled.section`
           color: ${props => props.theme.mandarinOrange};
           font-family: ${props => props.theme.fontSec};
           font-size: 4rem;
+          line-height: 1.25;
 
           @media (min-width: ${props => props.theme.bpTablet}) {
             font-size: 2rem;
           }
 
           @media (min-width: ${props => props.theme.bpDesksm}) {
-            font-size: 4rem;
+            font-size: 2.6rem;
           }
         }
       }

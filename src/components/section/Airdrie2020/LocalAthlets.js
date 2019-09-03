@@ -103,9 +103,9 @@ const LocalAthletsStyled = styled.section`
           display: block;
           margin: 0;
           background-color: ${props => props.theme.mandarinOrange};
-          padding: 0.25rem 2rem;
+          padding: 0.5rem 2rem;
           color: ${props => props.theme.white};
-          font-weight: 200;
+          font-weight: 500;
           text-align: center;
           text-transform: uppercase;
 
@@ -122,23 +122,10 @@ const LocalAthletsStyled = styled.section`
             font-size: 1.6rem;
           }
         }
-
-        h3 {
-          font-family: ${props => props.theme.fontSec};
-          text-align: center;
-
-          @media (min-width: ${props => props.theme.bpTablet}) {
-            font-size: 1.8rem;
-            text-align: left;
-          }
-
-          @media (min-width: ${props => props.theme.bpDesksm}) {
-            font-size: 2rem;
-          }
-        }
       }
 
       &--action {
+        margin-top: 1rem;
         text-align: center;
 
         @media (min-width: ${props => props.theme.bpTablet}) {
@@ -151,13 +138,14 @@ const LocalAthletsStyled = styled.section`
           color: ${props => props.theme.mandarinOrange};
           font-family: ${props => props.theme.fontSec};
           font-size: 4rem;
+          line-height: 1.25;
 
           @media (min-width: ${props => props.theme.bpTablet}) {
             font-size: 2rem;
           }
 
           @media (min-width: ${props => props.theme.bpDesksm}) {
-            font-size: 4rem;
+            font-size: 3rem;
           }
         }
       }
@@ -397,7 +385,6 @@ class LocalAthlets extends Component {
           </div>
           <div className="localathletes__container">
             {localAthlets.map((athlete, index) => {
-              console.log(athlete)
               const { name, bio_title, bio_content, action_word } = athlete
               const bioImg = athlete.image.localFile
                 ? athlete.image.localFile.childImageSharp.fluid
@@ -418,7 +405,6 @@ class LocalAthlets extends Component {
                   <div className="localathletes__athlete--meta">
                     <div className="localathletes__athlete--meta--title">
                       <h2>{name}</h2>
-                      <h3>{bio_title}</h3>
                     </div>
 
                     <div className="localathletes__athlete--meta--action">

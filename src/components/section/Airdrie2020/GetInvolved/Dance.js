@@ -128,7 +128,7 @@ const DanceStyled = styled.section`
         margin: 0;
         background: ${props => props.theme.mandarinOrange};
         color: ${props => props.theme.white};
-        font-weight: 200;
+        font-weight: 500;
         text-transform: uppercase;
       }
     }
