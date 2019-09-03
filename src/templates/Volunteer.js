@@ -66,7 +66,7 @@ class Volunteer extends Component {
         <AthleteForm
           data={{ athletsFormTitle, athletsFormContent, athletsFormActive }}
         />
-        <SponsoredTeam
+        {/* <SponsoredTeam
           data={{
             sponTeamImg,
             sponTeamLogo,
@@ -91,7 +91,7 @@ class Volunteer extends Component {
             volunteerSub,
             volunteerContent,
           }}
-        />
+        /> */}
 
         <BoardPosting data={{ boardTitle, boardPostings }} />
         <VolunteerPosting data={{ volunteerTitle, volunteerPostings }} />

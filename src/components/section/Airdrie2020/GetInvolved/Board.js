@@ -121,7 +121,7 @@ const BoardStyled = styled.section`
         p {
           margin: 0;
           margin-bottom: 1rem;
-          color: ${props => props.theme.mandarinOrange};
+          color: ${props => props.theme.pacificBlue};
           font-family: ${props => props.theme.fontSec};
           font-size: 4rem;
           line-height: 1.25;

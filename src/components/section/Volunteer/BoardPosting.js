@@ -137,7 +137,7 @@ class BoardPosting extends Component {
             })}
           </div>
         </StandardWrapper>
-        <div className="boardpost__rip boardpost__rip--top" />
+        {/* <div className="boardpost__rip boardpost__rip--top" /> */}
         <div className="boardpost__rip boardpost__rip--bot" />
       </BoardPostingStyled>
     )

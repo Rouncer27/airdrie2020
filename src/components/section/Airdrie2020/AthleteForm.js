@@ -590,7 +590,7 @@ class AthleteForm extends Component {
           )}
         </StandardWrapper>
         <div className="athleteform__rip athleteform__rip--top" />
-        <div className="athleteform__rip athleteform__rip--bot" />
+        {/* <div className="athleteform__rip athleteform__rip--bot" /> */}
 
         {this.state.submitting && (
           <div className="submitting-the-forms">
