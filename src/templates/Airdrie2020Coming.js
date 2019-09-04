@@ -10,6 +10,7 @@ import AirdriePicks from "../components/section/Airdrie2020/Coming/AirdriePicks"
 
 export default class Airdrie2020Coming extends Component {
   render() {
+    console.log(this.props)
     const acf = this.props.data.wordpressPage.acf
     const heroTitle = acf._att_page_hero_title
     const heroColour = acf._att_page_hero_bc
@@ -22,7 +23,8 @@ export default class Airdrie2020Coming extends Component {
     const introContentIntro = acf._att_get_inv_intro_content_blue
     const introContent = acf._att_get_inv_intro_content
 
-    const packages = this.props.data.allWordpressWpPackages.edges
+    const packages = this.props.data.packages.edges
+    const packageTypes = this.props.data.packageType.edges
 
     const picksTitleTop = acf._att_ap_title_top
     const picksTitleBot = acf._att_ap_title_bot
@@ -45,7 +47,7 @@ export default class Airdrie2020Coming extends Component {
             introContent,
           }}
         />
-        <AllPackages data={{ packages }} />
+        <AllPackages data={{ packages, packageTypes }} />
         <AirdriePicks
           data={{
             picksTitleTop,
@@ -120,9 +122,10 @@ export const query = graphql`
       }
     }
 
-    allWordpressWpPackages {
+    packages: allWordpressWpPackages {
       edges {
         node {
+          package_type
           slug
           acf {
             _att_page_hero_image {
@@ -138,6 +141,16 @@ export const query = graphql`
             _att_pack_name
             _att_pack_excerpt
           }
+        }
+      }
+    }
+
+    packageType: allWordpressWpPackageType {
+      edges {
+        node {
+          name
+          count
+          wordpress_id
         }
       }
     }

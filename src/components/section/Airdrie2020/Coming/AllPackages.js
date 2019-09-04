@@ -10,6 +10,15 @@ const AllPackagesStyled = styled.section`
     justify-content: flex-start;
   }
 
+  .package-title {
+    width: 100%;
+    text-align: center;
+
+    h2 {
+      font-family: ${props => props.theme.fontSec};
+    }
+  }
+
   .packages__coming-soon {
     width: 100%;
     margin-bottom: 5rem;
@@ -80,11 +89,117 @@ const AllPackagesStyled = styled.section`
 
 class AllPackages extends Component {
   render() {
-    const { packages } = this.props.data
+    const { packages, packageTypes } = this.props.data
+    const eventPacks = packages.filter(pack => {
+      if (pack.node.package_type[0] === packageTypes[0].node.wordpress_id) {
+        return pack
+      }
+    })
+
+    const foodPacks = packages.filter(pack => {
+      if (pack.node.package_type[0] === packageTypes[1].node.wordpress_id) {
+        return pack
+      }
+    })
+
+    const hotelPacks = packages.filter(pack => {
+      if (pack.node.package_type[0] === packageTypes[2].node.wordpress_id) {
+        return pack
+      }
+    })
+
+    console.log("EVENTS: ", eventPacks)
+    console.log("FOOD: ", foodPacks)
+    console.log("HOTEL: ", hotelPacks)
+
     return (
       <AllPackagesStyled className="packages">
         <StandardWrapper className="packages__wrapper">
-          {packages.map((pack, index) => {
+          {hotelPacks.length <= 0 && (
+            <div className="package-title">
+              <h2>There are currently no Hotel packages Available.</h2>
+            </div>
+          )}
+          {hotelPacks.length > 0 && <h2>Hotel</h2>}
+          {hotelPacks.map((pack, index) => {
+            return (
+              <Link
+                to={`/packages/${pack.node.slug}`}
+                key={index}
+                className="packages__item"
+              >
+                <div className="packages__item--content">
+                  <h3>{pack.node.acf._att_pack_name}</h3>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: pack.node.acf._att_pack_excerpt,
+                    }}
+                  />
+                </div>
+                <div className="packages__item--image">
+                  <Img
+                    fluid={
+                      pack.node.acf._att_page_hero_image.localFile
+                        .childImageSharp.fluid
+                    }
+                    alt={pack.node.acf._att_page_hero_image.alt_text}
+                  />
+                </div>
+                <div className="packages__item--background" />
+              </Link>
+            )
+          })}
+
+          {foodPacks.length <= 0 && (
+            <div className="package-title">
+              <h2>There are currently no Food packages Available.</h2>
+            </div>
+          )}
+          {foodPacks.length > 0 && (
+            <div className="package-title">
+              <h2>Food</h2>
+            </div>
+          )}
+          {foodPacks.map((pack, index) => {
+            return (
+              <Link
+                to={`/packages/${pack.node.slug}`}
+                key={index}
+                className="packages__item"
+              >
+                <div className="packages__item--content">
+                  <h3>{pack.node.acf._att_pack_name}</h3>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: pack.node.acf._att_pack_excerpt,
+                    }}
+                  />
+                </div>
+                <div className="packages__item--image">
+                  <Img
+                    fluid={
+                      pack.node.acf._att_page_hero_image.localFile
+                        .childImageSharp.fluid
+                    }
+                    alt={pack.node.acf._att_page_hero_image.alt_text}
+                  />
+                </div>
+                <div className="packages__item--background" />
+              </Link>
+            )
+          })}
+
+          {eventPacks.length <= 0 && (
+            <div className="package-title">
+              <h2>There are currently no Event packages Available.</h2>
+            </div>
+          )}
+          {eventPacks.length > 0 && (
+            <div className="package-title">
+              <h2>Events</h2>
+            </div>
+          )}
+          {eventPacks.map((pack, index) => {
             return (
               <Link
                 to={`/packages/${pack.node.slug}`}
