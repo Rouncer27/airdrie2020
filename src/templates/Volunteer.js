@@ -12,6 +12,7 @@ import BoardPosting from "../components/section/Volunteer/BoardPosting"
 import VolunteerPosting from "../components/section/Volunteer/VolunteerPosting"
 import LocalAthlets from "../components/section/Airdrie2020/LocalAthlets"
 import AthleteForm from "../components/section/Airdrie2020/AthleteForm"
+import JobPostingForm from "../components/section/Volunteer/JobPostingForm"
 
 class Volunteer extends Component {
   render() {
@@ -50,6 +51,10 @@ class Volunteer extends Component {
 
     const volunteerTitle = acf._att_volunteer_postings_title
     const volunteerPostings = acf._att_volunteer_postings
+
+    const jobPostingTitle = acf._att_job_form_title
+    const jobPostingContent = acf._att_job_form_content
+    const jobPostingActive = acf._att_job_form_active
 
     return (
       <Layout>
@@ -95,6 +100,9 @@ class Volunteer extends Component {
 
         <BoardPosting data={{ boardTitle, boardPostings }} />
         <VolunteerPosting data={{ volunteerTitle, volunteerPostings }} />
+        <JobPostingForm
+          data={{ jobPostingTitle, jobPostingContent, jobPostingActive }}
+        />
       </Layout>
     )
   }
@@ -207,6 +215,10 @@ export const query = graphql`
           position
           website
         }
+
+        _att_job_form_title
+        _att_job_form_content
+        _att_job_form_active
       }
     }
   }
