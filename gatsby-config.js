@@ -12,7 +12,7 @@ if (process.env.NODE_ENV === "development") {
 module.exports = {
   siteMetadata: {
     title: `Airdrie 2020`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: ``,
     author: `@rouncer27`,
   },
   plugins: [
@@ -33,10 +33,10 @@ module.exports = {
         name: `gatsby-starter-default`,
         short_name: `starter`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#F05C3B`,
+        theme_color: `#00ABC8`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/favicon.png`,
       },
     },
     {
