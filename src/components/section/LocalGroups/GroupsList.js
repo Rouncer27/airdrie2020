@@ -26,6 +26,17 @@ const EventsListStyled = styled.section`
     }
   }
 
+  .group-intro {
+    h2 {
+      text-align: center;
+      font-family: ${props => props.theme.fontSec};
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
   .grouplist__search {
     display: flex;
     flex-wrap: wrap;
@@ -57,7 +68,6 @@ const EventsListStyled = styled.section`
 
       .select-container {
         position: relative;
-        background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
         height: 3rem;
         overflow: hidden;
         width: 25rem;
@@ -74,6 +84,10 @@ const EventsListStyled = styled.section`
         padding: 5px;
         width: 268px;
         color: #fff;
+
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
   }
@@ -111,13 +125,19 @@ const EventsListStyled = styled.section`
       }
 
       &--cat {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
         position: absolute;
         bottom: 0;
         left: 0;
+        width: 50%;
         z-index: 100;
 
         p {
-          display: block;
+          width: 100%;
+          margin: 0;
+          align-self: flex-start;
           color: ${props => props.theme.white} !important;
         }
 
@@ -131,6 +151,10 @@ const EventsListStyled = styled.section`
 
         p.cat-name-Team {
           background: ${props => props.theme.persianIndigo};
+        }
+
+        p.cat-name-individual {
+          background: ${props => props.theme.chathamsBlue};
         }
       }
 
@@ -212,11 +236,25 @@ class EventsList extends Component {
 
     groupsToDisplayCats.forEach(group => {
       group.node.group_age.forEach(grAge => {
-        if (
-          parseInt(this.state.ageGroup) === -1 ||
-          parseInt(this.state.ageGroup) === grAge
-        ) {
-          groupsToDisplay.push(group)
+        let douplicate = -1
+
+        if (groupsToDisplay.length > 0) {
+          douplicate = groupsToDisplay.findIndex(alreadyGroup => {
+            if (group.node.slug === alreadyGroup.node.slug) {
+              return true
+            } else {
+              return false
+            }
+          })
+        }
+
+        if (douplicate === -1) {
+          if (
+            parseInt(this.state.ageGroup) === -1 ||
+            parseInt(this.state.ageGroup) === grAge
+          ) {
+            groupsToDisplay.push(group)
+          }
         }
       })
     })
@@ -246,11 +284,24 @@ class EventsList extends Component {
 
     groupsToDisplayAge.forEach(group => {
       group.node.group_category.forEach(grCat => {
-        if (
-          parseInt(this.state.groupsCats) === -1 ||
-          parseInt(this.state.groupsCats) === grCat
-        ) {
-          groupsToDisplay.push(group)
+        let douplicate = -1
+        if (groupsToDisplay.length > 0) {
+          douplicate = groupsToDisplay.findIndex(alreadyGroup => {
+            if (group.node.slug === alreadyGroup.node.slug) {
+              return true
+            } else {
+              return false
+            }
+          })
+        }
+
+        if (douplicate === -1) {
+          if (
+            parseInt(this.state.groupsCats) === -1 ||
+            parseInt(this.state.groupsCats) === grCat
+          ) {
+            groupsToDisplay.push(group)
+          }
         }
       })
     })
@@ -279,6 +330,12 @@ class EventsList extends Component {
     return (
       <EventsListStyled className="grouplist">
         <StandardWrapper className="grouplist__wrapper">
+          <div className="group-intro">
+            <h2>Find information about different sports groups in Airdrie</h2>
+            <p>Step 1: Select the type of sport you are looking for.</p>
+            <p>Step 2: Select the age group.</p>
+          </div>
+
           <div className="grouplist__search">
             <form className="grouplist__search--categories">
               <label htmlFor="grouplist__search--cats">
@@ -291,7 +348,7 @@ class EventsList extends Component {
                   onChange={this.onChangeCats}
                 >
                   <option value={0}>--Please choose an Group Category--</option>
-                  <option value={-1}>All Group Categories</option>
+                  <option value={-1}>All Sport Types</option>
                   {this.state.allCategories.map((cat, index) => {
                     return (
                       <option

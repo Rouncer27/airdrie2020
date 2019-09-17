@@ -50,7 +50,7 @@ const HeroImageStyled = styled.section`
   .pagehero__title {
     position: absolute;
     right: 0;
-    bottom: 8rem;
+    bottom: 12rem;
     left: 0;
     width: 100%;
     margin: auto;
