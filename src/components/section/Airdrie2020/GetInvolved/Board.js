@@ -73,8 +73,8 @@ const BoardStyled = styled.section`
       padding: 0 2rem;
 
       @media (min-width: ${props => props.theme.bpDesksm}) {
-        width: calc(50% - 2rem);
-        margin-left: 2rem;
+        width: calc(50%);
+        padding: 0;
       }
 
       &--title {
@@ -112,6 +112,7 @@ const BoardStyled = styled.section`
       }
 
       &--action {
+        margin-top: 0.75rem;
         text-align: center;
 
         @media (min-width: ${props => props.theme.bpTablet}) {
@@ -123,15 +124,39 @@ const BoardStyled = styled.section`
           margin-bottom: 1rem;
           color: ${props => props.theme.pacificBlue};
           font-family: ${props => props.theme.fontSec};
-          font-size: 4rem;
-          line-height: 1.25;
+          font-size: 2rem;
+          line-height: 1;
 
           @media (min-width: ${props => props.theme.bpTablet}) {
-            font-size: 2rem;
+            font-size: 1.6rem;
           }
 
           @media (min-width: ${props => props.theme.bpDesksm}) {
-            font-size: 2.6rem;
+            font-size: 1.8rem;
+          }
+        }
+      }
+
+      &--email {
+        p {
+          color: ${props => props.theme.chathamsBlue};
+          font-size: 1.8rem;
+
+          @media (min-width: ${props => props.theme.bpTablet}) {
+            font-size: 1.6rem;
+          }
+
+          @media (min-width: ${props => props.theme.bpDesksm}) {
+            font-size: 1.6rem;
+          }
+
+          a {
+            display: block;
+            color: ${props => props.theme.chathamsBlue};
+
+            &:hover {
+              color: ${props => props.theme.mandarinOrange};
+            }
           }
         }
       }
@@ -304,7 +329,7 @@ class Board extends Component {
 
           <div className="boardmembers__container">
             {boardMembers.map((member, index) => {
-              const { name, bio_content, position } = member
+              const { name, email, position } = member
               const bioImg = member.image.localFile.childImageSharp.fluid
               const bioImgAlt = member.image.alt_text
               const bioActiveClass =
@@ -327,6 +352,14 @@ class Board extends Component {
                     <div className="boardmembers__member--meta--action">
                       <p>{position}</p>
                     </div>
+                    {email && (
+                      <div className="boardmembers__member--meta--email">
+                        <p>
+                          email:
+                          <a href={`mailto:${email}`}>{email}</a>
+                        </p>
+                      </div>
+                    )}
 
                     {/* <div className="boardmembers__member--meta--button">
                       <NormalButton

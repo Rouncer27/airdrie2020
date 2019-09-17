@@ -174,7 +174,7 @@ export const query = graphql`
         _att_board_title
         _att_board_members {
           name
-          bio_content
+          email
           position
           image {
             alt_text
