@@ -327,7 +327,7 @@ class FormFields extends Component {
       <FormFieldsStyled className="customform">
         <StandardWrapper className="customform__wrapper">
           <div className="customform__title">
-            <h2>Submit an event</h2>
+            <h2>Submission Form</h2>
           </div>
           <form onSubmit={this.submitTheForm} className="customform__form">
             {fields.map((field, index) => {
