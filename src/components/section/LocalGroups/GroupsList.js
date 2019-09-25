@@ -62,6 +62,7 @@ const EventsListStyled = styled.section`
       }
 
       label {
+        color: #000;
         font-size: 1.2rem;
         text-transform: uppercase;
       }
@@ -83,7 +84,7 @@ const EventsListStyled = styled.section`
         height: 29px;
         padding: 5px;
         width: 268px;
-        color: #fff;
+        color: #000;
 
         &:hover {
           cursor: pointer;

@@ -120,13 +120,13 @@ const EventsListStyled = styled.section`
       }
 
       label {
+        color: #000;
         font-size: 1.2rem;
         text-transform: uppercase;
       }
 
       .select-container {
         position: relative;
-        ${"" /* background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0; */}
         height: 3rem;
         overflow: hidden;
         width: 27.5rem;
