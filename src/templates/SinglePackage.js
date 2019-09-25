@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
+import styled from "styled-components"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -8,6 +9,27 @@ import { StandardWrapper } from "../components/styles/commons/Wrappers"
 import { NormalAchor } from "../components/styles/commons/Buttons"
 
 import HeroImage from "../components/section/Airdrie2020/HeroImage"
+
+const SinglePackageStyled = styled.article`
+  .pack-content {
+    width: 100%;
+    @media (min-width: 768px) {
+      width: calc(50% - 4rem);
+      margin-right: 4rem;
+    }
+  }
+
+  .pack-link {
+    width: 100%;
+    @media (min-width: 768px) {
+      width: calc(50% - 4rem);
+      margin-left: 4rem;
+    }
+  }
+  a {
+    align-self: flex-start;
+  }
+`
 
 class SinglePackage extends Component {
   render() {
@@ -26,14 +48,19 @@ class SinglePackage extends Component {
       <Layout>
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
         <HeroImage data={{ heroTitle, heroColour, heroImg, herologo }} />
-        <article>
-          <StandardWrapper>
-            <div dangerouslySetInnerHTML={{ __html: mainContent }} />
-            <NormalAchor target="_blank" href={packLink}>
-              Learn More
-            </NormalAchor>
+        <SinglePackageStyled>
+          <StandardWrapper className="pack-wrapper">
+            <div
+              className="pack-content"
+              dangerouslySetInnerHTML={{ __html: mainContent }}
+            />
+            <div className="pack-link">
+              <NormalAchor target="_blank" href={packLink}>
+                Learn More
+              </NormalAchor>
+            </div>
           </StandardWrapper>
-        </article>
+        </SinglePackageStyled>
       </Layout>
     )
   }

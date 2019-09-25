@@ -2,8 +2,8 @@ let BASE_URL = ""
 let PORTOCOL = ""
 
 if (process.env.NODE_ENV === "development") {
-  BASE_URL = "localhost/airdrie2020"
-  PORTOCOL = "http"
+  BASE_URL = "database.airdrie2020.com"
+  PORTOCOL = "https"
 } else {
   BASE_URL = "database.airdrie2020.com"
   PORTOCOL = "https"

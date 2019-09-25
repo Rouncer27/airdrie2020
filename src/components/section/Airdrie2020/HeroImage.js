@@ -9,16 +9,20 @@ const HeroImageStyled = styled.section`
   .pagehero__logo {
     position: absolute;
     top: 2rem;
-    left: 2rem;
+    right: 2rem;
     width: 100%;
     max-width: 17rem;
     z-index: 500;
 
     @media (min-width: ${props => props.theme.bpTablet}) {
       top: 5rem;
-      left: 5rem;
+      right: 5rem;
       max-width: 20rem;
     }
+  }
+
+  .pagehero__title {
+    max-width: 100rem;
   }
 
   .pagehero__background {

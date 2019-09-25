@@ -108,10 +108,6 @@ class AllPackages extends Component {
       }
     })
 
-    console.log("EVENTS: ", eventPacks)
-    console.log("FOOD: ", foodPacks)
-    console.log("HOTEL: ", hotelPacks)
-
     return (
       <AllPackagesStyled className="packages">
         <StandardWrapper className="packages__wrapper">
@@ -120,7 +116,11 @@ class AllPackages extends Component {
               <h2>There are currently no Hotel packages Available.</h2>
             </div>
           )}
-          {hotelPacks.length > 0 && <h2>Hotel</h2>}
+          {hotelPacks.length > 0 && (
+            <div className="package-title">
+              <h2>Hotel</h2>
+            </div>
+          )}
           {hotelPacks.map((pack, index) => {
             return (
               <Link
