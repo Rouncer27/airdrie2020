@@ -40,6 +40,12 @@ const ShopLinkStyled = styled.section`
       margin: 3rem;
     }
   }
+
+  .shoplink__button {
+    a {
+      margin: 2rem;
+    }
+  }
 `
 
 class ShopLink extends Component {
