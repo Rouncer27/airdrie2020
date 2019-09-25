@@ -85,6 +85,7 @@ const EventsListStyled = styled.section`
         padding: 5px;
         width: 268px;
         color: #000;
+        background-color: ${props => props.theme.pacificBlue};
 
         &:hover {
           cursor: pointer;

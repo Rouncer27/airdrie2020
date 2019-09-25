@@ -44,7 +44,7 @@ const ShopLinkStyled = styled.section`
 
 class ShopLink extends Component {
   render() {
-    const { menImg, womenImg, childImg, shopLink } = this.props.data
+    const { menImg, womenImg, childImg, shopLink, ticLink } = this.props.data
 
     const menFluid = menImg.localFile.childImageSharp.fluid
     const menAlt = menImg.alt_text
@@ -68,6 +68,9 @@ class ShopLink extends Component {
             <Img fluid={childFluid} alt={childAlt} />
           </div>
           <div className="shoplink__button">
+            <NormalAchor target="_blank" href={ticLink}>
+              Tickets
+            </NormalAchor>
             <NormalAchor target="_blank" href={shopLink}>
               Shop
             </NormalAchor>

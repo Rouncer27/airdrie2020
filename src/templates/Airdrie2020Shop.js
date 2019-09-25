@@ -25,6 +25,7 @@ class Airdrie2020Shop extends Component {
     const womenImg = acf._att_shop_img_women
     const childImg = acf._att_shop_img_child
     const shopLink = acf._att_shop_link
+    const ticLink = acf._att_tickets_link
 
     return (
       <Layout>
@@ -33,7 +34,7 @@ class Airdrie2020Shop extends Component {
         <Intro
           data={{ introTitleTop, introTitleBot, introTitleBg, introContent }}
         />
-        <ShopLink data={{ menImg, womenImg, childImg, shopLink }} />
+        <ShopLink data={{ menImg, womenImg, childImg, shopLink, ticLink }} />
       </Layout>
     )
   }
@@ -102,6 +103,7 @@ export const query = graphql`
           }
         }
         _att_shop_link
+        _att_tickets_link
       }
     }
   }
