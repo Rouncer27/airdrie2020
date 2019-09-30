@@ -16,7 +16,7 @@ const SelectFieldStyled = styled.div`
     height: 29px;
     padding: 5px;
     width: 268px;
-    color: #fff;
+    color: #000;
   }
 `
 
