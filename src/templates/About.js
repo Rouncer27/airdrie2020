@@ -7,10 +7,8 @@ import SEO from "../components/seo"
 import HeroImage from "../components/section/AboutPage/HeroImage"
 import WeBelieve from "../components/section/AboutPage/WeBelieve"
 import Hashtag from "../components/section/AboutPage/Hashtag"
-import Pillars from "../components/section/AboutPage/Pillars"
 import KeyStatsTop from "../components/section/AboutPage/KeyStatsTop"
 import BulletImage from "../components/section/AboutPage/BulletImage"
-import KeyStatsBot from "../components/section/AboutPage/KeyStatsBot"
 import QuickLinkNoImg from "../components/section/AboutPage/QuickLinkNoImg"
 import EventSlider from "../components/section/AboutPage/EventSlider"
 
@@ -30,19 +28,12 @@ class About extends Component {
     // Hashtag section data fields. //
     const hashtagImage = acf._att_hashtag_sec_img
     const hashtagTitle = acf._att_hashtag_sec_hashtag
-    // The pillars data fields. //
-    const pillarsHash = acf._att_pillars_hash
-    const pillarsTitle = acf._att_pillars_main_title
-    const pillars = acf._att_pillars
-    const pillarsContent = acf._att_pillars_bot
     // Key stats top data fields. //
     const KeyStatsTopHash = acf._att_key_stats_hash
     const KeyStatsTopTitle = acf._att_key_stats_title
     const KeyStatsTopStats = acf._att_key_stats
     // Bullets with images data fields. //
     const bulletImageSections = acf._att_bp_by_img_secs
-    // Bottom key stats data fields. //
-    const keyStatsBot = acf._att_key_stats_blue
     // Quick Links data fields. //
     const quickLinks = acf._att_quick_links
     // Event slider data fields. //
@@ -63,16 +54,11 @@ class About extends Component {
             weBelieveContent,
           }}
         />
-
-        {/* <Pillars
-          data={{ pillarsHash, pillarsTitle, pillars, pillarsContent }}
-        /> */}
         <KeyStatsTop
           data={{ KeyStatsTopHash, KeyStatsTopTitle, KeyStatsTopStats }}
         />
         <BulletImage data={{ bulletImageSections }} />
         <Hashtag data={{ hashtagImage, hashtagTitle }} />
-        {/* <KeyStatsBot data={{ keyStatsBot }} /> */}
         <QuickLinkNoImg data={{ quickLinks }} />
         <EventSlider data={{ eventSliderHash, eventSlider }} />
       </Layout>

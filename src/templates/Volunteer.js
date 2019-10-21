@@ -5,9 +5,6 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 import HeroImage from "../components/section/AboutPage/HeroImage"
-import SponsoredTeam from "../components/section/Volunteer/SponsoredTeam"
-import FeaturedAmbassador from "../components/section/Volunteer/FeaturedAmbassador"
-import FeaturedVolunteer from "../components/section/Volunteer/FeaturedVolunteer"
 import BoardPosting from "../components/section/Volunteer/BoardPosting"
 import VolunteerPosting from "../components/section/Volunteer/VolunteerPosting"
 import LocalAthlets from "../components/section/Airdrie2020/LocalAthlets"
@@ -19,23 +16,6 @@ class Volunteer extends Component {
     const acf = this.props.data.wordpressPage.acf
     const heroImage = acf._att_page_hero_img
     const heroTitle = acf._att_page_hero_title
-
-    const sponTeamImg = acf._att_spon_team_img
-    const sponTeamLogo = acf._att_spon_team_logo
-    const sponTeamLogoLink = acf._att_spon_team_logo_link
-    const sponTeamName = acf._att_spon_team_name
-    const sponTeamSub = acf._att_spon_team_sub_title
-    const sponTeamContent = acf._att_spon_team_content
-
-    const ambassadorImg = acf._att_featured_amb_img
-    const ambassadorName = acf._att_featured_amb_name
-    const ambassadorSub = acf._att_featured_amb_sub
-    const ambassadorContent = acf._att_featured_amb_content
-
-    const volunteerImg = acf._att_featured_vol_img
-    const volunteerName = acf._att_featured_vol_name
-    const volunteerSub = acf._att_featured_vol_sub
-    const volunteerContent = acf._att_featured_vol_content
 
     const localAthletsTitle = acf._att_local_athletes_title
     const localAthletsBg = acf._att_local_athletes_bg

@@ -283,6 +283,7 @@ class SingleLocalGroup extends Component {
               <div className="group-location">
                 <a
                   target="_blank"
+                  rel="noopener noreferrer"
                   href={thisGroup.acf._att_group_address_google}
                   dangerouslySetInnerHTML={{
                     __html: thisGroup.acf._att_group_location,

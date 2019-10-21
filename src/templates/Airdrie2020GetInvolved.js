@@ -7,7 +7,6 @@ import SEO from "../components/seo"
 import HeroImage from "../components/section/Airdrie2020/HeroImage"
 import Intro from "../components/section/Airdrie2020/GetInvolved/Intro"
 import Dance from "../components/section/Airdrie2020/GetInvolved/Dance"
-import LovePdfs from "../components/section/Airdrie2020/GetInvolved/LovePdfs"
 import Fundraisers from "../components/section/Airdrie2020/GetInvolved/Fundraisers"
 import Board from "../components/section/Airdrie2020/GetInvolved/Board"
 
@@ -40,12 +39,6 @@ class Airdrie2020GetInvolved extends Component {
     const learnImg = acf._att_learn_dance_img
     const learnData = { learnTitle, learnDate, learnLoc, learnFB, learnImg }
 
-    const volIntro = acf._att_vol_intro
-    const volLink = acf._att_vol_link
-    const sponIntro = acf._att_spon_intro
-    const sponPdf = acf._att_spon_pdf
-    const loveSpon = acf._att_love_sponsors
-
     const fundraisers = acf._att_fundraisers
 
     const boardTitle = acf._att_board_title
@@ -66,7 +59,6 @@ class Airdrie2020GetInvolved extends Component {
         />
         <Board data={{ boardTitle, boardMembers }} />
         <Dance data={{ nextData, learnData }} />
-        {/* <LovePdfs data={{ volIntro, volLink, sponIntro, sponPdf, loveSpon }} /> */}
         <Fundraisers data={{ fundraisers }} />
       </Layout>
     )
