@@ -14,6 +14,11 @@ import JobPostingForm from "../components/section/Volunteer/JobPostingForm"
 class Volunteer extends Component {
   render() {
     const acf = this.props.data.wordpressPage.acf
+
+    const metaTitle = acf._att_meta_title
+    const metaDescription = acf._att_meta_description
+    const metaImage = acf._att_meta_image.localFile.publicURL
+
     const heroImage = acf._att_page_hero_img
     const heroTitle = acf._att_page_hero_title
 
@@ -38,7 +43,12 @@ class Volunteer extends Component {
 
     return (
       <Layout>
-        <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+        <SEO
+          title={metaTitle}
+          description={metaDescription}
+          metaImg={metaImage}
+          location={this.props.location.pathname}
+        />
         <HeroImage data={{ heroImage, heroTitle }} />
         <LocalAthlets
           data={{
@@ -51,33 +61,6 @@ class Volunteer extends Component {
         <AthleteForm
           data={{ athletsFormTitle, athletsFormContent, athletsFormActive }}
         />
-        {/* <SponsoredTeam
-          data={{
-            sponTeamImg,
-            sponTeamLogo,
-            sponTeamLogoLink,
-            sponTeamName,
-            sponTeamSub,
-            sponTeamContent,
-          }}
-        />
-        <FeaturedAmbassador
-          data={{
-            ambassadorImg,
-            ambassadorName,
-            ambassadorSub,
-            ambassadorContent,
-          }}
-        />
-        <FeaturedVolunteer
-          data={{
-            volunteerImg,
-            volunteerName,
-            volunteerSub,
-            volunteerContent,
-          }}
-        /> */}
-
         <BoardPosting data={{ boardTitle, boardPostings }} />
         <VolunteerPosting data={{ volunteerTitle, volunteerPostings }} />
         <JobPostingForm
@@ -92,6 +75,14 @@ export const query = graphql`
   query VolunteerQuery($id: Int!) {
     wordpressPage(wordpress_id: { eq: $id }) {
       acf {
+        _att_meta_title
+        _att_meta_description
+        _att_meta_image {
+          localFile {
+            publicURL
+          }
+        }
+
         _att_page_hero_title
         _att_page_hero_img {
           alt_text

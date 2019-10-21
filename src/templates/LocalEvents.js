@@ -12,6 +12,11 @@ import WereSocial from "../components/section/Home/WereSocial"
 class LocalEvents extends Component {
   render() {
     const acf = this.props.data.wordpressPage.acf
+
+    const metaTitle = acf._att_meta_title
+    const metaDescription = acf._att_meta_description
+    const metaImage = acf._att_meta_image.localFile.publicURL
+
     const heroImage = acf._att_page_hero_img
     const heroTitle = acf._att_page_hero_title
 
@@ -24,7 +29,12 @@ class LocalEvents extends Component {
 
     return (
       <Layout>
-        <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+        <SEO
+          title={metaTitle}
+          description={metaDescription}
+          metaImg={metaImage}
+          location={this.props.location.pathname}
+        />
         <HeroImage data={{ heroImage, heroTitle }} />
         <EventsList data={localEvents} eventCategories={eventCategories} />
         <Submit />
@@ -38,6 +48,14 @@ export const query = graphql`
   query LocalEvents($id: Int!) {
     wordpressPage(wordpress_id: { eq: $id }) {
       acf {
+        _att_meta_title
+        _att_meta_description
+        _att_meta_image {
+          localFile {
+            publicURL
+          }
+        }
+
         _att_page_hero_title
         _att_page_hero_img {
           alt_text

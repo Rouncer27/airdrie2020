@@ -15,6 +15,11 @@ import WereSocial from "../components/section/Home/WereSocial"
 class IndexPage extends Component {
   render() {
     const acf = this.props.data.wordpressPage.acf
+
+    const metaTitle = acf._att_meta_title
+    const metaDescription = acf._att_meta_description
+    const metaImage = acf._att_meta_image.localFile.publicURL
+
     const heroSlider = acf._att_hero_image_slider
 
     const whyAirdrieTitle = acf._att_why_airdrie_title
@@ -48,7 +53,12 @@ class IndexPage extends Component {
 
     return (
       <Layout>
-        <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+        <SEO
+          title={metaTitle}
+          description={metaDescription}
+          metaImg={metaImage}
+          location={this.props.location.pathname}
+        />
         <HeroSlider data={heroSlider} />
         <WhyAirdrie
           data={{
@@ -90,6 +100,14 @@ export const homeQuery = graphql`
   {
     wordpressPage(slug: { eq: "home" }) {
       acf {
+        _att_meta_title
+        _att_meta_description
+        _att_meta_image {
+          localFile {
+            publicURL
+          }
+        }
+
         _att_hero_image_slider {
           title
           hero_image {
