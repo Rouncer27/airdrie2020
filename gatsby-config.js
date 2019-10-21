@@ -12,8 +12,11 @@ if (process.env.NODE_ENV === "development") {
 module.exports = {
   siteMetadata: {
     title: `Airdrie 2020`,
-    description: ``,
-    author: `@rouncer27`,
+    description: `Excitement is in the air! February 14-17, 2020 over 2,800 athletes, coaches and officials from across Alberta will be in Airdrie to compete, learn and share experiences of a lifetime at the 2020 Alberta Winter Games.`,
+    author: `@switchback4ever`,
+    metaImg: `src/images/default-social-media.png`,
+    siteLogo: `src/images/airdrie2020logo.jpg`,
+    siteUrl: `https://airdriesport.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

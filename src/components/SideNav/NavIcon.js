@@ -75,7 +75,7 @@ const StyledIcon = styled.div`
   &.sidenav__icon--cal {
     &::after {
       width: 4rem;
-      height: 4rem;
+      height: 3.25rem;
       background-image: url(${CalIcon});
     }
   }
