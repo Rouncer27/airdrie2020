@@ -144,7 +144,6 @@ const FundraisersStyled = styled.section`
 
 class Fundraisers extends Component {
   render() {
-    const { fundraisers } = this.props.data
     return (
       <FundraisersStyled className="fundraiser">
         <StandardWrapper className="fundraiser__wrapper">
@@ -160,32 +159,6 @@ class Fundraisers extends Component {
           <div className="fundraiser-button">
             <NormalLink to="/local-sports-events">Sports Events</NormalLink>
           </div>
-          {/* {fundraisers.map((fund, index) => {
-            return (
-              <div key={index} className="fundraiser__item">
-                <a rel="noopener noreferrer" target="_blank" href={fund.link}>
-                  <div className="fundraiser__item--image">
-                    <div className="fundraiser__item--date">
-                      <p>{fund.date_time}</p>
-                    </div>
-                    <div className="fundraiser__item--fbicon" />
-                    <div>
-                      <Img
-                        fluid={fund.image.localFile.childImageSharp.fluid}
-                        alt={fund.image.alt_text}
-                      />
-                    </div>
-                  </div>
-                  <div className="fundraiser__item--meta">
-                    <h3>{fund.name}</h3>
-                    <StandardParagraphs
-                      dangerouslySetInnerHTML={{ __html: fund.description }}
-                    />
-                  </div>
-                </a>
-              </div>
-            )
-          })} */}
         </StandardWrapper>
       </FundraisersStyled>
     )

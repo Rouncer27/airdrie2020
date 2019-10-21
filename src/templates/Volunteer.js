@@ -95,59 +95,6 @@ export const query = graphql`
           }
         }
 
-        _att_spon_team_img {
-          alt_text
-          localFile {
-            childImageSharp {
-              fluid(maxWidth: 1000) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-        }
-        _att_spon_team_logo {
-          alt_text
-          localFile {
-            childImageSharp {
-              fluid(maxWidth: 500) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-        }
-        _att_spon_team_logo_link
-        _att_spon_team_name
-        _att_spon_team_sub_title
-        _att_spon_team_content
-
-        _att_featured_amb_img {
-          alt_text
-          localFile {
-            childImageSharp {
-              fluid(maxWidth: 1000) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-        }
-        _att_featured_amb_name
-        _att_featured_amb_sub
-        _att_featured_amb_content
-
-        _att_featured_vol_img {
-          alt_text
-          localFile {
-            childImageSharp {
-              fluid(maxWidth: 1000) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-        }
-        _att_featured_vol_name
-        _att_featured_vol_sub
-        _att_featured_vol_content
-
         _att_local_athletes_title
         _att_local_athletes_bg
         _att_local_athletes_intro

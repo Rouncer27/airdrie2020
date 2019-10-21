@@ -43,8 +43,6 @@ class Airdrie2020GetInvolved extends Component {
     const learnImg = acf._att_learn_dance_img
     const learnData = { learnTitle, learnDate, learnLoc, learnFB, learnImg }
 
-    const fundraisers = acf._att_fundraisers
-
     const boardTitle = acf._att_board_title
     const boardMembers = acf._att_board_members
 
@@ -68,7 +66,7 @@ class Airdrie2020GetInvolved extends Component {
         />
         <Board data={{ boardTitle, boardMembers }} />
         <Dance data={{ nextData, learnData }} />
-        <Fundraisers data={{ fundraisers }} />
+        <Fundraisers />
       </Layout>
     )
   }
@@ -140,41 +138,6 @@ export const query = graphql`
             childImageSharp {
               fluid(maxWidth: 800) {
                 ...GatsbyImageSharpFluid
-              }
-            }
-          }
-        }
-
-        _att_vol_intro
-        _att_vol_link
-        _att_spon_intro
-        _att_spon_pdf {
-          localFile {
-            publicURL
-          }
-        }
-        _att_love_sponsors {
-          title
-          intro
-          pdf {
-            localFile {
-              publicURL
-            }
-          }
-        }
-
-        _att_fundraisers {
-          date_time
-          name
-          description
-          link
-          image {
-            alt_text
-            localFile {
-              childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid
-                }
               }
             }
           }

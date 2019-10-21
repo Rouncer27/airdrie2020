@@ -118,14 +118,6 @@ export const query = graphql`
           }
         }
 
-        _att_pillars_hash
-        _att_pillars_main_title
-        _att_pillars_bot
-        _att_pillars {
-          title
-          content
-        }
-
         _att_key_stats_hash
         _att_key_stats_title
         _att_key_stats {
@@ -153,15 +145,6 @@ export const query = graphql`
               }
             }
           }
-        }
-
-        _att_key_stats_blue {
-          type
-          text
-          number
-          percent
-          money
-          stat
         }
 
         _att_quick_links {
