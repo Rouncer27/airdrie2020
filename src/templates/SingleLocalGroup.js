@@ -210,6 +210,11 @@ class SingleLocalGroup extends Component {
     const thisGroup = this.props.data.wordpressWpLocalGroups
     const heroTitle = thisGroup.title
     const acf = thisGroup.acf
+
+    const metaTitle = acf._att_meta_title
+    const metaDescription = acf._att_meta_description
+    const metaImage = acf._att_meta_image.localFile.publicURL
+
     const featuredImg = acf._att_group_featured_img
     const mainContent = acf._att_group_content
     const learnMore = acf._att_group_website
@@ -240,7 +245,12 @@ class SingleLocalGroup extends Component {
 
     return (
       <Layout>
-        <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+        <SEO
+          title={metaTitle}
+          description={metaDescription}
+          metaImg={metaImage}
+          location={this.props.location.pathname}
+        />
         <SingleSportGroupsStyled>
           <StandardWrapper className="group-wrapper">
             <div className="group-featured-image">
@@ -323,6 +333,14 @@ export const query = graphql`
       group_category
       group_age
       acf {
+        _att_meta_title
+        _att_meta_description
+        _att_meta_image {
+          localFile {
+            publicURL
+          }
+        }
+
         _att_group_host_org
         _att_group_location
         _att_group_address_google

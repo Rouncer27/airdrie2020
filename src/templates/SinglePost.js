@@ -50,6 +50,12 @@ const ArticleWrapper = styled(StandardWrapper)`
 
 class SinglePost extends Component {
   render() {
+    const acf = this.props.data.wordpressPost.acf
+
+    const metaTitle = acf._att_meta_title
+    const metaDescription = acf._att_meta_description
+    const metaImage = acf._att_meta_image.localFile.publicURL
+
     const slug = this.props.data.wordpressPost.slug
     const title = this.props.data.wordpressPost.title
     const date = this.props.data.wordpressPost.date
@@ -59,7 +65,12 @@ class SinglePost extends Component {
     const categories = this.props.data.wordpressPost.categories
     return (
       <Layout>
-        <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+        <SEO
+          title={metaTitle}
+          description={metaDescription}
+          metaImg={metaImage}
+          location={this.props.location.pathname}
+        />
 
         <PostHeaderStyled />
 
@@ -86,6 +97,14 @@ export const query = graphql`
         name
       }
       acf {
+        _att_meta_title
+        _att_meta_description
+        _att_meta_image {
+          localFile {
+            publicURL
+          }
+        }
+
         _att_main_content
         _att_author
         _att_featured_image {

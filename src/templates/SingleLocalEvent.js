@@ -221,6 +221,11 @@ const SingleLocalEventStyled = styled.article`
 class SingleLocalEvent extends Component {
   render() {
     const acf = this.props.data.wordpressWpLocalEvents.acf
+
+    const metaTitle = acf._att_meta_title
+    const metaDescription = acf._att_meta_description
+    const metaImage = acf._att_meta_image.localFile.publicURL
+
     const featuredImg = acf._att_event_img
     const mainContent = acf._att_event_main_content
     const learnMore = acf._att_event_learn_more
@@ -237,7 +242,12 @@ class SingleLocalEvent extends Component {
 
     return (
       <Layout>
-        <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+        <SEO
+          title={metaTitle}
+          description={metaDescription}
+          metaImg={metaImage}
+          location={this.props.location.pathname}
+        />
         <SingleLocalEventStyled>
           <StandardWrapper className="event-wrapper">
             <div className="event-featured-image">
@@ -323,6 +333,14 @@ export const query = graphql`
       title
       event_category
       acf {
+        _att_meta_title
+        _att_meta_description
+        _att_meta_image {
+          localFile {
+            publicURL
+          }
+        }
+
         _att_event_img {
           alt_text
           localFile {
