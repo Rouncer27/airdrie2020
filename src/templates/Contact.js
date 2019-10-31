@@ -16,7 +16,7 @@ class Contact extends Component {
     const metaDescription = acf._att_meta_description
     const metaImage = acf._att_meta_image.localFile.publicURL
 
-    const heroImage = acf._att_page_hero_img
+    const heroImage = acf._att_page_hero_contact
     const heroTitle = acf._att_page_hero_title
 
     const formLinks = acf._att_form_links
@@ -53,7 +53,7 @@ export const query = graphql`
         }
 
         _att_page_hero_title
-        _att_page_hero_img {
+        _att_page_hero_contact {
           alt_text
           localFile {
             childImageSharp {

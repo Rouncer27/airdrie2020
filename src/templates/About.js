@@ -20,7 +20,7 @@ class About extends Component {
     const metaDescription = acf._att_meta_description
     const metaImage = acf._att_meta_image.localFile.publicURL
     // Hero Image data feidls. //
-    const heroImage = acf._att_page_hero_img
+    const heroImage = acf._att_page_hero_about
     const heroTitle = acf._att_page_hero_title
     // We Believe Section data fields. //
     const weBelieveHash = acf._att_we_believe_hash
@@ -88,7 +88,7 @@ export const query = graphql`
         }
 
         _att_page_hero_title
-        _att_page_hero_img {
+        _att_page_hero_about {
           alt_text
           localFile {
             childImageSharp {

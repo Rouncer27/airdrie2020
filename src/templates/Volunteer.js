@@ -19,7 +19,7 @@ class Volunteer extends Component {
     const metaDescription = acf._att_meta_description
     const metaImage = acf._att_meta_image.localFile.publicURL
 
-    const heroImage = acf._att_page_hero_img
+    const heroImage = acf._att_page_hero_ath
     const heroTitle = acf._att_page_hero_title
 
     const localAthletsTitle = acf._att_local_athletes_title
@@ -84,7 +84,8 @@ export const query = graphql`
         }
 
         _att_page_hero_title
-        _att_page_hero_img {
+
+        _att_page_hero_ath {
           alt_text
           localFile {
             childImageSharp {

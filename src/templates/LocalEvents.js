@@ -17,7 +17,7 @@ class LocalEvents extends Component {
     const metaDescription = acf._att_meta_description
     const metaImage = acf._att_meta_image.localFile.publicURL
 
-    const heroImage = acf._att_page_hero_img
+    const heroImage = acf._att_local_img_hero
     const heroTitle = acf._att_page_hero_title
 
     const localEvents = this.props.data.allWordpressWpLocalEvents.edges
@@ -57,7 +57,7 @@ export const query = graphql`
         }
 
         _att_page_hero_title
-        _att_page_hero_img {
+        _att_local_img_hero {
           alt_text
           localFile {
             childImageSharp {

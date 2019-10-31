@@ -17,7 +17,7 @@ class LocalGroups extends Component {
     const metaDescription = acf._att_meta_description
     const metaImage = acf._att_meta_image.localFile.publicURL
 
-    const heroImage = acf._att_page_hero_img
+    const heroImage = acf._att_page_hero_group
     const heroTitle = acf._att_page_hero_title
 
     const localGroups = this.props.data.allWordpressWpLocalGroups.edges
@@ -61,7 +61,7 @@ export const query = graphql`
         }
 
         _att_page_hero_title
-        _att_page_hero_img {
+        _att_page_hero_group {
           alt_text
           localFile {
             childImageSharp {

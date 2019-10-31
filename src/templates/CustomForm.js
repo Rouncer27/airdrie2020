@@ -17,7 +17,7 @@ class CustomForm extends Component {
     const metaImage = acf._att_meta_image.localFile.publicURL
 
     // Hero Image data feidls. //
-    const heroImage = acf._att_page_hero_img
+    const heroImage = acf._att_form_heroimg
     const heroTitle = acf._att_page_hero_title
 
     const introTitle = acf._att_intro_content_title
@@ -55,7 +55,7 @@ export const query = graphql`
         }
 
         _att_page_hero_title
-        _att_page_hero_img {
+        _att_form_heroimg {
           alt_text
           localFile {
             childImageSharp {
