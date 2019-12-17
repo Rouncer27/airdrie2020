@@ -364,6 +364,11 @@ class Footer extends Component {
 
                 <div className="mainfooter__copy">
                   <p>
+                    <Link to="/privacy-policy">Privacy Policy</Link>
+                    {" | "}
+                    <Link to="/disclaimer">Disclaimer</Link>
+                  </p>
+                  <p>
                     Copyright &copy; Airdrie 2020. Made in Airdrie.{" "}
                     <span>
                       Designed and developed by{" "}
