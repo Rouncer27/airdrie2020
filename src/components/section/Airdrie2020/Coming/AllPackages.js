@@ -5,6 +5,29 @@ import styled from "styled-components"
 
 import { StandardWrapper } from "../../../styles/commons/Wrappers"
 
+export const fontSizer = (
+  minFont = 1.8,
+  maxFont = 2.2,
+  minScreen = 76.8,
+  maxScreen = 110,
+  mobileFont = 1.8
+) => {
+  return `
+  font-size: calc(${mobileFont} * 1rem);
+
+  @media (min-width: calc(${minScreen} * 10px)) {
+    font-size: calc(
+      (${minFont} * 1rem) + (${maxFont} - ${minFont}) *
+        (((100vw - (${minScreen} * 1rem))) / (${maxScreen} - ${minScreen}))
+    );
+  }
+
+  @media (min-width: calc(${maxScreen} * 10px)) {
+    font-size: calc(${maxFont} * 1rem);
+  }
+  `
+}
+
 const AllPackagesStyled = styled.section`
   .packages__wrapper {
     justify-content: flex-start;
@@ -32,13 +55,20 @@ const AllPackagesStyled = styled.section`
   .packages__item {
     display: block;
     position: relative;
-    width: calc(50%);
+    width: calc(100% - 4rem);
+    margin: 2rem;
     text-align: center;
 
-    @media (min-width: ${props => props.theme.bpDesksm}) {
-      width: calc(33.3333% - 4rem);
-      margin: 2rem;
+    @media(min-width: 768px) {
+      width: calc(50% - 4rem);
+    margin: 2rem;
     }
+
+    @media (min-width: ${props => props.theme.bpDesksm}) {
+      width: calc(33.3333% - 2rem);
+      margin: 1rem;
+    }
+
 
     &--content {
       position: absolute;
@@ -53,6 +83,7 @@ const AllPackagesStyled = styled.section`
         margin: 0;
         margin-bottom: 0.5rem;
         font-family: ${props => props.theme.fontSec};
+        ${fontSizer(1.8, 2.4, 76.8, 150, 1.8)}
 
         @media (min-width: ${props => props.theme.bpDesksm}) {
         }
@@ -62,7 +93,8 @@ const AllPackagesStyled = styled.section`
         margin: 0;
         margin-bottom: 1rem;
         font-weight: 500;
-
+        ${fontSizer(1.6, 1.8, 76.8, 150, 1.6)}
+        
         @media (min-width: ${props => props.theme.bpDesksm}) {
           font-size: 1.4rem;
         }
@@ -149,7 +181,6 @@ class AllPackages extends Component {
               </Link>
             )
           })}
-
           {foodPacks.length <= 0 && (
             <div className="package-title">
               <h2>There are currently no Food packages Available.</h2>
@@ -188,7 +219,6 @@ class AllPackages extends Component {
               </Link>
             )
           })}
-
           {eventPacks.length <= 0 && (
             <div className="package-title">
               <h2>There are currently no Event packages Available.</h2>
