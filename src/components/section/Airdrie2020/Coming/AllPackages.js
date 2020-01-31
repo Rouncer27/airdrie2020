@@ -4,6 +4,9 @@ import Img from "gatsby-image"
 import styled from "styled-components"
 
 import { StandardWrapper } from "../../../styles/commons/Wrappers"
+import HotelDefault from "./HotelDefault"
+import FoodDefault from "./FoodDefault"
+import EventsDefault from "./EventsDefault"
 
 export const fontSizer = (
   minFont = 1.8,
@@ -154,6 +157,17 @@ class AllPackages extends Component {
             </div>
           )}
           {hotelPacks.map((pack, index) => {
+            const heroImage = pack.node.acf._att_page_hero_image ? (
+              <Img
+                fluid={
+                  pack.node.acf._att_page_hero_image.localFile.childImageSharp
+                    .fluid
+                }
+                alt={pack.node.acf._att_page_hero_image.alt_text}
+              />
+            ) : (
+              <HotelDefault />
+            )
             return (
               <Link
                 to={`/packages/${pack.node.slug}`}
@@ -168,15 +182,7 @@ class AllPackages extends Component {
                     }}
                   />
                 </div>
-                <div className="packages__item--image">
-                  <Img
-                    fluid={
-                      pack.node.acf._att_page_hero_image.localFile
-                        .childImageSharp.fluid
-                    }
-                    alt={pack.node.acf._att_page_hero_image.alt_text}
-                  />
-                </div>
+                <div className="packages__item--image">{heroImage}</div>
                 <div className="packages__item--background" />
               </Link>
             )
@@ -192,6 +198,17 @@ class AllPackages extends Component {
             </div>
           )}
           {foodPacks.map((pack, index) => {
+            const heroImage = pack.node.acf._att_page_hero_image ? (
+              <Img
+                fluid={
+                  pack.node.acf._att_page_hero_image.localFile.childImageSharp
+                    .fluid
+                }
+                alt={pack.node.acf._att_page_hero_image.alt_text}
+              />
+            ) : (
+              <FoodDefault />
+            )
             return (
               <Link
                 to={`/packages/${pack.node.slug}`}
@@ -206,15 +223,8 @@ class AllPackages extends Component {
                     }}
                   />
                 </div>
-                <div className="packages__item--image">
-                  <Img
-                    fluid={
-                      pack.node.acf._att_page_hero_image.localFile
-                        .childImageSharp.fluid
-                    }
-                    alt={pack.node.acf._att_page_hero_image.alt_text}
-                  />
-                </div>
+                <div className="packages__item--image">{heroImage}</div>
+
                 <div className="packages__item--background" />
               </Link>
             )
@@ -230,6 +240,17 @@ class AllPackages extends Component {
             </div>
           )}
           {eventPacks.map((pack, index) => {
+            const heroImage = pack.node.acf._att_page_hero_image ? (
+              <Img
+                fluid={
+                  pack.node.acf._att_page_hero_image.localFile.childImageSharp
+                    .fluid
+                }
+                alt={pack.node.acf._att_page_hero_image.alt_text}
+              />
+            ) : (
+              <EventsDefault />
+            )
             return (
               <Link
                 to={`/packages/${pack.node.slug}`}
@@ -244,15 +265,7 @@ class AllPackages extends Component {
                     }}
                   />
                 </div>
-                <div className="packages__item--image">
-                  <Img
-                    fluid={
-                      pack.node.acf._att_page_hero_image.localFile
-                        .childImageSharp.fluid
-                    }
-                    alt={pack.node.acf._att_page_hero_image.alt_text}
-                  />
-                </div>
+                <div className="packages__item--image">{heroImage}</div>
                 <div className="packages__item--background" />
               </Link>
             )

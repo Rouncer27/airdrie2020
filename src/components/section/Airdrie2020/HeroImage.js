@@ -5,6 +5,8 @@ import styled from "styled-components"
 import { HeroTitle } from "../../styles/commons/Titles"
 import { HeroWrapper, HeroImageStyle } from "../../styles/commons/Images"
 
+import EventsDefault from "./Coming/EventsDefault"
+
 const HeroImageStyled = styled.section`
   .pagehero__logo {
     position: absolute;
@@ -47,8 +49,19 @@ const HeroImageStyled = styled.section`
 class HeroImage extends Component {
   render() {
     const heroTitle = this.props.data.heroTitle
-    const imageFluid = this.props.data.heroImg.localFile.childImageSharp.fluid
-    const imageAlt = this.props.data.heroImg.alt_text
+    const imageFluid = this.props.data.heroImg
+      ? this.props.data.heroImg.localFile.childImageSharp.fluid
+      : false
+    const imageAlt = this.props.data.heroImg
+      ? this.props.data.heroImg.alt_text
+      : false
+
+    const heroDisplay = imageFluid ? (
+      <Img fluid={imageFluid} alt={imageAlt} />
+    ) : (
+      <EventsDefault />
+    )
+
     const logoImageFluid = this.props.data.herologo.localFile.childImageSharp
       .fluid
     const logoImageAlt = this.props.data.herologo.alt_text
@@ -62,9 +75,11 @@ class HeroImage extends Component {
           <div className="pagehero__logo">
             <Img fluid={logoImageFluid} alt={logoImageAlt} />
           </div>
-          <HeroImageStyle className="pagehero__image">
-            <Img fluid={imageFluid} alt={imageAlt} />
-          </HeroImageStyle>
+          {heroDisplay && (
+            <HeroImageStyle className="pagehero__image">
+              {heroDisplay}
+            </HeroImageStyle>
+          )}
           <div
             className={`pagehero__background pagehero__background--${heroColour}`}
           />

@@ -37,7 +37,7 @@ class SinglePackage extends Component {
 
     const metaTitle = acf._att_meta_title
     const metaDescription = acf._att_meta_description
-    const metaImage = acf._att_meta_image.localFile.publicURL
+    const metaImage = false
 
     const heroTitle = acf._att_page_hero_title
     const heroColour = acf._att_page_hero_bc
@@ -83,23 +83,21 @@ export const query = graphql`
         _att_meta_title
         _att_meta_description
         _att_meta_image {
-          localFile {
-            publicURL
-          }
+          title
         }
 
         _att_page_hero_title
         _att_page_hero_bc
-        _att_page_hero_image {
-          alt_text
-          localFile {
-            childImageSharp {
-              fluid(maxWidth: 2000) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-        }
+        # _att_package_hero_image_fix {
+        #   alt_text
+        #   localFile {
+        #     childImageSharp {
+        #       fluid(maxWidth: 2000) {
+        #         ...GatsbyImageSharpFluid
+        #       }
+        #     }
+        #   }
+        # }
         _att_page_hero_logo {
           alt_text
           localFile {

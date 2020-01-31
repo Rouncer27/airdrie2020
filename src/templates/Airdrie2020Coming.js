@@ -144,16 +144,16 @@ export const query = graphql`
           package_type
           slug
           acf {
-            _att_page_hero_image {
-              alt_text
-              localFile {
-                childImageSharp {
-                  fluid(maxWidth: 500) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
-            }
+            # _att_page_hero_image {
+            #   alt_text
+            #   localFile {
+            #     childImageSharp {
+            #       fluid(maxWidth: 500) {
+            #         ...GatsbyImageSharpFluid
+            #       }
+            #     }
+            #   }
+            # }
             _att_pack_name
             _att_pack_excerpt
           }
