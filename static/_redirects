@@ -1,0 +1,10 @@
+# These rules will change if you change your site’s custom domains or HTTPS settings
+
+# Redirect domain aliases to primary domain
+https://airdriesport.com/* https://visitairdrie.com/:splat 301!
+https://www.visitairdrie.com/* https://visitairdrie.com/:splat 301!
+https://visitairdrie.ca/* https://visitairdrie.com/:splat 301!
+https://www.visitairdrie.ca/* https://visitairdrie.com/:splat 301!
+
+# Optional: Redirect default Netlify subdomain to primary domain
+https://airdrie2020.netlify.com/* https://visitairdrie.com/:splat 301!
