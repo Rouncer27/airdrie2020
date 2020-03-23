@@ -221,12 +221,14 @@ class HeroSlider extends Component {
                   <h2>Airdrie Sports</h2>
                   <p>{slide.title}</p>
                 </div>
-                <div className="heroslide__slide--image">
-                  <Img
-                    fluid={slide.hero_image.localFile.childImageSharp.fluid}
-                    alt={slide.hero_image.alt_text}
-                  />
-                </div>
+                {slide.hero_image.localFile && (
+                  <div className="heroslide__slide--image">
+                    <Img
+                      fluid={slide.hero_image.localFile.childImageSharp.fluid}
+                      alt={slide.hero_image.alt_text}
+                    />
+                  </div>
+                )}
                 <div className="heroslide__slide--background" />>
               </div>
             )
