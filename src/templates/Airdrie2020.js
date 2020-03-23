@@ -63,7 +63,6 @@ class Airdrie2020 extends Component {
         <KeyStatsTop
           data={{ KeyStatsTopHash, KeyStatsTopTitle, KeyStatsTopStats }}
         />
-        <Tickets />
         <Sponsors
           data={{
             sponsorTitleTop,

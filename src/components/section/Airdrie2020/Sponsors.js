@@ -190,8 +190,7 @@ class Sponsors extends Component {
               )
             })}
           </Slider>
-
-          <BackgroundTitle className="sponsorship__bottitle">
+          {/* <BackgroundTitle className="sponsorship__bottitle">
             <h2>{botTitle}</h2>
             <p>{bgTitle}</p>
           </BackgroundTitle>
@@ -206,7 +205,7 @@ class Sponsors extends Component {
                 {btnText}
               </NormalAchor>
             </div>
-          </div>
+          </div> */}
         </StandardWrapper>
       </SponsorsStyled>
     )

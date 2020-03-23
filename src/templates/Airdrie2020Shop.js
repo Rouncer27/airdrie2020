@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-import HeroImage from "../components/section/Airdrie2020/HeroImage"
+import HeroImageDif from "../components/section/Airdrie2020/HeroImageDif"
 import Intro from "../components/section/Airdrie2020/Shop/Intro"
 import ShopLink from "../components/section/Airdrie2020/Shop/ShopLink"
 
@@ -39,7 +39,7 @@ class Airdrie2020Shop extends Component {
           metaImg={metaImage}
           location={this.props.location.pathname}
         />
-        <HeroImage data={{ heroTitle, heroColour, heroImg, herologo }} />
+        <HeroImageDif data={{ heroTitle, heroColour, heroImg, herologo }} />
         <Intro
           data={{ introTitleTop, introTitleBot, introTitleBg, introContent }}
         />

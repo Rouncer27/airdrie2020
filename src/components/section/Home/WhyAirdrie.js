@@ -223,23 +223,19 @@ class WhyAirdrie extends Component {
               __html: this.props.data.whyAirdrieContent,
             }}
           />
-          <div className="whyair__image">
-            <div className="whyair__image--top">
-              <h3>Olly & Jacob</h3>
+          {this.props.data.whyAirdrieImage.localFile && (
+            <div className="whyair__image">
+              <div className="whyair__image--container">
+                <Img
+                  fluid={
+                    this.props.data.whyAirdrieImage.localFile.childImageSharp
+                      .fluid
+                  }
+                  alt={this.props.data.whyAirdrieImage.alt_text}
+                />
+              </div>
             </div>
-            <div className="whyair__image--bottom">
-              <h3>On the bench</h3>
-            </div>
-            <div className="whyair__image--container">
-              <Img
-                fluid={
-                  this.props.data.whyAirdrieImage.localFile.childImageSharp
-                    .fluid
-                }
-                alt={this.props.data.whyAirdrieImage.alt_text}
-              />
-            </div>
-          </div>
+          )}
           <div className="whyair__link">
             <a
               target="_blank"

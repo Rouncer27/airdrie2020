@@ -161,15 +161,16 @@ class HomeGame extends Component {
             </a>
           </div>
         </div>
-
-        <div className="homegame__image">
-          <Img
-            fluid={
-              this.props.data.homeGameImage.localFile.childImageSharp.fluid
-            }
-            alt={this.props.data.homeGameImage.alt_text}
-          />
-        </div>
+        {this.props.data.homeGameImage.localFile && (
+          <div className="homegame__image">
+            <Img
+              fluid={
+                this.props.data.homeGameImage.localFile.childImageSharp.fluid
+              }
+              alt={this.props.data.homeGameImage.alt_text}
+            />
+          </div>
+        )}
 
         <div className="homegame__rip homegame__rip--top " />
         <div className="homegame__rip homegame__rip--bot" />

@@ -203,9 +203,9 @@ class FormLinks extends Component {
             <NormalAchor href="mailto:hello@airdrie2020.com?subject=General Inquires">
               hello@airdrie2020.com
             </NormalAchor>
-            <div className="general-inquires__address">
+            {/* <div className="general-inquires__address">
               <p>Address: 805 Main Street South Airdrie, AB T4B 3G1</p>
-            </div>
+            </div> */}
             <div className="general-inquires__story">
               <p>
                 Do you have an interesting sports related article to share?

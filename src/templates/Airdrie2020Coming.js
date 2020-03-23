@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-import HeroImage from "../components/section/Airdrie2020/HeroImage"
+import HeroImageDif from "../components/section/Airdrie2020/HeroImageDif"
 import Intro from "../components/section/Airdrie2020/GetInvolved/Intro"
 import AllPackages from "../components/section/Airdrie2020/Coming/AllPackages"
 import AirdriePicks from "../components/section/Airdrie2020/Coming/AirdriePicks"
@@ -45,7 +45,7 @@ export default class Airdrie2020Coming extends Component {
           metaImg={metaImage}
           location={this.props.location.pathname}
         />
-        <HeroImage data={{ heroTitle, heroColour, heroImg, herologo }} />
+        <HeroImageDif data={{ heroTitle, heroColour, heroImg, herologo }} />
         <Intro
           data={{
             introTitleTop,

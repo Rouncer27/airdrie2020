@@ -74,9 +74,6 @@ class ShopLink extends Component {
             <Img fluid={childFluid} alt={childAlt} />
           </div>
           <div className="shoplink__button">
-            <NormalAchor target="_blank" href={ticLink}>
-              Tickets
-            </NormalAchor>
             <NormalAchor target="_blank" href={shopLink}>
               Shop
             </NormalAchor>
