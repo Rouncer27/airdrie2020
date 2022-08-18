@@ -254,10 +254,12 @@ class SingleLocalGroup extends Component {
         <SingleSportGroupsStyled>
           <StandardWrapper className="group-wrapper">
             <div className="group-featured-image">
-              <Img
-                fluid={featuredImg.localFile.childImageSharp.fluid}
-                alt={featuredImg.alt_text}
-              />
+              {featuredImg?.localFile && (
+                <Img
+                  fluid={featuredImg?.localFile?.childImageSharp?.fluid}
+                  alt={featuredImg?.alt_text}
+                />
+              )}
               <p>Sport Groups</p>
             </div>
 
